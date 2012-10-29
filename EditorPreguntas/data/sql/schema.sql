@@ -1,0 +1,7 @@
+CREATE TABLE ecdl_imagen (id BIGINT UNSIGNED AUTO_INCREMENT, imagen LONGBLOB NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE ecdl_modulo (id BIGINT UNSIGNED AUTO_INCREMENT, nombre VARCHAR(255) NOT NULL UNIQUE, descripcion text NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE ecdl_pregunta (id BIGINT UNSIGNED AUTO_INCREMENT, modulo_id BIGINT UNSIGNED NOT NULL, imagen_id BIGINT UNSIGNED, dificultad BIGINT DEFAULT 0 NOT NULL, texto text NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX modulo_id_idx (modulo_id), INDEX imagen_id_idx (imagen_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE ecdl_respuesta (id BIGINT UNSIGNED AUTO_INCREMENT, pregunta_id BIGINT UNSIGNED NOT NULL, texto text NOT NULL, correcta TINYINT(1) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX pregunta_id_idx (pregunta_id), PRIMARY KEY(id)) ENGINE = INNODB;
+ALTER TABLE ecdl_pregunta ADD CONSTRAINT ecdl_pregunta_modulo_id_ecdl_modulo_id FOREIGN KEY (modulo_id) REFERENCES ecdl_modulo(id) ON DELETE CASCADE;
+ALTER TABLE ecdl_pregunta ADD CONSTRAINT ecdl_pregunta_imagen_id_ecdl_imagen_id FOREIGN KEY (imagen_id) REFERENCES ecdl_imagen(id) ON DELETE CASCADE;
+ALTER TABLE ecdl_respuesta ADD CONSTRAINT ecdl_respuesta_pregunta_id_ecdl_pregunta_id FOREIGN KEY (pregunta_id) REFERENCES ecdl_pregunta(id) ON DELETE CASCADE;

@@ -1,0 +1,77 @@
+Oct 29 13:42:14 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Oct 29 13:42:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:42:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:42:14 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Oct 29 13:42:14 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Oct 29 13:42:14 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:42:14 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:42:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 29 13:42:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:42:14 symfony [info] {sfWebDebugLogger} Configuration 65.38 ms (10)
+Oct 29 13:42:14 symfony [info] {sfWebDebugLogger} Factories 227.20 ms (1)
+Oct 29 13:42:14 symfony [info] {sfWebDebugLogger} Action "default/index" 0.12 ms (1)
+Oct 29 13:42:14 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 6.55 ms (1)
+Oct 29 13:42:14 symfony [info] {sfWebResponse} Send content (28903 o)
+Oct 29 13:52:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Oct 29 13:52:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:52:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:52:31 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Oct 29 13:52:31 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Oct 29 13:52:31 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:52:31 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:52:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 29 13:52:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:52:31 symfony [info] {sfWebDebugLogger} Configuration 0.94 ms (9)
+Oct 29 13:52:31 symfony [info] {sfWebDebugLogger} Factories 6.16 ms (1)
+Oct 29 13:52:31 symfony [info] {sfWebDebugLogger} Action "default/index" 0.15 ms (1)
+Oct 29 13:52:31 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 3.30 ms (1)
+Oct 29 13:52:31 symfony [info] {sfWebResponse} Send content (28898 o)
+Oct 29 13:56:03 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Oct 29 13:56:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:56:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:56:03 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Oct 29 13:56:03 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Oct 29 13:56:03 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:03 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 29 13:56:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:56:03 symfony [info] {sfWebDebugLogger} Configuration 0.82 ms (9)
+Oct 29 13:56:03 symfony [info] {sfWebDebugLogger} Factories 4.40 ms (1)
+Oct 29 13:56:03 symfony [info] {sfWebDebugLogger} Action "default/index" 0.11 ms (1)
+Oct 29 13:56:03 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 1.97 ms (1)
+Oct 29 13:56:03 symfony [info] {sfWebResponse} Send content (28945 o)
+Oct 29 13:56:08 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/modulo/" (/).
+Oct 29 13:56:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Oct 29 13:56:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:56:09 symfony [info] {sfWebDebugLogger} Configuration 0.65 ms (5)
+Oct 29 13:56:09 symfony [info] {sfWebDebugLogger} Factories 4.00 ms (1)
+Oct 29 13:56:27 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Oct 29 13:56:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:56:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:56:27 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Oct 29 13:56:27 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Oct 29 13:56:27 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:27 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 29 13:56:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:56:27 symfony [info] {sfWebResponse} Send content (27573 o)
+Oct 29 13:56:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Oct 29 13:56:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:56:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:56:29 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Oct 29 13:56:29 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/indexSuccess.php"
+Oct 29 13:56:29 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:29 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 29 13:56:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:56:29 symfony [info] {sfWebResponse} Send content (27605 o)
+Oct 29 13:56:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 29 13:56:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 29 13:56:33 symfony [info] {defaultActions} Call "defaultActions->executeError404()"
+Oct 29 13:56:33 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/error404Success.php"
+Oct 29 13:56:33 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:33 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/lib/vendor/symfony/lib/controller/default/templates/defaultLayout.php"
+Oct 29 13:56:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Oct 29 13:56:33 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
+Oct 29 13:56:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 29 13:56:33 symfony [info] {sfWebResponse} Send content (27451 o)

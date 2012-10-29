@@ -15,3 +15,26 @@
 #     password: changeme
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
+EcdlModulo:
+  modulo1:
+    nombre: Módulo 1
+    descripcion: Conceptos básicos sobre las tecnologías de la informacion (TI)
+  modulo2:
+    nombre: Módulo 2
+    descripcion: Uso del ordenador y gestión de ficheros
+  modulo3:
+    nombre: Módulo 3
+    descripcion: Procesador de textos
+  modulo4:
+    nombre: Módulo 4
+    descripcion: Hojas de cálculo
+  modulo5:
+    nombre: Módulo 5
+    descripcion: Bases de datos
+  modulo6:
+    nombre: Módulo 6
+    descripcion: Presentaciones
+  modulo7:
+    nombre: Módulo 7
+    descripcion: Información y Comunicación
+      
