@@ -12,11 +12,9 @@
   <tbody>
     <?php foreach ($ecdl_modulos as $ecdl_modulo): ?>
     <tr>
-      <td><a href="<?php echo url_for('modulo/show?id='.$ecdl_modulo->getId()) ?>"><?php echo $ecdl_modulo->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('modulo_edit', $ecdl_modulo) ?>"><?php echo $ecdl_modulo->getNombre() ?></a></td>
       <td><?php echo $ecdl_modulo->getDescripcion() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
-
-  <a href="<?php echo url_for('modulo/new') ?>">New</a>
