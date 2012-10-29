@@ -3,7 +3,7 @@
     <head>
         <?php include_http_metas() ?>
         <?php include_metas() ?>
-        <?php include_title() ?>
+        <title><?php include_slot('title', 'ECDL - Editor de Preguntas') ?></title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
@@ -11,14 +11,14 @@
     <body>
         <div id="wrapper">
             <header>
-                <h1><a href="#">ECDL Play</a></h1>
+                <h1><a href="<?php echo url_for("homepage") ?>">ECDL Play</a></h1>
                 <h2>Editor de Preguntas</h2>
             </header>
 
             <nav>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="<?php echo url_for("homepage") ?>">Home</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@
                 <aside id="sidebar"><!-- sidebar -->
                     <h3>Opciones</h3>
                     <ul>
-                        <li><a href="#">Editar módulos</a></li>
+                        <li><a href="<?php echo url_for("modulo_index") ?>">Editar módulos</a></li>
                         <li><a href="#">Editar Preguntas</a></li>
                         <li><a href="#">Descargar XML</a></li>
                     </ul>
