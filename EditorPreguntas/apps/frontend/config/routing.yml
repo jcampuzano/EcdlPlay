@@ -47,11 +47,18 @@ dificultad_edit:
   requirements:
     sf_method: [get]
 
+pregunta_index:
+  url: /preguntas
+  param: { module: pregunta, action: index }
+  requirements:
+        sf_method: [get]
+
+#About
 about:
   url: /about
   param: { module: about, action: index}
 
-# default rules
+# Home
 homepage:
   url:   /
   param: { module: home, action: index }

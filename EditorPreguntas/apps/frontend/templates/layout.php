@@ -34,7 +34,7 @@
                     <ul>
                         <li><a href="<?php echo url_for("modulo_index") ?>">Editar módulos</a></li>
                         <li><a href="<?php echo url_for("dificultad_index") ?>">Editar dificultad</a></li>
-                        <li><a href="#">Editar Preguntas</a></li>
+                        <li><a href="<?php echo url_for("pregunta_index") ?>">Editar Preguntas</a></li>
                         <li><a href="#">Descargar XML</a></li>
                     </ul>
             </section>
