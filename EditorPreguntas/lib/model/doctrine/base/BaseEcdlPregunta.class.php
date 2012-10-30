@@ -8,28 +8,31 @@
  * @property integer $id
  * @property integer $modulo_id
  * @property integer $imagen_id
- * @property integer $dificultad
+ * @property integer $dificultad_id
  * @property text $texto
  * @property EcdlModulo $EcdlModulo
  * @property EcdlImagen $EcdlImagen
+ * @property EcdlDificultad $EcdlDificultad
  * @property Doctrine_Collection $Pregunta
  * 
- * @method integer             getId()         Returns the current record's "id" value
- * @method integer             getModuloId()   Returns the current record's "modulo_id" value
- * @method integer             getImagenId()   Returns the current record's "imagen_id" value
- * @method integer             getDificultad() Returns the current record's "dificultad" value
- * @method text                getTexto()      Returns the current record's "texto" value
- * @method EcdlModulo          getEcdlModulo() Returns the current record's "EcdlModulo" value
- * @method EcdlImagen          getEcdlImagen() Returns the current record's "EcdlImagen" value
- * @method Doctrine_Collection getPregunta()   Returns the current record's "Pregunta" collection
- * @method EcdlPregunta        setId()         Sets the current record's "id" value
- * @method EcdlPregunta        setModuloId()   Sets the current record's "modulo_id" value
- * @method EcdlPregunta        setImagenId()   Sets the current record's "imagen_id" value
- * @method EcdlPregunta        setDificultad() Sets the current record's "dificultad" value
- * @method EcdlPregunta        setTexto()      Sets the current record's "texto" value
- * @method EcdlPregunta        setEcdlModulo() Sets the current record's "EcdlModulo" value
- * @method EcdlPregunta        setEcdlImagen() Sets the current record's "EcdlImagen" value
- * @method EcdlPregunta        setPregunta()   Sets the current record's "Pregunta" collection
+ * @method integer             getId()             Returns the current record's "id" value
+ * @method integer             getModuloId()       Returns the current record's "modulo_id" value
+ * @method integer             getImagenId()       Returns the current record's "imagen_id" value
+ * @method integer             getDificultadId()   Returns the current record's "dificultad_id" value
+ * @method text                getTexto()          Returns the current record's "texto" value
+ * @method EcdlModulo          getEcdlModulo()     Returns the current record's "EcdlModulo" value
+ * @method EcdlImagen          getEcdlImagen()     Returns the current record's "EcdlImagen" value
+ * @method EcdlDificultad      getEcdlDificultad() Returns the current record's "EcdlDificultad" value
+ * @method Doctrine_Collection getPregunta()       Returns the current record's "Pregunta" collection
+ * @method EcdlPregunta        setId()             Sets the current record's "id" value
+ * @method EcdlPregunta        setModuloId()       Sets the current record's "modulo_id" value
+ * @method EcdlPregunta        setImagenId()       Sets the current record's "imagen_id" value
+ * @method EcdlPregunta        setDificultadId()   Sets the current record's "dificultad_id" value
+ * @method EcdlPregunta        setTexto()          Sets the current record's "texto" value
+ * @method EcdlPregunta        setEcdlModulo()     Sets the current record's "EcdlModulo" value
+ * @method EcdlPregunta        setEcdlImagen()     Sets the current record's "EcdlImagen" value
+ * @method EcdlPregunta        setEcdlDificultad() Sets the current record's "EcdlDificultad" value
+ * @method EcdlPregunta        setPregunta()       Sets the current record's "Pregunta" collection
  * 
  * @package    EditorPreguntas
  * @subpackage model
@@ -57,10 +60,10 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
              'notnull' => false,
              'unsigned' => true,
              ));
-        $this->hasColumn('dificultad', 'integer', null, array(
+        $this->hasColumn('dificultad_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'default' => 0,
+             'unsigned' => true,
              ));
         $this->hasColumn('texto', 'text', null, array(
              'type' => 'text',
@@ -78,6 +81,11 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
 
         $this->hasOne('EcdlImagen', array(
              'local' => 'imagen_id',
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
+
+        $this->hasOne('EcdlDificultad', array(
+             'local' => 'dificultad_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 

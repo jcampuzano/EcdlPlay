@@ -4,6 +4,13 @@ EcdlModulo:
     id: { type: integer, primary: true, autoincrement: true, unsigned: true }
     nombre : {type: string(255), notnull: true, unique: true}
     descripcion: {type: text, notnull: true, unique: false}
+    
+EcdlDificultad:
+  actAs: { Timestampable: ~ }
+  columns:
+    id: { type: integer, primary: true, autoincrement: true, unsigned: true }
+    nombre : {type: string(255), notnull: true, unique: true}
+    valor: {type: integer, notnull: true, unique: true}
 
 EcdlPregunta:
   actAs: { Timestampable: ~ }
@@ -11,11 +18,12 @@ EcdlPregunta:
     id: {type: integer, primary: true, autoincrement: true, unsigned: true }
     modulo_id: {type: integer, notnull: true, unsigned: true }
     imagen_id: {type: integer, notnull: false, unsigned: true }
-    dificultad: {type: integer, notnull: true, default: 0 }
+    dificultad_id: {type: integer, notnull: true, unsigned: true }
     texto: {type: text, notnull: true }
   relations:
     EcdlModulo: { onDelete: CASCADE, local: modulo_id, foreign: id, foreignAlias: Modulo }
     EcdlImagen: { onDelete: CASCADE, local: imagen_id, foreign: id, foreignAlias: Imagen }
+    EcdlDificultad: { onDelete: CASCADE, local: dificultad_id, foreign: id, foreignAlias: Dificultad }
     
 EcdlImagen:
   actAs: { Timestampable: ~ }

@@ -241,7 +241,7 @@ margin-top: -15px;
 }
 
 /* Modulo */
-#modulo {
+.editar {
 	margin: 10px auto; padding: 30px 30px 60px 30px;
 	background: #c9d0de; border: 1px solid #e1e1e1;
 	-moz-box-shadow: 0px 0px 8px #444;
@@ -250,7 +250,7 @@ margin-top: -15px;
 label {
 	float: left; clear: left; margin: 0 20px 0 0; width: 150px;
 	text-align: right; color: #445668; 
-	text-transform: uppercase; text-shadow: 0px 1px 0px #f2f2f2;
+	text-transform: capitalize; text-shadow: 0px 1px 0px #f2f2f2;
 }
 
 input {
@@ -260,7 +260,7 @@ input {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#5E768D)); /* webkit */
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
-	color: #f2f2f2; text-transform: uppercase; text-shadow: 0px -1px 0px #334f71; 
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71; 
 }
 	input::-webkit-input-placeholder  {
     	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;  
@@ -276,7 +276,7 @@ textarea {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#5E768D)); /* webkit */
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
-	color: #f2f2f2; text-transform: uppercase; text-shadow: 0px -1px 0px #334f71; 
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71; 
 }
 	textarea::-webkit-input-placeholder  {
     	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;  
@@ -292,14 +292,6 @@ input:focus, textarea:focus {
 }
 
 input[type=submit] {
-	width: 185px; height: 52px; float: right; padding: 10px 15px; margin: 0 15px 0 0;
-	-moz-box-shadow: 0px 0px 5px #999;-webkit-box-shadow: 0px 0px 5px #999;
-	border: 1px solid #556f8c;
-	background: -moz-linear-gradient(top, #718DA9 0%, #415D79 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#718DA9), color-stop(100%,#415D79)); /* webkit */
-	cursor: pointer;
-}
-input[type=reset] {
 	width: 185px; height: 52px; float: right; padding: 10px 15px; margin: 0 15px 0 0;
 	-moz-box-shadow: 0px 0px 5px #999;-webkit-box-shadow: 0px 0px 5px #999;
 	border: 1px solid #556f8c;

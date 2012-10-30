@@ -1,7 +1,8 @@
 <?php slot('title', 'Editar módulo') ?>
+
 <form action="<?php echo url_for('modulo_update', $modulo) ?>" method="post">
 
-    <div id="modulo">
+    <div class="editar">
         <h2>Editar módulo del ECDL</h2>
 
         <label for="<?php echo $form['nombre']->renderId() ?>">Nombre:</label>
@@ -12,5 +13,6 @@
 
         <input type="submit" value="Guardar"/>
         
+        <?php echo $form['_csrf_token'] ?>
     </div>    
 </form>

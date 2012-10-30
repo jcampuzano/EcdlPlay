@@ -19,7 +19,7 @@
                 <div class="menu">
                     <ul>
                         <li><a href="<?php echo url_for("homepage") ?>">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="<?php echo url_for("about") ?>">About</a></li>
                     </ul>
                 </div>
             </nav>
@@ -33,6 +33,7 @@
                     <h3>Opciones</h3>
                     <ul>
                         <li><a href="<?php echo url_for("modulo_index") ?>">Editar módulos</a></li>
+                        <li><a href="<?php echo url_for("dificultad_index") ?>">Editar dificultad</a></li>
                         <li><a href="#">Editar Preguntas</a></li>
                         <li><a href="#">Descargar XML</a></li>
                     </ul>

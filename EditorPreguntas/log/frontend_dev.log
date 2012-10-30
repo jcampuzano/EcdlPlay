@@ -75,3 +75,88 @@ Oct 29 13:56:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Fou
 Oct 29 13:56:33 symfony [info] {sfWebResponse} Send header "Status: 404 Not Found"
 Oct 29 13:56:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
 Oct 29 13:56:33 symfony [info] {sfWebResponse} Send content (27451 o)
+Oct 30 10:14:00 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Oct 30 10:14:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 30 10:14:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 30 10:14:00 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Oct 30 10:14:00 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/modules/home/templates/indexSuccess.php"
+Oct 30 10:14:00 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:00 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:00 symfony [info] {main} Get slot "title"
+Oct 30 10:14:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 30 10:14:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:14:00 symfony [info] {sfWebDebugLogger} Configuration 81.78 ms (10)
+Oct 30 10:14:00 symfony [info] {sfWebDebugLogger} Factories 140.08 ms (1)
+Oct 30 10:14:00 symfony [info] {sfWebDebugLogger} Action "home/index" 0.08 ms (1)
+Oct 30 10:14:00 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 5.50 ms (1)
+Oct 30 10:14:00 symfony [info] {sfWebResponse} Send content (28671 o)
+Oct 30 10:14:32 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Oct 30 10:14:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 30 10:14:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 30 10:14:32 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Oct 30 10:14:32 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/modules/home/templates/indexSuccess.php"
+Oct 30 10:14:32 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:32 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:32 symfony [info] {main} Get slot "title"
+Oct 30 10:14:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 30 10:14:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} Configuration 1.34 ms (9)
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} Factories 12.71 ms (1)
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} Action "home/index" 0.08 ms (1)
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 6.69 ms (1)
+Oct 30 10:14:32 symfony [info] {sfWebResponse} Send content (28662 o)
+Oct 30 10:14:32 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/images/colbg.png with parameters array (  'module' => 'css',  'action' => 'images',  'colbg.png' => true,)
+Oct 30 10:14:32 symfony [info] {sfFrontWebController} Action "css/images" does not exist
+Oct 30 10:14:32 symfony [err] {sfError404Exception} Action "css/images" does not exist.
+Oct 30 10:14:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Oct 30 10:14:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} Configuration 0.55 ms (5)
+Oct 30 10:14:32 symfony [info] {sfWebDebugLogger} Factories 7.39 ms (1)
+Oct 30 10:14:43 symfony [info] {sfPatternRouting} Match route "modulo_index" (/modulo) for /modulo with parameters array (  'module' => 'modulo',  'action' => 'index',)
+Oct 30 10:14:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 30 10:14:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 30 10:14:43 symfony [info] {moduloActions} Call "moduloActions->executeIndex()"
+Oct 30 10:14:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Oct 30 10:14:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Oct 30 10:14:43 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/modules/modulo/templates/indexSuccess.php"
+Oct 30 10:14:43 symfony [info] {main} Set slot "title"
+Oct 30 10:14:43 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:43 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:14:43 symfony [info] {main} Get slot "title"
+Oct 30 10:14:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 30 10:14:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Configuration 9.12 ms (10)
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Factories 8.57 ms (1)
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Action "modulo/index" 7.99 ms (1)
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} View "Success" for "modulo/index" 6.82 ms (1)
+Oct 30 10:14:43 symfony [info] {sfWebResponse} Send content (32134 o)
+Oct 30 10:14:43 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/images/colbg.png with parameters array (  'module' => 'css',  'action' => 'images',  'colbg.png' => true,)
+Oct 30 10:14:43 symfony [info] {sfFrontWebController} Action "css/images" does not exist
+Oct 30 10:14:43 symfony [err] {sfError404Exception} Action "css/images" does not exist.
+Oct 30 10:14:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Oct 30 10:14:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Configuration 0.43 ms (5)
+Oct 30 10:14:43 symfony [info] {sfWebDebugLogger} Factories 6.81 ms (1)
+Oct 30 10:23:11 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Oct 30 10:23:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 30 10:23:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 30 10:23:11 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Oct 30 10:23:11 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/modules/home/templates/indexSuccess.php"
+Oct 30 10:23:11 symfony [info] {sfPHPView} Decorate content with "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:23:11 symfony [info] {sfPHPView} Render "/home/julio/PFC/EcdlPlay/EditorPreguntas/apps/frontend/templates/layout.php"
+Oct 30 10:23:11 symfony [info] {main} Get slot "title"
+Oct 30 10:23:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Oct 30 10:23:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Configuration 55.46 ms (10)
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Factories 55.80 ms (1)
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Action "home/index" 0.10 ms (1)
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 5.07 ms (1)
+Oct 30 10:23:11 symfony [info] {sfWebResponse} Send content (28706 o)
+Oct 30 10:23:11 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /css/images/colbg.png with parameters array (  'module' => 'css',  'action' => 'images',  'colbg.png' => true,)
+Oct 30 10:23:11 symfony [info] {sfFrontWebController} Action "css/images" does not exist
+Oct 30 10:23:11 symfony [err] {sfError404Exception} Action "css/images" does not exist.
+Oct 30 10:23:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Oct 30 10:23:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (5)
+Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Factories 10.22 ms (1)

@@ -24,6 +24,33 @@ modulo_edit:
   requirements:
     sf_method: [get]
 
+#Dificultad
+dificultad_index:
+  url: /dificultad
+  param: { module: dificultad, action: index }
+  requirements:
+        sf_method: [get]
+
+dificultad_update:
+  url: /dificultad/:id/update
+  class:   sfDoctrineRoute
+  options: { model: EcdlDificultad, type: object }
+  param:   { module: dificultad, action: update }
+  requirements:
+    sf_method: [post]
+    
+dificultad_edit:
+  url: /dificultad/:id/edit
+  class: sfDoctrineRoute
+  options: { model: EcdlDificultad, type: object }
+  param: { module: dificultad, action: edit }
+  requirements:
+    sf_method: [get]
+
+about:
+  url: /about
+  param: { module: about, action: index}
+
 # default rules
 homepage:
   url:   /

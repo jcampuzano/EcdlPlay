@@ -38,3 +38,13 @@ EcdlModulo:
     nombre: Módulo 7
     descripcion: Información y Comunicación
       
+EcdlDificultad:
+  facil:
+    nombre: Fácil
+    valor: 1
+  medio:
+    nombre: Medio
+    valor: 2
+  dificil:
+    nombre: Difícil
+    valor: 3
