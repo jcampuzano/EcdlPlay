@@ -16,7 +16,7 @@
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
 EcdlModulo:
-  modulo1:
+  modulo1: 
     nombre: Módulo 1
     descripcion: Conceptos básicos sobre las tecnologías de la informacion (TI)
   modulo2:

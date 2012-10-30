@@ -20,3 +20,4 @@ class aboutActions extends sfActions
     
   }
 }
+ 

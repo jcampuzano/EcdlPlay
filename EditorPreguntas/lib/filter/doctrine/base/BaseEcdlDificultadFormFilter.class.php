@@ -10,7 +10,7 @@
  */
 abstract class BaseEcdlDificultadFormFilter extends BaseFormFilterDoctrine
 {
-  public function setup()
+  public function setup() 
   {
     $this->setWidgets(array(
       'nombre'     => new sfWidgetFormFilterInput(array('with_empty' => false)),

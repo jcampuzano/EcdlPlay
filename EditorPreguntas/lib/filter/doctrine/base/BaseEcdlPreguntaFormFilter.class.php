@@ -10,7 +10,7 @@
  */
 abstract class BaseEcdlPreguntaFormFilter extends BaseFormFilterDoctrine
 {
-  public function setup()
+  public function setup() 
   {
     $this->setWidgets(array(
       'modulo_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('EcdlModulo'), 'add_empty' => true)),

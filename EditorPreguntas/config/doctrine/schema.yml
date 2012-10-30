@@ -11,7 +11,7 @@ EcdlDificultad:
     id: { type: integer, primary: true, autoincrement: true, unsigned: true }
     nombre : {type: string(255), notnull: true, unique: true}
     valor: {type: integer, notnull: true, unique: true}
-
+ 
 EcdlPregunta:
   actAs: { Timestampable: ~ }
   columns:
