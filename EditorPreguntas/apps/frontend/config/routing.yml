@@ -3,7 +3,7 @@
 
 #Modulo
 modulo_index:
-  url: /modulo
+  url: /modulos
   param: { module: modulo, action: index }
   requirements:
         sf_method: [get]
@@ -26,7 +26,7 @@ modulo_edit:
 
 #Dificultad
 dificultad_index:
-  url: /dificultad
+  url: /dificultades
   param: { module: dificultad, action: index }
   requirements:
         sf_method: [get]
