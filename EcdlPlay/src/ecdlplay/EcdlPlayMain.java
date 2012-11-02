@@ -4,6 +4,7 @@
  */
 package ecdlplay;
 
+import ecdlplay.gui.*;
 /**
  *
  * @author julio
@@ -14,6 +15,6 @@ public class EcdlPlayMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        EcdlPlayWindow.getInstance();
     }
 }
