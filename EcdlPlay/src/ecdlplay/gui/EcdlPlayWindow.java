@@ -38,7 +38,7 @@ public class EcdlPlayWindow extends javax.swing.JFrame {
         //setIconImage(ImageLoader.loadImageJAR("icon.png"));
 
         // Create GameCanvas
-        GameCanvasImpl gc = new GameCanvasImpl();
+        GameViewCanvas gc = new GameViewCanvas();
         add(gc, BorderLayout.CENTER);
         
         // Show

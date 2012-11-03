@@ -4,7 +4,7 @@
  */
 package ecdlplay.domain;
 
-import ecdlplay.gui.GameCanvas;
+import ecdlplay.gui.GameView;
 
 /**
  *
@@ -14,9 +14,9 @@ public class GameEngine implements Runnable {
 
     private boolean running;
     private States state;
-    private GameCanvas canvas;
+    private GameView canvas;
 
-    public GameEngine(GameCanvas canvas) {
+    public GameEngine(GameView canvas) {
         this.canvas = canvas;
     }
 
