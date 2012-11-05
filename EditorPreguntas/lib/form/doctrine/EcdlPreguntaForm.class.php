@@ -12,5 +12,11 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm
 {
   public function configure()
   {
+      unset(
+       $this["created_at"], $this["updated_at"]   
+      );
+      
+      $this->widgetSchema["texto"] = new sfWidgetFormTextarea(array(), array('rows'=>6, 'cols'=>50));
+      $this->widgetSchema["imagen_id"] = new sfWidgetFormInputFile();
   }
 }

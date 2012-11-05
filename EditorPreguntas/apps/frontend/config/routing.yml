@@ -47,11 +47,20 @@ dificultad_edit:
   requirements:
     sf_method: [get]
 
+#Preguntas
 pregunta_index:
   url: /preguntas
   param: { module: pregunta, action: index }
   requirements:
         sf_method: [get]
+
+pregunta_new:
+  url: /pregunta/new
+  class: sfDoctrineRoute
+  options: {model: EcdlPregunta, type: object }
+  param: { module: pregunta, action: new }
+  requirements:
+    sf_method: [get]
 
 #About
 about:

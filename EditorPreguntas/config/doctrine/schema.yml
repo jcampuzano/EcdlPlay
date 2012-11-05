@@ -21,9 +21,9 @@ EcdlPregunta:
     dificultad_id: {type: integer, notnull: true, unsigned: true }
     texto: {type: text, notnull: true }
   relations:
-    EcdlModulo: { onDelete: CASCADE, local: modulo_id, foreign: id, foreignAlias: Modulo }
-    EcdlImagen: { onDelete: CASCADE, local: imagen_id, foreign: id, foreignAlias: Imagen }
-    EcdlDificultad: { onDelete: CASCADE, local: dificultad_id, foreign: id, foreignAlias: Dificultad }
+    EcdlModulo: { onDelete: CASCADE, local: modulo_id, foreign: id, foreignAlias: Preguntas }
+    EcdlImagen: { onDelete: CASCADE, local: imagen_id, foreign: id, foreignAlias: Preguntas }
+    EcdlDificultad: { onDelete: CASCADE, local: dificultad_id, foreign: id, foreignAlias: Preguntas }
     
 EcdlImagen:
   actAs: { Timestampable: ~ }
@@ -39,5 +39,5 @@ EcdlRespuesta:
     texto: {type: text, notnull: true }
     correcta: {type: boolean, notnull: true }
   relations:
-    EcdlPregunta: { onDelete: CASCADE, local: pregunta_id, foreign: id, foreignAlias: Pregunta }
+    EcdlPregunta: { onDelete: CASCADE, local: pregunta_id, foreign: id, foreignAlias: Respuestas }
     

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * BaseEcdlPregunta
@@ -13,7 +13,7 @@
  * @property EcdlModulo $EcdlModulo
  * @property EcdlImagen $EcdlImagen
  * @property EcdlDificultad $EcdlDificultad
- * @property Doctrine_Collection $Pregunta
+ * @property Doctrine_Collection $Respuestas
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method integer             getModuloId()       Returns the current record's "modulo_id" value
@@ -23,7 +23,7 @@
  * @method EcdlModulo          getEcdlModulo()     Returns the current record's "EcdlModulo" value
  * @method EcdlImagen          getEcdlImagen()     Returns the current record's "EcdlImagen" value
  * @method EcdlDificultad      getEcdlDificultad() Returns the current record's "EcdlDificultad" value
- * @method Doctrine_Collection getPregunta()       Returns the current record's "Pregunta" collection
+ * @method Doctrine_Collection getRespuestas()     Returns the current record's "Respuestas" collection
  * @method EcdlPregunta        setId()             Sets the current record's "id" value
  * @method EcdlPregunta        setModuloId()       Sets the current record's "modulo_id" value
  * @method EcdlPregunta        setImagenId()       Sets the current record's "imagen_id" value
@@ -32,7 +32,7 @@
  * @method EcdlPregunta        setEcdlModulo()     Sets the current record's "EcdlModulo" value
  * @method EcdlPregunta        setEcdlImagen()     Sets the current record's "EcdlImagen" value
  * @method EcdlPregunta        setEcdlDificultad() Sets the current record's "EcdlDificultad" value
- * @method EcdlPregunta        setPregunta()       Sets the current record's "Pregunta" collection
+ * @method EcdlPregunta        setRespuestas()     Sets the current record's "Respuestas" collection
  * 
  * @package    EditorPreguntas
  * @subpackage model
@@ -89,7 +89,7 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasMany('EcdlRespuesta as Pregunta', array(
+        $this->hasMany('EcdlRespuesta as Respuestas', array(
              'local' => 'id',
              'foreign' => 'pregunta_id'));
 

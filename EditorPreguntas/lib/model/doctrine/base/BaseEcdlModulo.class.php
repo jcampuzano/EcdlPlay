@@ -8,16 +8,16 @@
  * @property integer $id
  * @property string $nombre
  * @property text $descripcion
- * @property Doctrine_Collection $Modulo
+ * @property Doctrine_Collection $Preguntas
  * 
  * @method integer             getId()          Returns the current record's "id" value
  * @method string              getNombre()      Returns the current record's "nombre" value
  * @method text                getDescripcion() Returns the current record's "descripcion" value
- * @method Doctrine_Collection getModulo()      Returns the current record's "Modulo" collection
+ * @method Doctrine_Collection getPreguntas()   Returns the current record's "Preguntas" collection
  * @method EcdlModulo          setId()          Sets the current record's "id" value
  * @method EcdlModulo          setNombre()      Sets the current record's "nombre" value
  * @method EcdlModulo          setDescripcion() Sets the current record's "descripcion" value
- * @method EcdlModulo          setModulo()      Sets the current record's "Modulo" collection
+ * @method EcdlModulo          setPreguntas()   Sets the current record's "Preguntas" collection
  * 
  * @package    EditorPreguntas
  * @subpackage model
@@ -51,7 +51,7 @@ abstract class BaseEcdlModulo extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('EcdlPregunta as Modulo', array(
+        $this->hasMany('EcdlPregunta as Preguntas', array(
              'local' => 'id',
              'foreign' => 'modulo_id'));
 

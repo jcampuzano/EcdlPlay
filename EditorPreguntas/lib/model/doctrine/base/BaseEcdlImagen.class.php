@@ -7,14 +7,14 @@
  * 
  * @property integer $id
  * @property blob $imagen
- * @property Doctrine_Collection $Imagen
+ * @property Doctrine_Collection $Preguntas
  * 
- * @method integer             getId()     Returns the current record's "id" value
- * @method blob                getImagen() Returns the current record's "imagen" value
- * @method Doctrine_Collection getImagen() Returns the current record's "Imagen" collection
- * @method EcdlImagen          setId()     Sets the current record's "id" value
- * @method EcdlImagen          setImagen() Sets the current record's "imagen" value
- * @method EcdlImagen          setImagen() Sets the current record's "Imagen" collection
+ * @method integer             getId()        Returns the current record's "id" value
+ * @method blob                getImagen()    Returns the current record's "imagen" value
+ * @method Doctrine_Collection getPreguntas() Returns the current record's "Preguntas" collection
+ * @method EcdlImagen          setId()        Sets the current record's "id" value
+ * @method EcdlImagen          setImagen()    Sets the current record's "imagen" value
+ * @method EcdlImagen          setPreguntas() Sets the current record's "Preguntas" collection
  * 
  * @package    EditorPreguntas
  * @subpackage model
@@ -41,7 +41,7 @@ abstract class BaseEcdlImagen extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('EcdlPregunta as Imagen', array(
+        $this->hasMany('EcdlPregunta as Preguntas', array(
              'local' => 'id',
              'foreign' => 'imagen_id'));
 

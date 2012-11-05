@@ -12,4 +12,7 @@
  */
 class EcdlDificultad extends BaseEcdlDificultad
 {
+    public function __toString() {
+        return sprintf("%s - %s", $this->getValor(), $this->getNombre()); 
+    }
 }

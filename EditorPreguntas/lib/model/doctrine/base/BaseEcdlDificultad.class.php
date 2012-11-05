@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * BaseEcdlDificultad
@@ -8,16 +8,16 @@
  * @property integer $id
  * @property string $nombre
  * @property integer $valor
- * @property Doctrine_Collection $Dificultad
+ * @property Doctrine_Collection $Preguntas
  * 
- * @method integer             getId()         Returns the current record's "id" value
- * @method string              getNombre()     Returns the current record's "nombre" value
- * @method integer             getValor()      Returns the current record's "valor" value
- * @method Doctrine_Collection getDificultad() Returns the current record's "Dificultad" collection
- * @method EcdlDificultad      setId()         Sets the current record's "id" value
- * @method EcdlDificultad      setNombre()     Sets the current record's "nombre" value
- * @method EcdlDificultad      setValor()      Sets the current record's "valor" value
- * @method EcdlDificultad      setDificultad() Sets the current record's "Dificultad" collection
+ * @method integer             getId()        Returns the current record's "id" value
+ * @method string              getNombre()    Returns the current record's "nombre" value
+ * @method integer             getValor()     Returns the current record's "valor" value
+ * @method Doctrine_Collection getPreguntas() Returns the current record's "Preguntas" collection
+ * @method EcdlDificultad      setId()        Sets the current record's "id" value
+ * @method EcdlDificultad      setNombre()    Sets the current record's "nombre" value
+ * @method EcdlDificultad      setValor()     Sets the current record's "valor" value
+ * @method EcdlDificultad      setPreguntas() Sets the current record's "Preguntas" collection
  * 
  * @package    EditorPreguntas
  * @subpackage model
@@ -51,7 +51,7 @@ abstract class BaseEcdlDificultad extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('EcdlPregunta as Dificultad', array(
+        $this->hasMany('EcdlPregunta as Preguntas', array(
              'local' => 'id',
              'foreign' => 'dificultad_id'));
 

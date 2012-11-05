@@ -7,4 +7,3 @@ ALTER TABLE ecdl_pregunta ADD CONSTRAINT ecdl_pregunta_modulo_id_ecdl_modulo_id 
 ALTER TABLE ecdl_pregunta ADD CONSTRAINT ecdl_pregunta_imagen_id_ecdl_imagen_id FOREIGN KEY (imagen_id) REFERENCES ecdl_imagen(id) ON DELETE CASCADE;
 ALTER TABLE ecdl_pregunta ADD CONSTRAINT ecdl_pregunta_dificultad_id_ecdl_dificultad_id FOREIGN KEY (dificultad_id) REFERENCES ecdl_dificultad(id) ON DELETE CASCADE;
 ALTER TABLE ecdl_respuesta ADD CONSTRAINT ecdl_respuesta_pregunta_id_ecdl_pregunta_id FOREIGN KEY (pregunta_id) REFERENCES ecdl_pregunta(id) ON DELETE CASCADE;
- 

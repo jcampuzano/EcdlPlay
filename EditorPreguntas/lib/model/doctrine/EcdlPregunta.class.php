@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * EcdlPregunta
@@ -10,6 +10,10 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class EcdlPregunta extends BaseEcdlPregunta
-{
+class EcdlPregunta extends BaseEcdlPregunta {
+
+    public function getRespuestas() {
+        return EcdlPreguntaTable::getInstance()->getAnswers($this->getId());
+    }
+
 }
