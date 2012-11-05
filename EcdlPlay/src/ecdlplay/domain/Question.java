@@ -10,21 +10,21 @@ import java.util.ArrayList;
  *
  * @author julio
  */
-public class Pregunta {
+public class Question {
 
     private int id;
     private String texto;
-    private Imagen imagen;
-    private Dificultad dificultad;
-    private ArrayList<Respuesta> respuestas;
+    private Image imagen;
+    private Difficulty dificultad;
+    private ArrayList<Answer> respuestas;
 
-    public Pregunta() {
-        this.respuestas = new ArrayList<Respuesta>();
-        this.imagen = new Imagen();
-        this.dificultad = new Dificultad();
+    public Question() {
+        this.respuestas = new ArrayList<Answer>();
+        this.imagen = new Image();
+        this.dificultad = new Difficulty();
     }
 
-    public Pregunta(int id, String texto, Imagen imagen, Dificultad dificultad, ArrayList<Respuesta> respuestas) {
+    public Question(int id, String texto, Image imagen, Difficulty dificultad, ArrayList<Answer> respuestas) {
         this.id = id;
         this.texto = texto;
         this.imagen = imagen;
@@ -48,27 +48,27 @@ public class Pregunta {
         this.texto = texto;
     }
 
-    public Imagen getImagen() {
+    public Image getImagen() {
         return imagen;
     }
 
-    public void setImagen(Imagen imagen) {
+    public void setImagen(Image imagen) {
         this.imagen = imagen;
     }
 
-    public Dificultad getDificultad() {
+    public Difficulty getDificultad() {
         return dificultad;
     }
 
-    public void setDificultad(Dificultad dificultad) {
+    public void setDificultad(Difficulty dificultad) {
         this.dificultad = dificultad;
     }
 
-    public ArrayList<Respuesta> getRespuestas() {
+    public ArrayList<Answer> getRespuestas() {
         return respuestas;
     }
 
-    public void setRespuestas(ArrayList<Respuesta> respuestas) {
+    public void setRespuestas(ArrayList<Answer> respuestas) {
         this.respuestas = respuestas;
     }
 }

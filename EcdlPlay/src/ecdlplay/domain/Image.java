@@ -6,26 +6,25 @@ package ecdlplay.domain;
 
 import java.io.IOException;
 import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 /**
  *
  * @author julio
  */
-public class Imagen {
+public class Image {
 
     private int id;
     private byte[] imagen;
 
-    public Imagen() {
+    public Image() {
     }
 
-    public Imagen(int id, byte[] imagen) {
+    public Image(int id, byte[] imagen) {
         this.id = id;
         this.imagen = imagen;
     }
 
-    public Imagen(int id, String imagen) {
+    public Image(int id, String imagen) {
         byte[] imagenAux = ConvertStringBase64ToByteArray(imagen);
         this.id = id;
         this.imagen = imagenAux;

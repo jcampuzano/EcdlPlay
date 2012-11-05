@@ -3,11 +3,11 @@
  * and open the template in the editor.
  */
 package ecdlplay.data.interfaces;
-import ecdlplay.domain.Imagen;
+import ecdlplay.domain.Image;
 /**
  *
  * @author julio
  */
-public interface ImagenRepositoryGeneric extends RepositoryGeneric<Imagen> {
+public interface ImagenRepositoryGeneric extends RepositoryGeneric<Image> {
     
 }

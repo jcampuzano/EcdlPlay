@@ -4,9 +4,8 @@
  */
 package ecdlplay.gui;
 
-import ecdlplay.domain.Player;
-import ecdlplay.domain.Pregunta;
-import java.awt.event.ActionEvent;
+import ecdlplay.domain.*;
+import java.util.List;
 
 /**
  *
@@ -18,7 +17,7 @@ public interface GameView {
     
     public void hideDices();
     
-    public void showQuestion(Pregunta pregunta);
+    public void showQuestion(Question pregunta);
     
     public void hideQuestion();
     
@@ -28,15 +27,20 @@ public interface GameView {
         
     public void showPrincipal();
     
-    public void showMenu();
+    public void showMenu(GameConfig config);
     
-    public void showBoard();
+    public void showBoard(GameConfig config);
+        
+    public void showAnswer(boolean correcta);
     
     public void setPlayerTurn(Player player);
     
-    public ActionEvent AnswerSelected(int numAnswer);
+    public void AnswerSelected(int numAnswer);
     
-    public ActionEvent NumPlayerChanged(int numPlayers);
+    public void MenuExit(GameConfig config);
     
-    public ActionEvent ModuloChanged(int idModulo);
+    public void GameExit();
+
+    public void showWinner(Player player);
+
 }

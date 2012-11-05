@@ -10,20 +10,20 @@ import java.util.ArrayList;
  *
  * @author julio
  */
-public class Modulo {
+public class Module {
     private int id;
     private String nombre;    
-    private ArrayList<Pregunta> preguntas;
+    private ArrayList<Question> preguntas;
 
     
-    public Modulo(int id, String nombre, ArrayList<Pregunta> preguntas) {
+    public Module(int id, String nombre, ArrayList<Question> preguntas) {
         this.id = id;
         this.nombre = nombre;
         this.preguntas = preguntas;
     }
         
-    public Modulo() {
-        this.preguntas = new ArrayList<Pregunta>();
+    public Module() {
+        this.preguntas = new ArrayList<Question>();
     }
 
     public int getId() {
@@ -42,11 +42,11 @@ public class Modulo {
         this.nombre = nombre;
     }
 
-    public ArrayList<Pregunta> getPreguntas() {
+    public ArrayList<Question> getPreguntas() {
         return preguntas;
     }
 
-    public void setPreguntas(ArrayList<Pregunta> preguntas) {
+    public void setPreguntas(ArrayList<Question> preguntas) {
         this.preguntas = preguntas;
     }
     

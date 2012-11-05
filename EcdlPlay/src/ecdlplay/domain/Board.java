@@ -31,7 +31,7 @@ public class Board {
         return squares[numSquare];
     }
 
-    public void setQuestions(int numSquare, Pregunta questions[])
+    public void setQuestions(int numSquare, Question questions[])
     {
         squares[numSquare].setQuestions(questions);
     }
@@ -39,5 +39,10 @@ public class Board {
     public int getNumSquares()
     {
         return squares.length;
+    }
+
+    Question getQuestion(Player player) {
+        Square square = this.getSquare(player.getNumSquare());
+        return square.getQuestion();
     }
 }

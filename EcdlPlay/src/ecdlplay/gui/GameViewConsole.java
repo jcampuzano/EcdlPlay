@@ -4,12 +4,7 @@
  */
 package ecdlplay.gui;
 
-import com.sun.org.apache.bcel.internal.util.JavaWrapper;
-import ecdlplay.domain.Player;
-import ecdlplay.domain.Pregunta;
-import ecdlplay.domain.Respuesta;
-import java.awt.event.ActionEvent;
-import java.io.Console;
+import ecdlplay.domain.*;
 
 /**
  *
@@ -17,6 +12,12 @@ import java.io.Console;
  */
 public class GameViewConsole implements GameView {
 
+    GameEngine gameEngine;
+    
+    public GameViewConsole(){
+        this.gameEngine = new GameEngine(this);
+       
+    }
     
     @Override
     public void showDices(int value) {
@@ -29,9 +30,9 @@ public class GameViewConsole implements GameView {
     }
 
     @Override
-    public void showQuestion(Pregunta pregunta) {
+    public void showQuestion(Question pregunta) {
         System.out.printf("Pregunta: %s", pregunta.getTexto());
-        for(Respuesta respuesta : pregunta.getRespuestas())
+        for(Answer respuesta : pregunta.getRespuestas())
         {
             System.out.printf("Respuesta: %s", respuesta.getTexto());
         }
@@ -58,12 +59,12 @@ public class GameViewConsole implements GameView {
     }
 
     @Override
-    public void showMenu() {
+    public void showMenu(GameConfig config) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void showBoard() {
+    public void showBoard(GameConfig config) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -73,17 +74,27 @@ public class GameViewConsole implements GameView {
     }
 
     @Override
-    public ActionEvent AnswerSelected(int numAnswer) {
+    public void AnswerSelected(int numAnswer) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
+    public void MenuExit(GameConfig config){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
+    public void GameExit(){
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ActionEvent NumPlayerChanged(int numPlayers) {
+    public void showAnswer(boolean correcta) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ActionEvent ModuloChanged(int idModulo) {
+    public void showWinner(Player player) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

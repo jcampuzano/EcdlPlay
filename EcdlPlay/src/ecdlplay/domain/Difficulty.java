@@ -8,15 +8,15 @@ package ecdlplay.domain;
  *
  * @author julio
  */
-public class Dificultad {
+public class Difficulty {
     private int id;
     private String nombre;
     private int valor;
 
-    public Dificultad() {
+    public Difficulty() {
     }
 
-    public Dificultad(int id, String nombre, int valor) {
+    public Difficulty(int id, String nombre, int valor) {
         this.id = id;
         this.nombre = nombre;
         this.valor = valor;

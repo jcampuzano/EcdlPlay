@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 package ecdlplay.data.interfaces;
-import ecdlplay.domain.Dificultad;
+import ecdlplay.domain.Difficulty;
 
 /**
  *
  * @author julio
  */
-public interface DificultadRepositoryGeneric extends RepositoryGeneric<Dificultad> {
+public interface DificultadRepositoryGeneric extends RepositoryGeneric<Difficulty> {
     
 }

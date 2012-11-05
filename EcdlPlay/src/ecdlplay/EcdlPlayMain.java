@@ -15,6 +15,7 @@ public class EcdlPlayMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EcdlPlayWindow.getInstance();
+        //EcdlPlayWindow.getInstance();
+        GameViewConsole console = new GameViewConsole();
     }
 }

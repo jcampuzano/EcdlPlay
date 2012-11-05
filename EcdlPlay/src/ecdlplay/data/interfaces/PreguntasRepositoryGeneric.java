@@ -3,16 +3,16 @@
  * and open the template in the editor.
  */
 package ecdlplay.data.interfaces;
-import ecdlplay.domain.Pregunta;
+import ecdlplay.domain.Question;
 import java.util.List;
 /**
  *
  * @author julio
  */
-public interface PreguntasRepositoryGeneric extends RepositoryGeneric<Pregunta> {
+public interface PreguntasRepositoryGeneric extends RepositoryGeneric<Question> {
     
-    List<Pregunta> getByModulo(int idModulo);
+    List<Question> getByModulo(int idModulo);
     
-    List<Pregunta> getByModuloAndDificultad(int idModulo, int idDificultad);
+    List<Question> getByModuloAndDificultad(int idModulo, int idDificultad);
     
 }

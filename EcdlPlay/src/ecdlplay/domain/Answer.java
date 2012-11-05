@@ -8,15 +8,15 @@ package ecdlplay.domain;
  *
  * @author julio
  */
-public class Respuesta {
+public class Answer {
     private int id;
     private String texto;
     private boolean correcta;
 
-    public Respuesta() {
+    public Answer() {
     }
 
-    public Respuesta(int id, String texto, boolean correcta) {
+    public Answer(int id, String texto, boolean correcta) {
         this.id = id;
         this.texto = texto;
         this.correcta = correcta;

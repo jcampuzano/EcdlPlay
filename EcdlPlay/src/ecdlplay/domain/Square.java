@@ -10,7 +10,7 @@ package ecdlplay.domain;
  */
 public class Square {
 
-    private Pregunta questions[];
+    private Question questions[];
     private int posQuestion;
     private int numSquare;
 
@@ -19,11 +19,11 @@ public class Square {
         this.posQuestion = 0;
     }
 
-    public Pregunta getQuestion() {
+    public Question getQuestion() {
         return questions[posQuestion];
     }
 
-    public void setQuestions(Pregunta questions[]) {
+    public void setQuestions(Question questions[]) {
         this.questions = questions;
     }
 
