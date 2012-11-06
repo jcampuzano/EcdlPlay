@@ -36,4 +36,21 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
         $this->embedForm('answers', $answers);
     }
 
+    public function isUniqueAnswerCorrect() {
+        // Initialize flag
+        $unique_answers = 0;
+
+        // Iterate forms
+        foreach ($this->values['answers'] as $answer) {
+            // Check Correct
+            if ($answer['correcta'] === true){
+                $unique_answers++;
+            }
+        }
+
+        //echo 'unique='.$unique_answers;
+
+        return $unique_answers == 1;
+    }
+
 }

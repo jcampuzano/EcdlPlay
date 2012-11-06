@@ -1,5 +1,5 @@
 <?php slot('title', 'Nueva Pregunta') ?>
-<form action="<?php echo url_for('preguntaTest/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('pregunta/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
     <div class="editar">
         <h2>Nueva Pregunta</h2>
 
@@ -29,6 +29,11 @@
                 <?php echo $answer['correcta']->render() ?> <?php echo $answer['correcta']->renderError() ?>
             </section>
         <?php endforeach; ?>
+        
+        <?php echo $form->renderHiddenFields(false) ?>
+          <a href="<?php echo url_for('pregunta_index') ?>">Volver</a>
+          
+          <input type="submit" value="Guardar" />
     </div>
 
 </form>
