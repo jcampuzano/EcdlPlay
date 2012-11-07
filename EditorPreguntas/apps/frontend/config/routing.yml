@@ -70,6 +70,14 @@ pregunta_edit:
   requirements:
     sf_method: [get]
 
+pregunta_show:
+  url: /pregunta/:id/show
+  class: sfDoctrineRoute
+  options: { model: EcdlPregunta, type: object }
+  param: { module: pregunta, action: show }
+  requirements:
+    sf_method: [get]
+
 #About
 about:
   url: /about

@@ -31,6 +31,7 @@
 
     <?php echo $form->renderHiddenFields(false) ?>
     <?php echo $form['imagen']->renderHiddenFields(false) ?>
+    
     <a href="<?php echo url_for('pregunta_index') ?>">Volver</a>
 
     <input type="submit" value="Guardar" />

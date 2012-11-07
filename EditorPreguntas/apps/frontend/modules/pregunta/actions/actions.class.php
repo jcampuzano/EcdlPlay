@@ -42,7 +42,7 @@ class preguntaActions extends sfActions {
 
         $this->pregunta = $this->getRoute()->getObject();
 
-        $this->form = new EcdlPreguntaForm($ecdl_pregunta);
+        $this->form = new EcdlPreguntaForm($this->pregunta);
     }
 
     public function executeUpdate(sfWebRequest $request) {
@@ -53,6 +53,18 @@ class preguntaActions extends sfActions {
         $this->processForm($request, $this->form);
 
         $this->setTemplate('edit');
+    }
+    
+    public function executeShow(sfWebRequest $request){
+        $this->form = Doctrine_Core::getTable('EcdlPregunta')->find(array($request->getParameter('id')));
+    }
+    
+    public function executeDelete(sfWebRequest $request){
+        $this->form = Doctrine_Core::getTable('EcdlPregunta')->find(array($request->getParameter('id')));
+        $this->form->delete();
+        
+        // Redirect
+        $this->redirect('pregunta_index');
     }
 
     protected function processForm(sfWebRequest $request, sfForm $form) {

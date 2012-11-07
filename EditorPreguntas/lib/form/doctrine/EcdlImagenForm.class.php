@@ -24,8 +24,10 @@ class EcdlImagenForm extends BaseEcdlImagenForm {
                     'edit_mode' => !$this->isNew(),
                     'is_image' => true,
                     'with_delete' => true,
-                    'delete_label' => 'Eliminar la imagen'
+                    'delete_label' => 'Eliminar'
                 )));
+        
+        $this->validatorSchema['filename_delete'] = new sfValidatorPass();
     }
 
 }

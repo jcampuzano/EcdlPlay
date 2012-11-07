@@ -1,11 +1,11 @@
-<?php slot('title', 'Editar preguntas') ?>
+<?php slot('title', 'ECDL - Editar preguntas') ?>
 <div class="editar">
-    <h2>Lista de Módulos del ECDL</h2>
+    <h2>Lista de Preguntas</h2>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>&nbsp;</th>
                 <th>Texto</th>
                 <th>Modulo</th>
                 <th>Dificultad</th>            
@@ -13,7 +13,11 @@
             <?php foreach ($preguntas as $p) : ?>
                 <tr>
                     <td>
-                        <a href="<?php echo url_for('pregunta_edit', $p) ?>"> <?php echo $p->getId() ?></a>
+                        <a href="<?php echo url_for('pregunta_edit', $p)?>">
+                            <img src="/images/edit.png" alt="Editar"/></a> 
+                        | 
+                        <a href="<?php echo url_for('pregunta_show', $p) ?>">
+                            <img src="/images/delete.png" alt="Borrar"/></a>
                     </td>
                     <td><?php echo $p->getTexto() ?></td>
                     <td><?php echo $p->getEcdlModulo()->getNombre() ?></td>
