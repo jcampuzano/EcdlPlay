@@ -37,6 +37,24 @@ class preguntaActions extends sfActions {
         $this->setTemplate('new');
     }
 
+    public function executeEdit(sfWebRequest $request) {
+        $this->forward404Unless($ecdl_pregunta = Doctrine_Core::getTable('EcdlPregunta')->find(array($request->getParameter('id'))), sprintf('Object ecdl_pregunta does not exist (%s).', $request->getParameter('id')));
+
+        $this->pregunta = $this->getRoute()->getObject();
+
+        $this->form = new EcdlPreguntaForm($ecdl_pregunta);
+    }
+
+    public function executeUpdate(sfWebRequest $request) {
+        $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+        $this->forward404Unless($ecdl_pregunta = Doctrine_Core::getTable('EcdlPregunta')->find(array($request->getParameter('id'))), sprintf('Object ecdl_pregunta does not exist (%s).', $request->getParameter('id')));
+        $this->form = new EcdlPreguntaForm($ecdl_pregunta);
+
+        $this->processForm($request, $this->form);
+
+        $this->setTemplate('edit');
+    }
+
     protected function processForm(sfWebRequest $request, sfForm $form) {
         // Bind
         $form->bind(

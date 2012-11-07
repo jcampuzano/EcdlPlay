@@ -28,9 +28,10 @@ class EcdlPreguntaTable extends Doctrine_Table {
     public function getRespuestas(int $id_pregunta) {
         $q = $this->createQuery()
                 ->from('EcdlRespuesta r')
-                ->where('r.id_pregunta = ?', $id_pregunta);
+                ->where('r.pregunta_id = ?', $id_pregunta);
 
         return $q;
     }
 
+    
 }

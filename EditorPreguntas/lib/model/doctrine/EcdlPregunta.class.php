@@ -12,8 +12,8 @@
  */
 class EcdlPregunta extends BaseEcdlPregunta {
 
-    public function getRespuestas() {
-        return EcdlPreguntaTable::getInstance()->getAnswers($this->getId());
-    }
+//    public function getRespuestas() {
+//        return EcdlPreguntaTable::getInstance()->getRespuestas($this->getId());
+//    }
 
 }

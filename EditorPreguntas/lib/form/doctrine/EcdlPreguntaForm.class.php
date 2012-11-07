@@ -16,21 +16,32 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
         );
 
         $this->widgetSchema["texto"] = new sfWidgetFormTextarea(array(), array('rows' => 6, 'cols' => 50));
-        $this->widgetSchema["imagen_id"] = new sfWidgetFormInputFile();
+        
+        $imagen = $this->getObject()->getEcdlImagen();
+        $this->embedForm('imagen', new EcdlImagenForm($imagen));
+        
 
         // Create subforms Array
         $answers = new sfForm();
-        // Iterate 3 answers
-        for ($i = 0; $i < 3; $i++) {
-            // Create Subform and append content if proceed
-            if (isset($this->answers) && isset($this->answers[$i])) {
-                $answer = new EcdlRespuestaForm($this->answers[$i]);
-            } else {
-                $answer = new EcdlRespuestaForm();
+        $respuestas = $this->getObject()->getRespuestas();
+        if (null !== $respuestas && $respuestas->count() > 0) {
+            foreach ($respuestas->getData() as $key => $value) {
+               $answerFrm = new EcdlRespuestaForm($value);
+               $answers->embedForm($key + 1, $answerFrm);
             }
-            // Embed Form
-            $answers->embedForm($i + 1, $answer);
+        } else {
+            // Iterate 3 answers
+            for ($i = 0; $i < 3; $i++) {
+                // Create Subform and append content if proceed
+
+                $answer = new EcdlRespuesta();
+                $answer->EcdlPregunta = $this->getObject();
+                $answerFrm = new EcdlRespuestaForm($answer);
+                // Embed Form
+                $answers->embedForm($i + 1, $answerFrm);
+            }
         }
+
 
         // Embed all answers
         $this->embedForm('answers', $answers);
@@ -43,7 +54,7 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
         // Iterate forms
         foreach ($this->values['answers'] as $answer) {
             // Check Correct
-            if ($answer['correcta'] === true){
+            if ($answer['correcta'] === true) {
                 $unique_answers++;
             }
         }

@@ -1,6 +1,6 @@
 <?php slot('title', 'Edición de los módulos del ECDL') ?>
 <div class="editar">
-    <h2>Ecdl modulos List</h2>
+    <h2>Lista de Módulos del ECDL</h2>
 
     <table>
         <thead>

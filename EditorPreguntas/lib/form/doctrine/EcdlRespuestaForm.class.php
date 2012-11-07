@@ -10,12 +10,13 @@
  */
 class EcdlRespuestaForm extends BaseEcdlRespuestaForm {
 
+    
     public function configure() {
         unset(
                 // Remove Timestamps
                 $this['created_at'], $this['updated_at'],
                 // Remove Id
-                $this['id_question']
+                $this['pregunta_id']
         );
 
         // Set Widget

@@ -22,14 +22,14 @@ EcdlPregunta:
     texto: {type: text, notnull: true }
   relations:
     EcdlModulo: { onDelete: CASCADE, local: modulo_id, foreign: id, foreignAlias: Preguntas }
-    EcdlImagen: { onDelete: CASCADE, local: imagen_id, foreign: id, foreignAlias: Preguntas }
+    EcdlImagen: { local: imagen_id, foreign: id, foreignAlias: Preguntas }
     EcdlDificultad: { onDelete: CASCADE, local: dificultad_id, foreign: id, foreignAlias: Preguntas }
     
 EcdlImagen:
   actAs: { Timestampable: ~ }
   columns:
     id: {type: integer, primary: true, autoincrement: true, unsigned: true }
-    imagen: { type: blob, notnull: true }
+    filename: { type: string(255), notnull: true }
     
 EcdlRespuesta:
   actAs: { Timestampable: ~ }

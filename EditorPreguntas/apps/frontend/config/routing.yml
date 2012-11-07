@@ -61,6 +61,14 @@ pregunta_new:
   param: { module: pregunta, action: new }
   requirements:
     sf_method: [get]
+    
+pregunta_edit:
+  url: /pregunta/:id/edit
+  class: sfDoctrineRoute
+  options: { model: EcdlPregunta, type: object}
+  param: {  module: pregunta, action: edit }
+  requirements:
+    sf_method: [get]
 
 #About
 about:

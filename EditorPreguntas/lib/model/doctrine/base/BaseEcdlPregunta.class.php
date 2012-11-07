@@ -81,8 +81,7 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
 
         $this->hasOne('EcdlImagen', array(
              'local' => 'imagen_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+             'foreign' => 'id'));
 
         $this->hasOne('EcdlDificultad', array(
              'local' => 'dificultad_id',
