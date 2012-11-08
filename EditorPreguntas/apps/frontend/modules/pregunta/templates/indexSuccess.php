@@ -3,16 +3,19 @@
     <h2>Lista de Preguntas</h2>
 
     <table>
-        <tbody>
+        <thead>
             <tr>
-                <th>&nbsp;</th>
+                <th>Acciones</th>
                 <th>Texto</th>
                 <th>Modulo</th>
                 <th>Dificultad</th>            
             </tr>    
+        </thead>
+        <tbody>
+            
             <?php foreach ($preguntas as $p) : ?>
                 <tr>
-                    <td>
+                    <td id="acciones">
                         <a href="<?php echo url_for('pregunta_edit', $p)?>">
                             <img src="/images/edit.png" alt="Editar"/></a> 
                         | 

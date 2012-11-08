@@ -33,5 +33,14 @@ class EcdlPreguntaTable extends Doctrine_Table {
         return $q;
     }
 
+    public function getPreguntasXML($modulo_id){
+        $q = $this->createQuery()
+                ->from('EcdlPregunta p')  
+                ->innerJoin('p.EcdlDificultad d')
+                ->leftJoin('p.EcdlImagen i')
+                ->where('p.modulo_id = ' . $modulo_id);
+        
+        return $q->execute();
+    }
     
 }
