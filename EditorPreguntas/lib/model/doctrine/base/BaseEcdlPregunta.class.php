@@ -7,30 +7,27 @@
  * 
  * @property integer $id
  * @property integer $modulo_id
- * @property integer $imagen_id
+ * @property string $imagen
  * @property integer $dificultad_id
  * @property text $texto
  * @property EcdlModulo $EcdlModulo
- * @property EcdlImagen $EcdlImagen
  * @property EcdlDificultad $EcdlDificultad
  * @property Doctrine_Collection $Respuestas
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method integer             getModuloId()       Returns the current record's "modulo_id" value
- * @method integer             getImagenId()       Returns the current record's "imagen_id" value
+ * @method string              getImagen()         Returns the current record's "imagen" value
  * @method integer             getDificultadId()   Returns the current record's "dificultad_id" value
  * @method text                getTexto()          Returns the current record's "texto" value
  * @method EcdlModulo          getEcdlModulo()     Returns the current record's "EcdlModulo" value
- * @method EcdlImagen          getEcdlImagen()     Returns the current record's "EcdlImagen" value
  * @method EcdlDificultad      getEcdlDificultad() Returns the current record's "EcdlDificultad" value
  * @method Doctrine_Collection getRespuestas()     Returns the current record's "Respuestas" collection
  * @method EcdlPregunta        setId()             Sets the current record's "id" value
  * @method EcdlPregunta        setModuloId()       Sets the current record's "modulo_id" value
- * @method EcdlPregunta        setImagenId()       Sets the current record's "imagen_id" value
+ * @method EcdlPregunta        setImagen()         Sets the current record's "imagen" value
  * @method EcdlPregunta        setDificultadId()   Sets the current record's "dificultad_id" value
  * @method EcdlPregunta        setTexto()          Sets the current record's "texto" value
  * @method EcdlPregunta        setEcdlModulo()     Sets the current record's "EcdlModulo" value
- * @method EcdlPregunta        setEcdlImagen()     Sets the current record's "EcdlImagen" value
  * @method EcdlPregunta        setEcdlDificultad() Sets the current record's "EcdlDificultad" value
  * @method EcdlPregunta        setRespuestas()     Sets the current record's "Respuestas" collection
  * 
@@ -55,10 +52,10 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
              'notnull' => true,
              'unsigned' => true,
              ));
-        $this->hasColumn('imagen_id', 'integer', null, array(
-             'type' => 'integer',
-             'notnull' => false,
-             'unsigned' => true,
+        $this->hasColumn('imagen', 'string', 255, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 255,
              ));
         $this->hasColumn('dificultad_id', 'integer', null, array(
              'type' => 'integer',
@@ -78,10 +75,6 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
              'local' => 'modulo_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
-
-        $this->hasOne('EcdlImagen', array(
-             'local' => 'imagen_id',
-             'foreign' => 'id'));
 
         $this->hasOne('EcdlDificultad', array(
              'local' => 'dificultad_id',

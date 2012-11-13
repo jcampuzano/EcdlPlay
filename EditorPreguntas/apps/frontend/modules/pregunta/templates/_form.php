@@ -12,7 +12,7 @@
 
     <label for="<?php echo $form['imagen']->renderId() ?>">Imagen:</label>
     <div class="divImagen">
-        <?php echo $form['imagen']['filename']->render(array('width' => 300)) ?>
+        <?php echo $form['imagen']->render(array('width' => 300)) ?>
     </div>
 
     <?php foreach ($form['answers'] as $k => $answer): ?>
@@ -30,7 +30,6 @@
     <?php endforeach; ?>
 
     <?php echo $form->renderHiddenFields(false) ?>
-    <?php echo $form['imagen']->renderHiddenFields(false) ?>
     
     <a href="<?php echo url_for('pregunta_index') ?>">Volver</a>
 

@@ -17,20 +17,13 @@ EcdlPregunta:
   columns:
     id: {type: integer, primary: true, autoincrement: true, unsigned: true }
     modulo_id: {type: integer, notnull: true, unsigned: true }
-    imagen_id: {type: integer, notnull: false, unsigned: true }
+    imagen: { type: string(255), notnull: true }
     dificultad_id: {type: integer, notnull: true, unsigned: true }
     texto: {type: text, notnull: true }
   relations:
     EcdlModulo: { onDelete: CASCADE, local: modulo_id, foreign: id, foreignAlias: Preguntas }
-    EcdlImagen: { local: imagen_id, foreign: id, foreignAlias: Preguntas }
     EcdlDificultad: { onDelete: CASCADE, local: dificultad_id, foreign: id, foreignAlias: Preguntas }
-    
-EcdlImagen:
-  actAs: { Timestampable: ~ }
-  columns:
-    id: {type: integer, primary: true, autoincrement: true, unsigned: true }
-    filename: { type: string(255), notnull: true }
-    
+
 EcdlRespuesta:
   actAs: { Timestampable: ~ }
   columns:

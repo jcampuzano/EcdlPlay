@@ -12,14 +12,24 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
 
     public function configure() {
         unset(
-                $this["created_at"], $this["updated_at"], $this["imagen_id"]
+                $this["created_at"], $this["updated_at"]
         );
 
         $this->widgetSchema["texto"] = new sfWidgetFormTextarea(array(), array('rows' => 6, 'cols' => 50));
         
-        $imagen = $this->getObject()->getEcdlImagen();
-        $this->embedForm('imagen', new EcdlImagenForm($imagen));
-        
+        $this->setValidator('imagen', new sfValidatorFile(array(
+                    'mime_types' => 'web_images',
+                    'path' => sfConfig::get('sf_upload_dir') . '/preguntas',
+                    'required' => false,
+                )));
+
+        $this->setWidget('imagen', new sfWidgetFormInputFileEditable(array(
+                    'file_src' => '/uploads/preguntas/' . $this->getObject()->imagen,
+                    'edit_mode' => !$this->isNew(),
+                    'is_image' => true,
+                    'with_delete' => true,
+                    'delete_label' => 'Eliminar'
+                )));
 
         // Create subforms Array
         $answers = new sfForm();
@@ -45,6 +55,8 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
 
         // Embed all answers
         $this->embedForm('answers', $answers);
+                
+        $this->validatorSchema['imagen_delete'] = new sfValidatorPass();
     }
 
     public function isUniqueAnswerCorrect() {

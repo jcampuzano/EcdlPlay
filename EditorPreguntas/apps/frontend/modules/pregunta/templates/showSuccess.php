@@ -19,8 +19,8 @@
         </span>
 
         <label>Imagen:</label>
-        <?php if ($form->getImagenId() !== null) : ?>
-            <img src="/uploads/preguntas/<?php echo $form->getEcdlImagen()->getFilename() ?>" width="300"/>
+        <?php if ($form->getImagen() !== null) : ?>
+            <img src="/uploads/preguntas/<?php echo $form->getImagen() ?>" width="300"/>
         <?php else : ?>
             <span>
                 Sin Imagen...

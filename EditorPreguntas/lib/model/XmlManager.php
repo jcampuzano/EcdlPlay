@@ -56,7 +56,7 @@ class XmlManager {
             $preg_dificultad = $xml->createElement('dificultad', $pregunta->getEcdlDificultad()->getValor());
             $preg->appendChild($preg_dificultad);
 
-            if ($pregunta->getImagenId() !== null) {
+            if ($pregunta->getImagen() !== null) {
                 XmlManager::appendImagen($xml, $preg, $pregunta);
             }
 
@@ -82,7 +82,7 @@ class XmlManager {
     }
 
     private static function appendImagen(DOMDocument $xml, DOMElement $preg, EcdlPregunta $pregunta) {
-        $ruta = 'http://' . $_SERVER['HTTP_HOST'] . '/uploads/preguntas/' . $pregunta->getEcdlImagen()->getFilename();
+        $ruta = 'http://' . $_SERVER['HTTP_HOST'] . '/uploads/preguntas/' . $pregunta->getImagen();
 
         $fichero = fopen($ruta, 'rb', TRUE);
 

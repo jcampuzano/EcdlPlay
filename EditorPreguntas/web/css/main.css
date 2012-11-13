@@ -35,7 +35,7 @@ nav {
 width: 940px;
 height: 50px;
 margin: 0 auto;
-background: #333;
+background: #fff url(../images/background.png) repeat-x left bottom;
 }
 
 header {
@@ -43,13 +43,14 @@ width: 940px;
 height: 150px;
 margin: 0 auto;
 background: #fff url(../images/background.png) repeat-x left top;
+border-radius: 40px 40px 0px 0px;
 }
 
 #main {
 width: 940px;
 margin: 0 auto;
 padding-top: 30px;
-background: #FFF url(images/colbg.png) repeat-y;
+background: #FFF;
 overflow: hidden;
 }
 
@@ -69,7 +70,10 @@ footer {
 width: 940px;
 margin: 0 auto;
 clear: both;
-border-radius: 0 10px 10px 0;
+background: #fff url(../images/background.png) repeat-x left top;
+border-radius: 0 0 40px 40px;
+font-size: 90%;
+padding: 18px 0;
 /*position: fixed;
 bottom: 0px;
 margin-top: 40px;*/
@@ -92,7 +96,8 @@ color: #333;
 }
 
 p {
-margin-bottom: 18px;
+margin: 20px;
+color: #ddd;
 }
 
 li {
@@ -240,26 +245,6 @@ padding: 18px 0;
 overflow: hidden;
 }
 
-.footer-segment {
-float: left;
-margin-right: 20px;
-margin-left: 20px;
-width: 190px;
-}
-
-footer aside h4 {
-color: #ddd;
-font-size: 16px;
-line-height: 1.5em;
-}
-
-footer a:link, footer a:visited {
-color: #08B8F9;
-}
-
-footer p {
-margin-top: -15px;
-}
 
 /* Modulo */
 .editar {

@@ -40,11 +40,11 @@
             </section>
 
             <footer>
-                <section id="footer-area">
-                    <aside class="footer-segment">
-                        &copy; 2012
-                    </aside>
-                </section>
+<!--                <section id="footer-area">
+                    <aside class="footer-segment">-->
+                        <p>&copy; 2012</p>
+<!--                    </aside>
+                </section>-->
             </footer>
         </div>
     </body>
