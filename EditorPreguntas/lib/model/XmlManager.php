@@ -24,7 +24,7 @@ class XmlManager {
         foreach ($modulos as $modulo) {
             $preguntas = EcdlPreguntaTable::getInstance()->getPreguntasXML($modulo->getId());
 
-            if ($preguntas && count($preguntas) > 0) {
+            //if ($preguntas && count($preguntas) > 0) {
                 $mod = $xml->createElement('modulo');
 
                 $nombre_mod = $xml->createElement('nombre', $modulo->getNombre());
@@ -38,7 +38,7 @@ class XmlManager {
                 $mod->appendChild($preg);
 
                 $root->appendChild($mod);
-            }
+            //}
         }
 
         return $xml->saveXML();
