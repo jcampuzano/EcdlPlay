@@ -13,29 +13,18 @@ import sun.misc.BASE64Decoder;
  */
 public class Image {
 
-    private int id;
     private byte[] imagen;
 
     public Image() {
     }
 
-    public Image(int id, byte[] imagen) {
-        this.id = id;
+    public Image(byte[] imagen) {
         this.imagen = imagen;
     }
 
-    public Image(int id, String imagen) {
+    public Image(String imagen) {
         byte[] imagenAux = ConvertStringBase64ToByteArray(imagen);
-        this.id = id;
         this.imagen = imagenAux;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public byte[] getImagen() {
@@ -45,8 +34,7 @@ public class Image {
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
-
-    
+  
     
     private byte[] ConvertStringBase64ToByteArray(String imagen) {
         try {

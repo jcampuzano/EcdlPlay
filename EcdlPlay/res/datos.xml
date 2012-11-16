@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecdlplay>
+  <modulo>
+    <nombre>Módulo 1</nombre>
+    <descripcion>Conceptos básicos sobre las tecnologías de la informacion (TI)</descripcion>
+    <preguntas>
+      <pregunta>
+        <texto>Pregunta 1</texto>
+        <dificultad>1</dificultad>
+        <imagen>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</imagen>
+        <respuestas>
+          <respuesta correcto="1">respuesta 1</respuesta>
+          <respuesta>respuesta 2</respuesta>
+          <respuesta>respuesta 3</respuesta>
+        </respuestas>
+      </pregunta>
+    </preguntas>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 2</nombre>
+    <descripcion>Uso del ordenador y gestión de ficheros</descripcion>
+    <preguntas/>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 3</nombre>
+    <descripcion>Procesador de textos</descripcion>
+    <preguntas/>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 4</nombre>
+    <descripcion>Hojas de cálculo</descripcion>
+    <preguntas/>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 5</nombre>
+    <descripcion>Bases de datos</descripcion>
+    <preguntas/>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 6</nombre>
+    <descripcion>Presentaciones</descripcion>
+    <preguntas/>
+  </modulo>
+  <modulo>
+    <nombre>Módulo 7</nombre>
+    <descripcion>Información y Comunicación</descripcion>
+    <preguntas/>
+  </modulo>
+</ecdlplay>

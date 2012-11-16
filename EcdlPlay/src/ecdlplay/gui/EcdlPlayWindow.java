@@ -4,6 +4,8 @@
  */
 package ecdlplay.gui;
 
+import ecdlplay.domain.GameEngine;
+import ecdlplay.utils.ImageLoader;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 
@@ -13,21 +15,20 @@ import java.awt.HeadlessException;
  */
 public class EcdlPlayWindow extends javax.swing.JFrame {
 
-    public static final int WINDOW_WIDTH  = 952;
+    public static final int WINDOW_WIDTH = 952;
     public static final int WINDOW_HEIGHT = 700;
-    
     private static EcdlPlayWindow instance;
-    public static EcdlPlayWindow getInstance()
-    {
-        if (instance == null)
-        {
+
+    public static EcdlPlayWindow getInstance() {
+        if (instance == null) {
             instance = new EcdlPlayWindow();
         }
         return instance;
     }
-    
+
     public EcdlPlayWindow() throws HeadlessException {
-        
+
+
         initComponents();
 
         // Set Properties
@@ -35,25 +36,22 @@ public class EcdlPlayWindow extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         // Change Icon
-        //setIconImage(ImageLoader.loadImageJAR("icon.png"));
+        setIconImage(ImageLoader.loadImageJAR("icon.png"));
 
         // Create GameCanvas
-        GameViewCanvas gc = new GameViewCanvas();
-        add(gc, BorderLayout.CENTER);
-        
+        GameEngine ge = new GameEngine();
+        add(ge, BorderLayout.CENTER);
+
         // Show
         setVisible(true);
     }
-    
-    
-    
-    private void initComponents()
-    {
+
+    private void initComponents() {
+        instance = this;
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ECDL Play");
 
         pack();
     }
-    
-    
 }

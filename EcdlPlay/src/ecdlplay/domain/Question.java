@@ -4,7 +4,9 @@
  */
 package ecdlplay.domain;
 
+import ecdlplay.utils.Utils;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -15,16 +17,15 @@ public class Question {
     private int id;
     private String texto;
     private Image imagen;
-    private Difficulty dificultad;
+    private int dificultad;
     private ArrayList<Answer> respuestas;
 
     public Question() {
         this.respuestas = new ArrayList<Answer>();
         this.imagen = new Image();
-        this.dificultad = new Difficulty();
     }
 
-    public Question(int id, String texto, Image imagen, Difficulty dificultad, ArrayList<Answer> respuestas) {
+    public Question(int id, String texto, Image imagen, int dificultad, ArrayList<Answer> respuestas) {
         this.id = id;
         this.texto = texto;
         this.imagen = imagen;
@@ -56,11 +57,11 @@ public class Question {
         this.imagen = imagen;
     }
 
-    public Difficulty getDificultad() {
+    public int getDificultad() {
         return dificultad;
     }
 
-    public void setDificultad(Difficulty dificultad) {
+    public void setDificultad(int dificultad) {
         this.dificultad = dificultad;
     }
 
@@ -70,5 +71,18 @@ public class Question {
 
     public void setRespuestas(ArrayList<Answer> respuestas) {
         this.respuestas = respuestas;
+    }
+    
+    public void shuflleAnswers()
+    {
+        Collections.shuffle(respuestas);
+    }
+    
+    public void addAnswer(Answer answer){
+        this.respuestas.add(answer);
+    }
+
+    Answer getRespuesta(int numAnswer) {
+        return this.respuestas.get(numAnswer);
     }
 }

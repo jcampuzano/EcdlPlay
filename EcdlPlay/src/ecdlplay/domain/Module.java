@@ -5,23 +5,26 @@
 package ecdlplay.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author julio
  */
 public class Module {
+
     private int id;
-    private String nombre;    
+    private String nombre;
+    private String descripcion;
+
     private ArrayList<Question> preguntas;
 
-    
-    public Module(int id, String nombre, ArrayList<Question> preguntas) {
+    public Module(int id, String nombre, String descripcion, ArrayList<Question> preguntas) {
         this.id = id;
         this.nombre = nombre;
         this.preguntas = preguntas;
     }
-        
+
     public Module() {
         this.preguntas = new ArrayList<Question>();
     }
@@ -42,6 +45,14 @@ public class Module {
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
+    public void setDescripcion(String descripcion) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+    
     public ArrayList<Question> getPreguntas() {
         return preguntas;
     }
@@ -49,6 +60,12 @@ public class Module {
     public void setPreguntas(ArrayList<Question> preguntas) {
         this.preguntas = preguntas;
     }
+
+    public void shuffleQuestions() {
+        Collections.shuffle(preguntas);
+    }
     
-    
+    public void addPregunta(Question pregunta){
+        this.preguntas.add(pregunta);
+    }
 }
