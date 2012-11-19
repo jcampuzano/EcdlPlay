@@ -53,4 +53,26 @@ public class ImageLoader {
 
         return image;
     }
+
+    public static Image loadImage(byte[] imagen) {
+        EcdlPlayWindow instance = EcdlPlayWindow.getInstance();
+        Toolkit toolkit = instance.getToolkit();
+
+        MediaTracker mtracker = new MediaTracker(instance);
+        Image image = toolkit.createImage(imagen);
+
+        mtracker.addImage(image, 1);
+        try {
+            mtracker.waitForID(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (mtracker.isErrorID(1)) {
+            System.out.println("Could not load from byte data");
+            return null;
+        }
+
+        return image;
+    }
 }
