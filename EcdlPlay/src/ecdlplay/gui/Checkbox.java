@@ -31,6 +31,7 @@ public class Checkbox extends Component
         this(id, x, y, normal.getWidth(null), normal.getHeight(null), normal, pressed);
     }
 
+    @Override
     public void paint(Graphics g)
     {
         // Get Image
@@ -40,21 +41,25 @@ public class Checkbox extends Component
         g.drawImage(image, x, y, null);
     }
 
+    @Override
     public void click()
     {
         //state = isPressed() ? STATE_NORMAL : STATE_PRESSED;
     }
 
+    @Override
     public void press()
     {
         state = STATE_PRESSED;
     }
 
+    @Override
     public void release()
     {
         state = STATE_NORMAL;
     }
 
+    @Override
     public void releaseClick()
     {
         // Nothing

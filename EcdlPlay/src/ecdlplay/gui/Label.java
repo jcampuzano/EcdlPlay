@@ -29,6 +29,7 @@ public class Label extends Component
         this(id, x, y, normal.getWidth(null), normal.getHeight(null), normal);
     }
 
+    @Override
     public void paint(Graphics g)
     {
         // Clip and Paint
@@ -36,21 +37,25 @@ public class Label extends Component
         g.drawImage(normal, x, y, null);
     }
 
+    @Override
     public void click()
     {
         state = STATE_NORMAL;
     }
 
+    @Override
     public void press()
     {
         state = STATE_NORMAL;
     }
 
+    @Override
     public void release()
     {
         state = STATE_NORMAL;
     }
 
+    @Override
     public void releaseClick()
     {
         state = STATE_NORMAL;
