@@ -30,10 +30,10 @@ public class TFont {
     public static final int BOTTOM = 32;
     public static final int BASELINE = 64;
     public static final int JUSTIFY = 128;
-    private static final int TYPE_NORMAL = 0;
-    private static final int TYPE_ITALIC = 1;
-    private static final int TYPE_SUPERSCRIPT = 2;
-    private static final int TYPE_SUBSCRIPT = 3;
+    public static final int TYPE_NORMAL = 0;
+    public static final int TYPE_ITALIC = 1;
+    public static final int TYPE_SUPERSCRIPT = 2;
+    public static final int TYPE_SUBSCRIPT = 3;
     private Font fonts[];
     private FontMetrics metrics[];
     private int fontColor;
@@ -47,15 +47,15 @@ public class TFont {
     public TFont(String filename, int size, int style, int fontColor) {
         try {
             // Create Base Font
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File(GameCanvas.RES_PATH + filename));
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File(GameCanvasConstants.RES_PATH + filename));
             // Create array for derive fonts
             fonts = new Font[4];
 
             // Derive Fonts
-            fonts[0] = font.deriveFont(style, size);
-            fonts[1] = font.deriveFont(Font.ITALIC, size);
-            fonts[2] = font.deriveFont(style, (size * 2) / 3);
-            fonts[3] = font.deriveFont(style, (size * 2) / 3);
+            fonts[TYPE_NORMAL] = font.deriveFont(style, size);
+            fonts[TYPE_ITALIC] = font.deriveFont(Font.ITALIC, size);
+            fonts[TYPE_SUPERSCRIPT] = font.deriveFont(style, (size * 2) / 3);
+            fonts[TYPE_SUBSCRIPT] = font.deriveFont(style, (size * 2) / 3);
 
             this.fontColor = fontColor;
             this.fontSize = size;
@@ -514,8 +514,8 @@ public class TFont {
 
         // Create Array Result
         SliceString[] slicesArray = new SliceString[slices.size()];
-        
-        for(int i = 0; i< slices.size(); i++){
+
+        for (int i = 0; i < slices.size(); i++) {
             slicesArray[i] = slices.get(i);
         }
 
@@ -548,5 +548,9 @@ public class TFont {
             this.text = text;
             this.typeFont = typeFont;
         }
+    }
+
+    public Font getFont(int fontType) {
+        return fonts[fontType];
     }
 }

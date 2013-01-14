@@ -50,12 +50,17 @@ public class GameData {
             }
         }
 
-        for (Question q : m.getPreguntas()) {
+        for (Question q : m.getQuestions()) {
             if (q.getDificultad() == difficult) {
                 qs.add(q);
             }
         }
 
         return qs;
+    }
+    
+    
+    public ArrayList<Module> getModules(){
+        return this.modulos;
     }
 }

@@ -17,25 +17,13 @@ import java.io.File;
 public class ImageLoader {
 
     public static Image loadImageJAR(String filename) {
-        return ImageLoader.loadImageJAR(filename, null);
-    }
-
-    public static Image loadImageJAR(String filename, String theme) {
+        
         EcdlPlayWindow instance = EcdlPlayWindow.getInstance();
         // Create ToolKit
         Toolkit toolkit = instance.getToolkit();
         // Create Base Path
-        String path = GameCanvas.RES_PATH + filename;
-        // Check Theme
-        if (theme != null) {
-            // Create File Theme
-            File file = new File(GameCanvas.RES_PATH + "/" + theme + "/" + filename);
-            // Check theme
-            if (file.exists()) {
-                path = GameCanvas.RES_PATH + "/" + theme + "/" + filename;
-            }
-        }
-
+        String path = GameCanvasConstants.RES_PATH + filename;
+        
         // Force to load now
         MediaTracker mtracker = new MediaTracker(instance);
         Image image = toolkit.createImage(path);

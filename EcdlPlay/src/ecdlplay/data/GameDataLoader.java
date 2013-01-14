@@ -5,7 +5,7 @@
 package ecdlplay.data;
 
 import ecdlplay.domain.*;
-import ecdlplay.gui.GameCanvas;
+import ecdlplay.gui.GameCanvasConstants;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -62,7 +62,7 @@ public class GameDataLoader {
         // Create New Game Data
         gd = new GameData();
         // Get Document
-        Document doc = loadXML(GameCanvas.RES_PATH + "data.xml");
+        Document doc = loadXML(GameCanvasConstants.RES_PATH + "datos.xml");
         
         // Load Questions
         loadModules(gd, doc);
@@ -115,8 +115,8 @@ public class GameDataLoader {
                 String descripcion = getTagValue("descripcion", e);
                 
                 m.setId(id);
-                m.setNombre(nombre);
-                m.setDescripcion(descripcion);
+                m.setName(nombre);
+                m.setDescription(descripcion);
                 
                 loadQuestions(gd, e, m);
             }
@@ -132,7 +132,7 @@ public class GameDataLoader {
                 Element e = (Element)nodo;
                 
                 Question q = new Question();
-                m.addPregunta(q);
+                m.addQuestion(q);
                 
                 String texto = getTagValue("texto", elem);
                 String imagen = getTagValue("imagen", elem);

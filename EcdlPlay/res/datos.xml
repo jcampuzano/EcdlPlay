@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecdlplay>
   <modulo>
+    <id>1</id>
     <nombre>Módulo 1</nombre>
     <descripcion>Conceptos básicos sobre las tecnologías de la informacion (TI)</descripcion>
     <preguntas>
@@ -17,31 +18,37 @@
     </preguntas>
   </modulo>
   <modulo>
+    <id>2</id>
     <nombre>Módulo 2</nombre>
     <descripcion>Uso del ordenador y gestión de ficheros</descripcion>
     <preguntas/>
   </modulo>
   <modulo>
+    <id>3</id>
     <nombre>Módulo 3</nombre>
     <descripcion>Procesador de textos</descripcion>
     <preguntas/>
   </modulo>
   <modulo>
+    <id>4</id>
     <nombre>Módulo 4</nombre>
     <descripcion>Hojas de cálculo</descripcion>
     <preguntas/>
   </modulo>
   <modulo>
+    <id>5</id>
     <nombre>Módulo 5</nombre>
     <descripcion>Bases de datos</descripcion>
     <preguntas/>
   </modulo>
   <modulo>
+    <id>6</id>
     <nombre>Módulo 6</nombre>
     <descripcion>Presentaciones</descripcion>
     <preguntas/>
   </modulo>
   <modulo>
+    <id>7</id>
     <nombre>Módulo 7</nombre>
     <descripcion>Información y Comunicación</descripcion>
     <preguntas/>

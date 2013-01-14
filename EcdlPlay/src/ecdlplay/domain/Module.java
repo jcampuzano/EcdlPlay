@@ -11,61 +11,48 @@ import java.util.Collections;
  *
  * @author julio
  */
-public class Module {
+public class Module extends Entity {
 
-    private int id;
-    private String nombre;
-    private String descripcion;
+    private String name;
+    private ArrayList<Question> questions;
 
-    private ArrayList<Question> preguntas;
-
-    public Module(int id, String nombre, String descripcion, ArrayList<Question> preguntas) {
-        this.id = id;
-        this.nombre = nombre;
-        this.preguntas = preguntas;
+    public Module(int id, String name, String description, ArrayList<Question> questions) {
+        super(id, description);
+        this.name = name;
+        this.questions = questions;
     }
 
     public Module() {
-        this.preguntas = new ArrayList<Question>();
+        this.questions = new ArrayList<Question>();
     }
 
-    public int getId() {
-        return id;
+
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public ArrayList<Question> getQuestions() {
+        return questions;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-    
-    public void setDescripcion(String descripcion) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-    
-    public ArrayList<Question> getPreguntas() {
-        return preguntas;
-    }
-
-    public void setPreguntas(ArrayList<Question> preguntas) {
-        this.preguntas = preguntas;
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
     }
 
     public void shuffleQuestions() {
-        Collections.shuffle(preguntas);
+        Collections.shuffle(questions);
+    }
+
+    public void addQuestion(Question question) {
+        this.questions.add(question);
     }
     
-    public void addPregunta(Question pregunta){
-        this.preguntas.add(pregunta);
+    @Override
+    public String toString(){
+        return this.getName() + " - " + this.getDescription();
     }
 }
