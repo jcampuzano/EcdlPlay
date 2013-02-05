@@ -2,6 +2,32 @@
 <div class="editar">
     <h2>Lista de Preguntas</h2>
 
+    <div class="div-25">
+        <label>Modulo:</label>
+        <select id="modulo">
+            <option>Modulo1</option>
+            <option>Modulo2</option>
+            <option>Modulo3</option>
+        </select>
+    </div>
+    <div class="div-25">
+        <label>Dificultad:</label>
+        <select id="dificultad">
+            <option>Fácil</option>
+            <option>Medio</option>
+            <option>Difícil</option>
+        </select>
+    </div>
+    <div class="div-25">
+        <label>Texto:</label>
+        <input type="text" id="texto"/>
+    </div>
+
+    <div  class="div-25">
+        <input type="submit" value="Buscar"/>
+    </div>
+
+
     <table>
         <thead>
             <tr>
@@ -12,11 +38,11 @@
             </tr>    
         </thead>
         <tbody>
-            
+
             <?php foreach ($preguntas as $p) : ?>
                 <tr>
                     <td id="acciones">
-                        <a href="<?php echo url_for('pregunta_edit', $p)?>">
+                        <a href="<?php echo url_for('pregunta_edit', $p) ?>">
                             <img src="/images/edit.png" alt="Editar"/></a> 
                         | 
                         <a href="<?php echo url_for('pregunta_show', $p) ?>">

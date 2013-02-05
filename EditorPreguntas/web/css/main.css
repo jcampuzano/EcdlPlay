@@ -298,3 +298,21 @@ input[type=submit] {
 .divImagen{
     float:left;
 }
+
+.div-25{
+    display: block;
+    float: left;
+    width: 24%;
+}
+.div-25 label{
+    text-align: left;
+    display: inline;
+    width: auto;
+}
+
+.div-25 select{
+    width: 80%;
+}
+.div-25 input{
+    width: 80%;
+}
