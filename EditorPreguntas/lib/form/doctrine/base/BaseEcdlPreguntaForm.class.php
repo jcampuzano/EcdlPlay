@@ -27,7 +27,7 @@ abstract class BaseEcdlPreguntaForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'modulo_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('EcdlModulo'))),
-      'imagen'        => new sfValidatorString(array('max_length' => 255)),
+      'imagen'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'dificultad_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('EcdlDificultad'))),
       'texto'         => new sfValidatorPass(),
       'created_at'    => new sfValidatorDateTime(),

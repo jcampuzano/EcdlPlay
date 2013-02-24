@@ -17,7 +17,7 @@ EcdlPregunta:
   columns:
     id: {type: integer, primary: true, autoincrement: true, unsigned: true }
     modulo_id: {type: integer, notnull: true, unsigned: true }
-    imagen: { type: string(255), notnull: true }
+    imagen: { type: string(255), notnull: false }
     dificultad_id: {type: integer, notnull: true, unsigned: true }
     texto: {type: text, notnull: true }
   relations:

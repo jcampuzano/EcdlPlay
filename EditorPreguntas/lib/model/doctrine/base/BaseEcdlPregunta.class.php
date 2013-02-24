@@ -54,7 +54,7 @@ abstract class BaseEcdlPregunta extends sfDoctrineRecord
              ));
         $this->hasColumn('imagen', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
+             'notnull' => false,
              'length' => 255,
              ));
         $this->hasColumn('dificultad_id', 'integer', null, array(

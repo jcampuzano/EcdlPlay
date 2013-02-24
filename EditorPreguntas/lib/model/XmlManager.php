@@ -26,6 +26,9 @@ class XmlManager {
 
             //if ($preguntas && count($preguntas) > 0) {
                 $mod = $xml->createElement('modulo');
+                
+                $id_mod = $xml->createElement('id', $modulo->getId());
+                $mod->appendChild($id_mod);
 
                 $nombre_mod = $xml->createElement('nombre', $modulo->getNombre());
                 $mod->appendChild($nombre_mod);

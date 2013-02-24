@@ -17,6 +17,7 @@ class xmlActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    set_time_limit(0);
     $xml = XmlManager::getXml();
     $this->getResponse()->setContentType('text/xml');
     header('Content-Disposition: attachment; filename='.basename('datos.xml'));

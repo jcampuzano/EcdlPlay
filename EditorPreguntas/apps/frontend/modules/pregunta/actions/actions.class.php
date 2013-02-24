@@ -18,7 +18,7 @@ class preguntaActions extends sfActions {
     public function executeIndex(sfWebRequest $request) {
         $this->pager = new sfDoctrinePager(
                         "EcdlPregunta",
-                        sfConfig::get("app_max_questions_result"));
+                        30);
 
         $this->pager->setQuery(EcdlPreguntaTable::getInstance()->getPreguntas());
         $this->pager->setPage($request->getParameter('page', 1));

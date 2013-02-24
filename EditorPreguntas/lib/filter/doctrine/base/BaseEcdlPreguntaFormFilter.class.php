@@ -14,7 +14,7 @@ abstract class BaseEcdlPreguntaFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'modulo_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('EcdlModulo'), 'add_empty' => true)),
-      'imagen'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'imagen'        => new sfWidgetFormFilterInput(),
       'dificultad_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('EcdlDificultad'), 'add_empty' => true)),
       'texto'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
