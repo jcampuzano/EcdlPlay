@@ -39,8 +39,7 @@ public class GameEngineConstants {
     public static final int TIME_BREAK = 3000;
     
     // Languages
-    public static final int LANGUAGE_SPANISH = 0;
-    public static final int LANGUAGE_ENGLISH = 1;
+    public static final int DEFAULT_MODULE = 1;
     
     // Board
     public static final int MAX_SQUARES = 70;

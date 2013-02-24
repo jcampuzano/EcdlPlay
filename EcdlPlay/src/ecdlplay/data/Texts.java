@@ -15,21 +15,18 @@ public class Texts
     public static final int TEXT_FAIL   = 1;
     public static final int TEXT_BRAKES = 2;
 
-    public static final String texts[][] =
+    public static final String texts[] =
     {
-        // Spanish
-        {"¡CORRECTO!", "¡INCORRECTO!", "¡JUGADOR %p FRENA!"},
-        // English
-        {"RIGHT!", "FAIL!", "PLAYER %p BRAKES"},
+        "¡CORRECTO!", "¡INCORRECTO!", "¡JUGADOR %p FRENA!"
     };
 
-    public static String getText(int language, int key)
+    public static String getText(int key)
     {
-        return texts[language][key];
+        return texts[key];
     }
 
-    public static String getText(int language, int key, String word)
+    public static String getText(int key, String word)
     {
-        return texts[language][key].replace("%p", word);
+        return texts[key].replace("%p", word);
     }
 }

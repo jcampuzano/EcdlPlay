@@ -135,13 +135,13 @@ public class GameDataLoader {
                 m.addQuestion(q);
                 
                 String texto = getTagValue("texto", elem);
-                String imagen = getTagValue("imagen", elem);
+//                String imagen = getTagValue("imagen", elem);
                 int dificultad = Integer.parseInt(getTagValue("dificultad", elem));
                 
                 q.setTexto(texto);
                 
-                Image img = new Image(imagen);
-                q.setImagen(img);
+//                Image img = new Image(imagen);
+//                q.setImagen(img);
                 
                 q.setDificultad(dificultad);
                 

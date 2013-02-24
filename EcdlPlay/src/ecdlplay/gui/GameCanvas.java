@@ -4,10 +4,7 @@
  */
 package ecdlplay.gui;
 
-import ecdlplay.data.GameData;
-import ecdlplay.data.GameDataLoader;
 import ecdlplay.domain.Answer;
-import ecdlplay.domain.Entity;
 import ecdlplay.domain.GameEngine;
 import ecdlplay.domain.GameEngineConstants;
 import ecdlplay.domain.Player;
@@ -413,15 +410,15 @@ public class GameCanvas {
                 ImageLoader.loadImageJAR("menu_options_players.png")));
         
         // Component Module
-        addComponent(new ComboBox(
-                GameCanvasConstants.COMBO_MODULE,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_X,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_Y,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_HEIGHT,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_WIDTH,
-                GameDataLoader.getLoader().getGameData().getModules(),
-                null,
-                fntModules)); //TODO:
+//        addComponent(new ComboBox(
+//                GameCanvasConstants.COMBO_MODULE,
+//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_X,
+//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_Y,
+//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_HEIGHT,
+//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_WIDTH,
+//                GameDataLoader.getLoader().getGameData().getModules(),
+//                null,
+//                fntModules)); //TODO:
         
         // Component Players
         addComponent(new Checkbox(

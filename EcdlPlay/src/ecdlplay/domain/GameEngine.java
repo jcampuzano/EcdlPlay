@@ -5,8 +5,8 @@
 package ecdlplay.domain;
 
 import ecdlplay.data.*;
+import ecdlplay.gui.CanvasBase;
 import ecdlplay.gui.Component;
-import ecdlplay.gui.GameCanvas;
 import ecdlplay.gui.GameCanvasConstants;
 import ecdlplay.utils.Utils;
 import java.awt.Cursor;
@@ -26,7 +26,7 @@ public class GameEngine extends JPanel implements Runnable {
 
     private int state;
     // GameCanvas
-    private GameCanvas gc;
+    private CanvasBase canvas;
     // Thread
     private Thread thread;
     private boolean running;
@@ -36,7 +36,7 @@ public class GameEngine extends JPanel implements Runnable {
     private long timeFinish;
     private long timeDices;
     // Setup
-    private int language;
+    private int module;
     private int numPlayers;
         
     private Board board;
@@ -56,26 +56,26 @@ public class GameEngine extends JPanel implements Runnable {
     public int playerRouteOffsetX, playerRouteOffsetY;
 
     public GameEngine() {
-        // Create GameCanvas
-        gc = new GameCanvas(this);
-
-        // Load background
-        gc.loadResource(GameCanvasConstants.RES_SPLASH);
-        gc.loadResource(GameCanvasConstants.RES_MAIN_MENU_BACKGROUND);
-
+        
         // Init Default Config
-        language = GameEngineConstants.LANGUAGE_SPANISH;
+        module = GameEngineConstants.DEFAULT_MODULE;
         numPlayers = 2;
 
         // Next State
         timeFinish = System.currentTimeMillis() + GameEngineConstants.SPLASH_DELAY;
         state = GameEngineConstants.STATE_PRE_SPLASH;
 
+        
+        
         // Initialize Thread and Events
         initialize();
     }
 
     private void initialize() {
+        // Create GameCanvas
+        canvas = CanvasBase.getCanvas(this);
+        canvas.loadResources();
+        
         // Add Mouse Pressed
         addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -122,9 +122,9 @@ public class GameEngine extends JPanel implements Runnable {
         gd.shuffleQuestions();
         // Get Questions
         questions = new ArrayList<ArrayList<Question>>();
-        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_EASY, language));
-        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_NORMAL, language));
-        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_HARD, language));
+        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_EASY, module));
+        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_NORMAL, module));
+        questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_HARD, module));
         // Calculate Questions per Square
         maxQuestionsPerSquare = Math.min(
                 questions.get(0).size() / GameEngineConstants.LIMIT_DIFFICULT, 
@@ -254,7 +254,7 @@ public class GameEngine extends JPanel implements Runnable {
         Question actual = board.getSquare(players[turn].getNumSquare()).getQuestion();
 
         // Hide Components
-        gc.setComponentsVisible(false);
+        canvas.setComponentsVisible(false);
 
         // Check Answer
         if (actual.getRespuesta(numAnswer).isCorrecta()) {
@@ -284,7 +284,7 @@ public class GameEngine extends JPanel implements Runnable {
             numAnswer = -1;
             updateAnswersButtons();
             // Show Components
-            gc.setComponentsVisible(true);
+            canvas.setComponentsVisible(true);
 
             // Change State
             state = GameEngineConstants.STATE_GAME_ANSWER;
@@ -383,7 +383,11 @@ public class GameEngine extends JPanel implements Runnable {
 
     private void toGame() {
         // Remove Components
-        gc.removeAllComponents();
+        canvas.removeAllComponents();
+        
+        // Next state
+        state = GameEngineConstants.STATE_GAME_ANSWER;
+        
         // Load Questions
         gd = GameDataLoader.getLoader().getGameData();
         // Prepare Board
@@ -393,46 +397,48 @@ public class GameEngine extends JPanel implements Runnable {
         // Initialize Game
         turn = 0;
         // Load New Resources
-        gc.loadResource(GameCanvasConstants.RES_GAME_BACKGROUND);
-        gc.loadResource(GameCanvasConstants.RES_GAME_BUTTONS);
-        gc.loadResource(GameCanvasConstants.RES_GAME_QUESTION_FONT);
-        gc.loadResource(GameCanvasConstants.RES_GAME_ANSWER_BOX);
-        gc.loadResource(GameCanvasConstants.RES_GAME_DICE);
-        gc.loadResource(GameCanvasConstants.RES_GAME_PLAYERS);
-        gc.loadResource(GameCanvasConstants.RES_GAME_PLAYERS_TURN);
+        canvas = CanvasBase.getCanvas(this);
+        canvas.loadResources();
         // Show Components
-        gc.setComponentsVisible(true);
+        canvas.setComponentsVisible(true);
 
-        // Next state
-        state = GameEngineConstants.STATE_GAME_ANSWER;
     }
 
     private void toOptionsMenu() {
         // Remove Components
-        gc.removeAllComponents();
+        canvas.removeAllComponents();
+        
+        // Next state
+        state = GameEngineConstants.STATE_OPTIONS_MENU;
+        
         // Load New Resources
-        gc.loadResource(GameCanvasConstants.RES_OPTIONS_MENU_BACKGROUND);
-        gc.loadResource(GameCanvasConstants.RES_OPTIONS_MENU_BUTTONS);
-
+        canvas = CanvasBase.getCanvas(this);
+        canvas.loadResources();
+        
+        // Show Components
+        canvas.setComponentsVisible(true);
+        
         // Configure Buttons
         updateLanguageButtons();
         updatePlayersButtons();
 
-        // Next state
-        state = GameEngineConstants.STATE_OPTIONS_MENU;
     }
 
-    private void toMainMenu() {
+    private void toMainMenu() {        
+        
         // Remove Components
-        gc.removeAllComponents();
-        // Load New Resources
-        gc.loadResource(GameCanvasConstants.RES_MAIN_MENU_BACKGROUND);
-        gc.loadResource(GameCanvasConstants.RES_MAIN_MENU_BUTTONS);
-        // Show Components
-        gc.setComponentsVisible(true);
-
+        canvas.removeAllComponents();
+        
         // Next state
         state = GameEngineConstants.STATE_MAIN_MENU;
+        
+        // Load New Resources
+        canvas = CanvasBase.getCanvas(this);
+        canvas.loadResources();
+        
+        // Show Components
+        canvas.setComponentsVisible(true);
+
     }
 
     private void openHelp() {
@@ -449,25 +455,25 @@ public class GameEngine extends JPanel implements Runnable {
 
     private void updateAnswersButtons() {
         // Release All Buttons
-        gc.getComponent(GameCanvasConstants.BUTTON_ANSWER1).release();
-        gc.getComponent(GameCanvasConstants.BUTTON_ANSWER2).release();
-        gc.getComponent(GameCanvasConstants.BUTTON_ANSWER3).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_ANSWER1).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_ANSWER2).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_ANSWER3).release();
 
         // Press Buton Selected
         if (numAnswer != -1) {
-            gc.getComponent(GameCanvasConstants.BUTTON_ANSWER1 + numAnswer).press();
+            canvas.getComponent(GameCanvasConstants.BUTTON_ANSWER1 + numAnswer).press();
         }
     }
 
     private void updatePlayersButtons() {
         // Release All Buttons
-        gc.getComponent(GameCanvasConstants.BUTTON_1PLAYER).release();
-        gc.getComponent(GameCanvasConstants.BUTTON_2PLAYER).release();
-        gc.getComponent(GameCanvasConstants.BUTTON_3PLAYER).release();
-        gc.getComponent(GameCanvasConstants.BUTTON_4PLAYER).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_1PLAYER).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_2PLAYER).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_3PLAYER).release();
+        canvas.getComponent(GameCanvasConstants.BUTTON_4PLAYER).release();
 
         // Press Buton Selected
-        gc.getComponent(GameCanvasConstants.BUTTON_1PLAYER + numPlayers - 1).press();
+        canvas.getComponent(GameCanvasConstants.BUTTON_1PLAYER + numPlayers - 1).press();
     }
 
     private void updateLanguageButtons() {
@@ -485,7 +491,7 @@ public class GameEngine extends JPanel implements Runnable {
 
     private void panelMouseMoved(MouseEvent evt) {
         // Get Component
-        Component c = gc.getComponent(evt.getX(), evt.getY());
+        Component c = canvas.getComponent(evt.getX(), evt.getY());
 
         // Default Cursor
         Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
@@ -500,15 +506,15 @@ public class GameEngine extends JPanel implements Runnable {
     }
 
     private void panelMousePressed(MouseEvent evt) {
-        gc.mousePressed(evt.getX(), evt.getY());
+        canvas.mousePressed(evt.getX(), evt.getY());
     }
 
     private void panelMouseReleased(MouseEvent evt) {
         // Mouse Released
-        gc.mouseReleased();
+        canvas.mouseReleased();
 
         // Get Clicked
-        Component c = gc.getComponent(evt.getX(), evt.getY());
+        Component c = canvas.getComponent(evt.getX(), evt.getY());
 
         if (c != null) {
             // Get ID
@@ -582,6 +588,9 @@ public class GameEngine extends JPanel implements Runnable {
         if (lastProcessTime >= timeFinish) {
             timeFinish = System.currentTimeMillis() + GameEngineConstants.TIME_SPLASH;
             state = GameEngineConstants.STATE_SPLASH;
+            
+            canvas = CanvasBase.getCanvas(this);
+            canvas.loadResources();
         }
     }
 
@@ -657,45 +666,47 @@ public class GameEngine extends JPanel implements Runnable {
                 processPlayerBrake();
                 break;
         }
+        
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        switch (state) {
-            case GameEngineConstants.STATE_PRE_SPLASH:
-                gc.paintBlack(g);
-                break;
-            case GameEngineConstants.STATE_SPLASH:
-                gc.paintSplash(g, timeFinish - System.currentTimeMillis());
-                break;
-            case GameEngineConstants.STATE_MAIN_MENU:
-            case GameEngineConstants.STATE_OPTIONS_MENU:
-                gc.paintMainMenu(g);
-                break;
-            case GameEngineConstants.STATE_GAME:
-            case GameEngineConstants.STATE_GAME_ANSWER:
-                gc.paintGame(g, players);
-                gc.paintQuestion(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getTexto());
-                gc.paintAnswers(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas());
-                break;
-            case GameEngineConstants.STATE_GAME_ANSWER_OK:
-                gc.paintGame(g, players);
-                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_RIGHT));
-                break;
-            case GameEngineConstants.STATE_GAME_ANSWER_FAIL:
-                gc.paintGame(g, players);
-                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_FAIL));
-                break;
-            case GameEngineConstants.STATE_GAME_BRAKE:
-                gc.paintGame(g, players);
-                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_BRAKES, String.valueOf(turn + 1)));
-                break;
-            case GameEngineConstants.STATE_GAME_DICES:
-            case GameEngineConstants.STATE_GAME_MOVING:
-                gc.paintGame(g, players);
-                gc.paintDice(g, numDice);
-                break;
-        }
+//        switch (state) {
+//            case GameEngineConstants.STATE_PRE_SPLASH:
+//                gc.paintBlack(g);
+//                break;
+//            case GameEngineConstants.STATE_SPLASH:
+//                gc.paintSplash(g, timeFinish - System.currentTimeMillis());
+//                break;
+//            case GameEngineConstants.STATE_MAIN_MENU:
+//            case GameEngineConstants.STATE_OPTIONS_MENU:
+//                gc.paintMainMenu(g);
+//                break;
+//            case GameEngineConstants.STATE_GAME:
+//            case GameEngineConstants.STATE_GAME_ANSWER:
+//                gc.paintGame(g, players);
+//                gc.paintQuestion(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getTexto());
+//                gc.paintAnswers(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas());
+//                break;
+//            case GameEngineConstants.STATE_GAME_ANSWER_OK:
+//                gc.paintGame(g, players);
+//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_RIGHT));
+//                break;
+//            case GameEngineConstants.STATE_GAME_ANSWER_FAIL:
+//                gc.paintGame(g, players);
+//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_FAIL));
+//                break;
+//            case GameEngineConstants.STATE_GAME_BRAKE:
+//                gc.paintGame(g, players);
+//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_BRAKES, String.valueOf(turn + 1)));
+//                break;
+//            case GameEngineConstants.STATE_GAME_DICES:
+//            case GameEngineConstants.STATE_GAME_MOVING:
+//                gc.paintGame(g, players);
+//                gc.paintDice(g, numDice);
+//                break;
+//        }
+        canvas.paint(g);
     }
 
     private void sleep(int ms) {
@@ -728,5 +739,21 @@ public class GameEngine extends JPanel implements Runnable {
                 sleep(5);
             }
         }
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public int getNumDice() {
+        return numDice;
+    }
+
+    public String getQuestion() {
+        return board.getSquare(players[turn].getNumSquare()).getQuestion().getTexto();
+    }
+
+    public ArrayList<Answer> getAnswers() {
+        return board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas();
     }
 }
