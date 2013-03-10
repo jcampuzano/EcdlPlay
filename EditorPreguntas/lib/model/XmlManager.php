@@ -99,6 +99,11 @@ class XmlManager {
 
             $preg->appendChild($imagen);
         }
+        else{
+            $imagen = $xml->createElement('imagen');
+            
+            $preg->appendChild($imagen);
+        }
     }
 
 }
