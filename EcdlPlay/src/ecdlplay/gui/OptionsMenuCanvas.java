@@ -5,7 +5,10 @@
 package ecdlplay.gui;
 
 import ecdlplay.domain.GameEngine;
+import ecdlplay.domain.Module;
+import ecdlplay.data.GameDataLoader;
 import ecdlplay.utils.ImageLoader;
+import java.awt.Font;
 import java.awt.Graphics;
 
 /**
@@ -14,45 +17,64 @@ import java.awt.Graphics;
  */
 public class OptionsMenuCanvas extends CanvasBase {
 
-    public OptionsMenuCanvas(GameEngine ge){
+    private TFont fontModule;
+
+    public OptionsMenuCanvas(GameEngine ge) {
         super(ge);
     }
-    
+
     @Override
     public void loadResources() {
         setBackground(ImageLoader.loadImageJAR("options_background.png"));
+
         
-        // Component Back
-        addComponent(new Button(
-                GameCanvasConstants.BUTTON_BACK,
-                GameCanvasConstants.OPTIONS_MENU_BUTTON_BACK_X,
-                GameCanvasConstants.OPTIONS_MENU_BUTTON_BACK_Y,
-                ImageLoader.loadImageJAR("menu_button_back_1.png"),
-                ImageLoader.loadImageJAR("menu_button_back_2.png")));
-        // Component Module Label
-        addComponent(new Label(
-                -1,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_X,
-                GameCanvasConstants.OPTIONS_MENU_MODULE_Y,
-                ImageLoader.loadImageJAR("menu_options_module.png")));
+        loadModules();
+        
+        loadPlayers();
+        loadButtons();
+
+        // Load module font
+        fontModule = new TFont("futura.ttf", 18, Font.BOLD, 0xFFFFFF);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        paintBackground(g);
+        paintComponents(g);
+
+        paintModules(g);
+    }
+
+    private void paintModules(Graphics g) {
+        resetClip(g);
+
+        
+        int actualY = GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_X;
+
+        for (Module module : GameDataLoader.getLoader().getGameData().getModules()) {
+
+
+            fontModule.drawString(g, module.getName(),
+                    GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_X,
+                    actualY,
+                    GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_WIDTH,
+                    GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_HEIGHT,
+                    TFont.JUSTIFY | TFont.TOP);
+            
+            actualY += 40;
+            
+        }
+
+    }
+
+    private void loadPlayers() {
         // Component Players Label
         addComponent(new Label(
                 -1,
                 GameCanvasConstants.OPTIONS_MENU_PLAYERS_X,
                 GameCanvasConstants.OPTIONS_MENU_PLAYERS_Y,
                 ImageLoader.loadImageJAR("menu_options_players.png")));
-        
-        // Component Module
-//        addComponent(new ComboBox(
-//                GameCanvasConstants.COMBO_MODULE,
-//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_X,
-//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_Y,
-//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_HEIGHT,
-//                GameCanvasConstants.OPTIONS_MENU_MODULE_COMBO_WIDTH,
-//                GameDataLoader.getLoader().getGameData().getModules(),
-//                null,
-//                fntModules)); //TODO:
-        
+
         // Component Players
         addComponent(new Checkbox(
                 GameCanvasConstants.BUTTON_1PLAYER,
@@ -78,6 +100,46 @@ public class OptionsMenuCanvas extends CanvasBase {
                 GameCanvasConstants.OPTIONS_MENU_4PLAYER_Y,
                 ImageLoader.loadImageJAR("menu_options_4p_1.png"),
                 ImageLoader.loadImageJAR("menu_options_4p_2.png")));
+    }
+
+    private void loadModules() {
+        
+        // Component Module Label
+        addComponent(new Label(
+                -1,
+                GameCanvasConstants.OPTIONS_MENU_MODULE_X,
+                GameCanvasConstants.OPTIONS_MENU_MODULE_Y,
+                ImageLoader.loadImageJAR("menu_options_module.png")));
+        
+        
+        Module moduleSelected = super.gameEngine.getModule();
+        
+        int actualId = GameCanvasConstants.BUTTON_FIRST_MODULE;
+        int actualY = GameCanvasConstants.OPTIONS_MENU_MODULE_BUTTONS_Y;
+
+        for (Module module : GameDataLoader.getLoader().getGameData().getModules()) {
+            // Component Answers
+            addComponent(new Checkbox(
+                    actualId,
+                    GameCanvasConstants.OPTIONS_MENU_MODULE_BUTTONS_X,
+                    actualY,
+                    ImageLoader.loadImageJAR("game_answerbox_1.png"),
+                    ImageLoader.loadImageJAR("game_answerbox_2.png")));     
+            
+            actualId++;
+            actualY += 40;
+        }
+    }
+
+    private void loadButtons() {
+        // Component Back
+        addComponent(new Button(
+                GameCanvasConstants.BUTTON_BACK,
+                GameCanvasConstants.OPTIONS_MENU_BUTTON_BACK_X,
+                GameCanvasConstants.OPTIONS_MENU_BUTTON_BACK_Y,
+                ImageLoader.loadImageJAR("menu_button_back_1.png"),
+                ImageLoader.loadImageJAR("menu_button_back_2.png")));
+        
         // Component Help
         addComponent(new Button(
                 GameCanvasConstants.BUTTON_HELP,
@@ -86,11 +148,4 @@ public class OptionsMenuCanvas extends CanvasBase {
                 ImageLoader.loadImageJAR("menu_button_help.png"),
                 ImageLoader.loadImageJAR("menu_button_help.png")));
     }
-
-    @Override
-    public void paint(Graphics g) {
-        paintBackground(g);
-        paintComponents(g);
-    }
-    
 }

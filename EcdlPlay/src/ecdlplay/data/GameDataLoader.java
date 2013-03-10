@@ -69,10 +69,14 @@ public class GameDataLoader {
     }
 
     private String getTagValue(String sTag, Element eElement) {
-        NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
-        Node nValue = (Node) nlList.item(0);
+        NodeList elementsByTagName = eElement.getElementsByTagName(sTag);
+        if (elementsByTagName != null && elementsByTagName.getLength() > 0){
+            NodeList nlList = elementsByTagName.item(0).getChildNodes();
+            Node nValue = (Node) nlList.item(0);
 
-        return nValue.getNodeValue();
+            return nValue.getNodeValue();
+        } 
+        return "";
     }
 
     private Document loadXML(String filename) {
@@ -134,14 +138,16 @@ public class GameDataLoader {
                 Question q = new Question();
                 m.addQuestion(q);
                 
-                String texto = getTagValue("texto", elem);
-//                String imagen = getTagValue("imagen", elem);
-                int dificultad = Integer.parseInt(getTagValue("dificultad", elem));
+                String texto = getTagValue("texto", e);
+                String imagen = getTagValue("imagen", e);
+                int dificultad = Integer.parseInt(getTagValue("dificultad", e));
                 
                 q.setTexto(texto);
                 
-//                Image img = new Image(imagen);
-//                q.setImagen(img);
+                if (imagen != null && !imagen.equals("")){
+                    Image img = new Image(imagen);
+                    q.setImagen(img);
+                }
                 
                 q.setDificultad(dificultad);
                 

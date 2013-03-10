@@ -419,7 +419,7 @@ public class GameEngine extends JPanel implements Runnable {
         canvas.setComponentsVisible(true);
         
         // Configure Buttons
-        updateLanguageButtons();
+        updateMenuButtons();
         updatePlayersButtons();
 
     }
@@ -476,17 +476,16 @@ public class GameEngine extends JPanel implements Runnable {
         canvas.getComponent(GameCanvasConstants.BUTTON_1PLAYER + numPlayers - 1).press();
     }
 
-    private void updateLanguageButtons() {
+    private void updateMenuButtons() {
+        
         // Release All Buttons
-//        gc.getComponent(GameCanvasConstants.COMBO_MODULE).release();
-//        
-//        if (language == GameEngineConstants.LANGUAGE_SPANISH) {
-//            // Select Button
-//            gc.getComponent(GameCanvasConstants.COMBO_MODULE).press();            
-//        } else {
-//            // Select Button
-//            
-//        }
+        int firstButton = GameCanvasConstants.BUTTON_FIRST_MODULE;
+        int numModules = GameDataLoader.getLoader().getGameData().getModules().size();
+        for (int i = 0; i < numModules; i++){
+            canvas.getComponent(firstButton + i).release();
+        }
+        
+        canvas.getComponent(firstButton + module - 1).press();
     }
 
     private void panelMouseMoved(MouseEvent evt) {
@@ -641,6 +640,12 @@ public class GameEngine extends JPanel implements Runnable {
 
                 checkAnswer();
                 break;
+            default:
+                if (id >= GameCanvasConstants.BUTTON_FIRST_MODULE)
+                {
+                    module = id - GameCanvasConstants.BUTTON_FIRST_MODULE + 1;
+                    updateMenuButtons();
+                }
         }
     }
 
@@ -671,41 +676,6 @@ public class GameEngine extends JPanel implements Runnable {
 
     @Override
     public void paintComponent(Graphics g) {
-//        switch (state) {
-//            case GameEngineConstants.STATE_PRE_SPLASH:
-//                gc.paintBlack(g);
-//                break;
-//            case GameEngineConstants.STATE_SPLASH:
-//                gc.paintSplash(g, timeFinish - System.currentTimeMillis());
-//                break;
-//            case GameEngineConstants.STATE_MAIN_MENU:
-//            case GameEngineConstants.STATE_OPTIONS_MENU:
-//                gc.paintMainMenu(g);
-//                break;
-//            case GameEngineConstants.STATE_GAME:
-//            case GameEngineConstants.STATE_GAME_ANSWER:
-//                gc.paintGame(g, players);
-//                gc.paintQuestion(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getTexto());
-//                gc.paintAnswers(g, board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas());
-//                break;
-//            case GameEngineConstants.STATE_GAME_ANSWER_OK:
-//                gc.paintGame(g, players);
-//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_RIGHT));
-//                break;
-//            case GameEngineConstants.STATE_GAME_ANSWER_FAIL:
-//                gc.paintGame(g, players);
-//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_FAIL));
-//                break;
-//            case GameEngineConstants.STATE_GAME_BRAKE:
-//                gc.paintGame(g, players);
-//                gc.paintQuestion(g, Texts.getText(language, Texts.TEXT_BRAKES, String.valueOf(turn + 1)));
-//                break;
-//            case GameEngineConstants.STATE_GAME_DICES:
-//            case GameEngineConstants.STATE_GAME_MOVING:
-//                gc.paintGame(g, players);
-//                gc.paintDice(g, numDice);
-//                break;
-//        }
         canvas.paint(g);
     }
 
@@ -755,5 +725,14 @@ public class GameEngine extends JPanel implements Runnable {
 
     public ArrayList<Answer> getAnswers() {
         return board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas();
+    }
+
+    public Module getModule() {
+        for(Module moduleAux : GameDataLoader.getLoader().getGameData().getModules()){
+            if (moduleAux.getId() == this.module){
+                return moduleAux;
+            }
+        }
+        return null;
     }
 }

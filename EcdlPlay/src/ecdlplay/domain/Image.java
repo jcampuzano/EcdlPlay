@@ -23,8 +23,10 @@ public class Image {
     }
 
     public Image(String imagen) {
-        byte[] imagenAux = ConvertStringBase64ToByteArray(imagen);
-        this.imagen = imagenAux;
+        if (imagen != null && !imagen.equals("")) {
+            byte[] imagenAux = ConvertStringBase64ToByteArray(imagen);
+            this.imagen = imagenAux;
+        }
     }
 
     public byte[] getImagen() {
@@ -34,8 +36,7 @@ public class Image {
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
-  
-    
+
     private byte[] ConvertStringBase64ToByteArray(String imagen) {
         try {
             BASE64Decoder decoder = new BASE64Decoder();

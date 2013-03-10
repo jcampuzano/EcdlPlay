@@ -26,24 +26,26 @@ public class GameCanvasConstants {
     // Options Menu
     public static final int OPTIONS_MENU_BUTTON_BACK_X = 429;
     public static final int OPTIONS_MENU_BUTTON_BACK_Y = 578;
+    
     public static final int OPTIONS_MENU_MODULE_X = 168;
-    public static final int OPTIONS_MENU_MODULE_Y = 200;
-    public static final int OPTIONS_MENU_MODULE_COMBO_X = 203;
-    public static final int OPTIONS_MENU_MODULE_COMBO_Y = 302;
-    public static final int OPTIONS_MENU_MODULE_COMBO_WIDTH = 203;
-    public static final int OPTIONS_MENU_MODULE_COMBO_HEIGHT = 30;
-    public static final int OPTIONS_MENU_ENGLISH_X = 275;
-    public static final int OPTIONS_MENU_ENGLISH_Y = 316;
+    public static final int OPTIONS_MENU_MODULE_Y = 110;
+    public static final int OPTIONS_MENU_MODULE_BUTTONS_X = 125;
+    public static final int OPTIONS_MENU_MODULE_BUTTONS_Y = 195;
+    public static final int OPTIONS_MENU_MODULE_BOX_X = 203;
+    public static final int OPTIONS_MENU_MODULE_BOX_Y = 302;
+    public static final int OPTIONS_MENU_MODULE_BOX_WIDTH = 203;
+    public static final int OPTIONS_MENU_MODULE_BOX_HEIGHT = 30;
+    
     public static final int OPTIONS_MENU_PLAYERS_X = 522;
-    public static final int OPTIONS_MENU_PLAYERS_Y = 199;
+    public static final int OPTIONS_MENU_PLAYERS_Y = 110;
     public static final int OPTIONS_MENU_1PLAYER_X = 490;
-    public static final int OPTIONS_MENU_1PLAYER_Y = 302;
+    public static final int OPTIONS_MENU_1PLAYER_Y = 212;
     public static final int OPTIONS_MENU_2PLAYER_X = 562;
-    public static final int OPTIONS_MENU_2PLAYER_Y = 316;
+    public static final int OPTIONS_MENU_2PLAYER_Y = 226;
     public static final int OPTIONS_MENU_3PLAYER_X = 635;
-    public static final int OPTIONS_MENU_3PLAYER_Y = 302;
+    public static final int OPTIONS_MENU_3PLAYER_Y = 212;
     public static final int OPTIONS_MENU_4PLAYER_X = 707;
-    public static final int OPTIONS_MENU_4PLAYER_Y = 316;
+    public static final int OPTIONS_MENU_4PLAYER_Y = 226;
     // Game
     public static final int GAME_BUTTON_BACK_X = 850;
     public static final int GAME_BUTTON_BACK_Y = 487;
@@ -123,8 +125,7 @@ public class GameCanvasConstants {
     public static final int BUTTON_ANSWER2 = 9;
     public static final int BUTTON_ANSWER3 = 10;
     public static final int BUTTON_HELP = 11;
+    public static final int BUTTON_FIRST_MODULE = 12;
     
-    //ComboBox
-    public static final int COMBO_MODULE = 12;
 
 }

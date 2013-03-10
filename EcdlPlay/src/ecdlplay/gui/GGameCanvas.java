@@ -40,6 +40,8 @@ public class GGameCanvas extends CanvasBase{
         loadFonts();
         loadDice();
         loadPlayers();
+        loadGameButtons();
+        loadAnswerComponents();
     }
 
     private void loadFonts() {
@@ -67,7 +69,45 @@ public class GGameCanvas extends CanvasBase{
         playerBright = ImageLoader.loadImageJAR("game_player_bright.png");
         playerTurnBright = ImageLoader.loadImageJAR("game_player_turn_bright.png");
     }
-
+    
+    private void loadGameButtons() {
+        // Component Back
+        addComponent(new Button(
+                GameCanvasConstants.BUTTON_BACK,
+                GameCanvasConstants.GAME_BUTTON_BACK_X,
+                GameCanvasConstants.GAME_BUTTON_BACK_Y,
+                ImageLoader.loadImageJAR("menu_button_back_1.png"),
+                ImageLoader.loadImageJAR("menu_button_back_2.png")));
+        // Component Help
+        addComponent(new Button(
+                GameCanvasConstants.BUTTON_HELP,
+                GameCanvasConstants.MAIN_MENU_BUTTON_HELP_X,
+                GameCanvasConstants.MAIN_MENU_BUTTON_HELP_Y,
+                ImageLoader.loadImageJAR("menu_button_help.png"),
+                ImageLoader.loadImageJAR("menu_button_help.png")));
+    }
+    
+    private void loadAnswerComponents() {
+        // Component Answers
+        addComponent(new Checkbox(
+                GameCanvasConstants.BUTTON_ANSWER1,
+                GameCanvasConstants.ANSWER1_X,
+                GameCanvasConstants.ANSWER1_Y,
+                ImageLoader.loadImageJAR("game_answerbox_1.png"),
+                ImageLoader.loadImageJAR("game_answerbox_2.png")));
+        addComponent(new Checkbox(
+                GameCanvasConstants.BUTTON_ANSWER2,
+                GameCanvasConstants.ANSWER2_X,
+                GameCanvasConstants.ANSWER2_Y,
+                ImageLoader.loadImageJAR("game_answerbox_1.png"),
+                ImageLoader.loadImageJAR("game_answerbox_2.png")));
+        addComponent(new Checkbox(
+                GameCanvasConstants.BUTTON_ANSWER3,
+                GameCanvasConstants.ANSWER3_X,
+                GameCanvasConstants.ANSWER3_Y,
+                ImageLoader.loadImageJAR("game_answerbox_1.png"),
+                ImageLoader.loadImageJAR("game_answerbox_2.png")));
+    }
     
     @Override
     public void paint(Graphics g) {
