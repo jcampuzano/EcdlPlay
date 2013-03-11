@@ -147,4 +147,5 @@ public abstract class CanvasBase {
                 return new GGameCanvas(ge);
         }
     }
+    
 }

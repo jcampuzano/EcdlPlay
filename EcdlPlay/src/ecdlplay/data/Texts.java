@@ -14,10 +14,11 @@ public class Texts
     public static final int TEXT_RIGHT  = 0;
     public static final int TEXT_FAIL   = 1;
     public static final int TEXT_BRAKES = 2;
+    public static final int TEXT_WIN = 3;
 
     public static final String texts[] =
     {
-        "¡CORRECTO!", "¡INCORRECTO!", "¡JUGADOR %p FRENA!"
+        "¡CORRECTO!", "¡INCORRECTO!", "¡JUGADOR %p FRENA!", "¡JUGADOR %p GANA!"
     };
 
     public static String getText(int key)

@@ -9,6 +9,7 @@ import ecdlplay.domain.Answer;
 import ecdlplay.domain.GameEngine;
 import ecdlplay.domain.GameEngineConstants;
 import ecdlplay.domain.Player;
+import ecdlplay.domain.Question;
 import ecdlplay.utils.ImageLoader;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -85,6 +86,8 @@ public class GGameCanvas extends CanvasBase{
                 GameCanvasConstants.MAIN_MENU_BUTTON_HELP_Y,
                 ImageLoader.loadImageJAR("menu_button_help.png"),
                 ImageLoader.loadImageJAR("menu_button_help.png")));
+        
+        
     }
     
     private void loadAnswerComponents() {
@@ -111,29 +114,31 @@ public class GGameCanvas extends CanvasBase{
     
     @Override
     public void paint(Graphics g) {
+        
+        paintGame(g);
+        
         switch(this.gameEngine.getState()){
             case GameEngineConstants.STATE_GAME_ANSWER:
-                paintGame(g);
-                paintMessage(g, gameEngine.getQuestion());
+                paintQuestion(g, gameEngine.getQuestion());
                 paintAnswers(g);
                 break;
             case GameEngineConstants.STATE_GAME_ANSWER_OK:
-                paintGame(g);
                 paintMessage(g, Texts.getText(Texts.TEXT_RIGHT));
                 break;
             case GameEngineConstants.STATE_GAME_ANSWER_FAIL:
-                paintGame(g);
                 paintMessage(g, Texts.getText(Texts.TEXT_FAIL));
                 break;
             case GameEngineConstants.STATE_GAME_BRAKE:
-                paintGame(g);
                 paintMessage(g, Texts.getText(Texts.TEXT_BRAKES, String.valueOf(gameEngine.getTurn() + 1)));
                 break;
             case GameEngineConstants.STATE_GAME_DICES:
             case GameEngineConstants.STATE_GAME_MOVING:
-                paintGame(g);
                 paintDice(g);
                 break; 
+            case GameEngineConstants.STATE_GAME_WIN:
+                paintMessage(g, Texts.getText(Texts.TEXT_WIN, String.valueOf(gameEngine.getTurn() + 1)));
+                break;
+                    
         }
     }
     
@@ -258,6 +263,29 @@ public class GGameCanvas extends CanvasBase{
                 x - (players[player.getNumPlayer()].getWidth(null) >> 1),
                 y - (players[player.getNumPlayer()].getHeight(null) >> 1),
                 null);
+    }
+    
+    private void paintQuestion(Graphics g, Question question){
+        paintMessage(g, question.getTexto());
+        
+        if (question.getImagen() != null && question.getImagen().getImagen() != null){
+            
+            // Show Image Button
+            addComponent(new Button(
+                GameCanvasConstants.BUTTON_SHOW_IMAGE,
+                GameCanvasConstants.GAME_BUTTON_SHOW_IMAGE_X,
+                GameCanvasConstants.GAME_BUTTON_SHOW_IMAGE_Y,                
+                ImageLoader.loadImageJAR("game_lupa.png"),
+                ImageLoader.loadImageJAR("game_lupa.png")));
+            
+            Image image = ImageLoader.loadImage(question.getImagen().getImagen());
+            
+            FloatImage win = FloatImage.getInstance();
+            win.setSize(image.getWidth(null), image.getHeight(null));
+            
+            win.setImage(image);            
+        }
+            
     }
     
     private void paintMessage(Graphics g, String text){

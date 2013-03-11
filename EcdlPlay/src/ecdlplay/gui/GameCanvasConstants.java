@@ -49,6 +49,8 @@ public class GameCanvasConstants {
     // Game
     public static final int GAME_BUTTON_BACK_X = 850;
     public static final int GAME_BUTTON_BACK_Y = 487;
+    public static final int GAME_BUTTON_SHOW_IMAGE_X = 650;
+    public static final int GAME_BUTTON_SHOW_IMAGE_Y = 600;
     // Board
     public static final int SQUARES_COORD[] = {
         //     1,        2,        3,        4,        5,        6,        7,        8,        9,       10,
@@ -125,7 +127,8 @@ public class GameCanvasConstants {
     public static final int BUTTON_ANSWER2 = 9;
     public static final int BUTTON_ANSWER3 = 10;
     public static final int BUTTON_HELP = 11;
-    public static final int BUTTON_FIRST_MODULE = 12;
+    public static final int BUTTON_SHOW_IMAGE = 12;
+    public static final int BUTTON_FIRST_MODULE = 20;
     
 
 }

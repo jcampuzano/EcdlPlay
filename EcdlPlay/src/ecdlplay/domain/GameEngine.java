@@ -7,6 +7,7 @@ package ecdlplay.domain;
 import ecdlplay.data.*;
 import ecdlplay.gui.CanvasBase;
 import ecdlplay.gui.Component;
+import ecdlplay.gui.FloatImage;
 import ecdlplay.gui.GameCanvasConstants;
 import ecdlplay.utils.Utils;
 import java.awt.Cursor;
@@ -292,7 +293,13 @@ public class GameEngine extends JPanel implements Runnable {
     }
 
     private void gameWin() {
-        //toCuriosity();
+        // Remove Components
+        canvas.removeAllComponents();    
+        
+        FloatImage.getInstance().setVisible(false);
+        
+        // New State
+        state = GameEngineConstants.STATE_GAME_WIN;
     }
 
     private void movePlayerNextRoute() {
@@ -602,9 +609,9 @@ public class GameEngine extends JPanel implements Runnable {
             case GameEngineConstants.STATE_GAME_DICES:
                 stopDices();
                 break;
-//            case STATE_CURIOSITY:
-//                toMainMenu();
-//                break;
+            case GameEngineConstants.STATE_GAME_WIN:
+                toMainMenu();
+                break;
         }
     }
 
@@ -635,10 +642,14 @@ public class GameEngine extends JPanel implements Runnable {
             case GameCanvasConstants.BUTTON_ANSWER1:
             case GameCanvasConstants.BUTTON_ANSWER2:
             case GameCanvasConstants.BUTTON_ANSWER3:
+                FloatImage.getInstance().setVisible(false);
                 numAnswer = id - GameCanvasConstants.BUTTON_ANSWER1;
                 updateAnswersButtons();
 
                 checkAnswer();
+                break;
+            case GameCanvasConstants.BUTTON_SHOW_IMAGE:
+                FloatImage.getInstance().setVisible(true);
                 break;
             default:
                 if (id >= GameCanvasConstants.BUTTON_FIRST_MODULE)
@@ -719,8 +730,8 @@ public class GameEngine extends JPanel implements Runnable {
         return numDice;
     }
 
-    public String getQuestion() {
-        return board.getSquare(players[turn].getNumSquare()).getQuestion().getTexto();
+    public Question getQuestion() {
+        return board.getSquare(players[turn].getNumSquare()).getQuestion();
     }
 
     public ArrayList<Answer> getAnswers() {
