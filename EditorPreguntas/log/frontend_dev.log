@@ -259,3 +259,793 @@ Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} Factories 251.01 ms (1)
 Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} Action "home/index" 1.00 ms (1)
 Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 66.00 ms (1)
 Apr 15 15:39:50 symfony [info] {sfWebResponse} Send content (34692 o)
+Apr 15 17:54:55 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Apr 15 17:54:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:54:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:54:55 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Apr 15 17:54:55 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/home/templates/indexSuccess.php"
+Apr 15 17:54:55 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:54:55 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:54:55 symfony [info] {main} Get slot "title"
+Apr 15 17:54:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:54:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:54:55 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 17:54:55 symfony [info] {sfWebDebugLogger} Factories 162.01 ms (1)
+Apr 15 17:54:55 symfony [info] {sfWebDebugLogger} Action "home/index" 0.00 ms (1)
+Apr 15 17:54:55 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 17.00 ms (1)
+Apr 15 17:54:56 symfony [info] {sfWebResponse} Send content (34937 o)
+Apr 15 17:55:16 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:55:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:55:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:55:16 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:55:16 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:55:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:55:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:55:16 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:55:16 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:55:16 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:55:16 symfony [info] {main} Set slot "title"
+Apr 15 17:55:16 symfony [notice] {sfWebDebugLogger}  Notice at C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules\pregunta\templates\indexSuccess.php on line 24 (Undefined property: sfPHPView::$text)
+Apr 15 17:55:16 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:16 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:16 symfony [info] {main} Get slot "title"
+Apr 15 17:55:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:55:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:55:16 symfony [info] {sfWebDebugLogger} Configuration 143.01 ms (10)
+Apr 15 17:55:16 symfony [info] {sfWebDebugLogger} Factories 56.00 ms (1)
+Apr 15 17:55:16 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 88.01 ms (1)
+Apr 15 17:55:16 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:55:16 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 38.00 ms (1)
+Apr 15 17:55:16 symfony [info] {sfWebResponse} Send content (48512 o)
+Apr 15 17:55:54 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:55:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:55:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:55:54 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:55:54 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:55:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:55:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:55:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:55:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:55:54 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:55:54 symfony [info] {main} Set slot "title"
+Apr 15 17:55:54 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:54 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:54 symfony [info] {main} Get slot "title"
+Apr 15 17:55:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:55:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:55:54 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 17:55:54 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 17:55:54 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 76.00 ms (1)
+Apr 15 17:55:54 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:55:54 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 17:55:54 symfony [info] {sfWebResponse} Send content (48391 o)
+Apr 15 17:55:57 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:55:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:55:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:55:57 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:55:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:55:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%asdf%)
+Apr 15 17:55:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) - (%asdf%)
+Apr 15 17:55:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:55:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:55:57 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:55:57 symfony [info] {main} Set slot "title"
+Apr 15 17:55:57 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:57 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:55:57 symfony [info] {main} Get slot "title"
+Apr 15 17:55:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:55:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:55:57 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 17:55:57 symfony [info] {sfWebDebugLogger} Factories 51.00 ms (1)
+Apr 15 17:55:57 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 107.01 ms (1)
+Apr 15 17:55:57 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:55:57 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 12.00 ms (1)
+Apr 15 17:55:57 symfony [info] {sfWebResponse} Send content (48022 o)
+Apr 15 17:56:12 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:56:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:56:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:56:12 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:56:12 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:56:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:56:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:56:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:56:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:56:12 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:56:12 symfony [info] {main} Set slot "title"
+Apr 15 17:56:12 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:12 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:12 symfony [info] {main} Get slot "title"
+Apr 15 17:56:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:56:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:56:12 symfony [info] {sfWebDebugLogger} Configuration 13.00 ms (9)
+Apr 15 17:56:12 symfony [info] {sfWebDebugLogger} Factories 51.00 ms (1)
+Apr 15 17:56:12 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 69.00 ms (1)
+Apr 15 17:56:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:56:12 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 25.00 ms (1)
+Apr 15 17:56:12 symfony [info] {sfWebResponse} Send content (48680 o)
+Apr 15 17:56:16 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:56:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:56:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:56:16 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:56:16 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:56:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%1%)
+Apr 15 17:56:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%1%)
+Apr 15 17:56:16 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:56:16 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:56:16 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:56:16 symfony [info] {main} Set slot "title"
+Apr 15 17:56:16 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:16 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:16 symfony [info] {main} Get slot "title"
+Apr 15 17:56:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:56:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:56:16 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (9)
+Apr 15 17:56:16 symfony [info] {sfWebDebugLogger} Factories 73.00 ms (1)
+Apr 15 17:56:16 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 106.01 ms (1)
+Apr 15 17:56:16 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:56:16 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 19.00 ms (1)
+Apr 15 17:56:16 symfony [info] {sfWebResponse} Send content (48686 o)
+Apr 15 17:56:26 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:56:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:56:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:56:26 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:56:26 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:56:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%2%)
+Apr 15 17:56:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) - (%2%)
+Apr 15 17:56:26 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:56:26 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:56:26 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:56:26 symfony [info] {main} Set slot "title"
+Apr 15 17:56:26 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:26 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:26 symfony [info] {main} Get slot "title"
+Apr 15 17:56:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:56:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:56:26 symfony [info] {sfWebDebugLogger} Configuration 13.00 ms (9)
+Apr 15 17:56:26 symfony [info] {sfWebDebugLogger} Factories 55.00 ms (1)
+Apr 15 17:56:26 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 68.00 ms (1)
+Apr 15 17:56:26 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:56:26 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 17:56:26 symfony [info] {sfWebResponse} Send content (48024 o)
+Apr 15 17:56:29 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:56:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:56:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:56:29 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:56:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:56:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%1%)
+Apr 15 17:56:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%1%)
+Apr 15 17:56:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:56:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:56:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:56:29 symfony [info] {main} Set slot "title"
+Apr 15 17:56:29 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:29 symfony [info] {main} Get slot "title"
+Apr 15 17:56:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:56:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:56:29 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (9)
+Apr 15 17:56:29 symfony [info] {sfWebDebugLogger} Factories 59.00 ms (1)
+Apr 15 17:56:29 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 95.01 ms (1)
+Apr 15 17:56:29 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:56:29 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 17:56:29 symfony [info] {sfWebResponse} Send content (48685 o)
+Apr 15 17:56:33 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:56:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:56:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:56:33 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:56:33 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:56:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%2%)
+Apr 15 17:56:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) - (%2%)
+Apr 15 17:56:33 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:56:33 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:56:33 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:56:33 symfony [info] {main} Set slot "title"
+Apr 15 17:56:33 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:33 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:56:33 symfony [info] {main} Get slot "title"
+Apr 15 17:56:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:56:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:56:33 symfony [info] {sfWebDebugLogger} Configuration 8.00 ms (9)
+Apr 15 17:56:33 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 17:56:33 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 52.00 ms (1)
+Apr 15 17:56:33 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:56:33 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 12.00 ms (1)
+Apr 15 17:56:33 symfony [info] {sfWebResponse} Send content (48023 o)
+Apr 15 17:57:29 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:57:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:57:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:57:29 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:57:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:57:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:57:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:57:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:57:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:57:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:57:29 symfony [info] {main} Set slot "title"
+Apr 15 17:57:29 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:29 symfony [info] {main} Get slot "title"
+Apr 15 17:57:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:57:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:57:29 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (9)
+Apr 15 17:57:29 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 17:57:29 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 292.02 ms (1)
+Apr 15 17:57:29 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:57:29 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 24.00 ms (1)
+Apr 15 17:57:29 symfony [info] {sfWebResponse} Send content (48331 o)
+Apr 15 17:57:33 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:57:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:57:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:57:33 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:57:33 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:57:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:57:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:57:33 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:57:33 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:57:33 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:57:33 symfony [info] {main} Set slot "title"
+Apr 15 17:57:33 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:33 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:33 symfony [info] {main} Get slot "title"
+Apr 15 17:57:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:57:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:57:33 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 17:57:33 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 17:57:33 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 53.00 ms (1)
+Apr 15 17:57:33 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:57:33 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 17:57:33 symfony [info] {sfWebResponse} Send content (48679 o)
+Apr 15 17:57:40 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:57:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:57:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:57:40 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:57:40 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:57:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:57:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:57:40 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:57:40 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:57:40 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:57:40 symfony [info] {main} Set slot "title"
+Apr 15 17:57:40 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:40 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:57:40 symfony [info] {main} Get slot "title"
+Apr 15 17:57:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:57:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:57:40 symfony [info] {sfWebDebugLogger} Configuration 9.00 ms (9)
+Apr 15 17:57:40 symfony [info] {sfWebDebugLogger} Factories 46.00 ms (1)
+Apr 15 17:57:40 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 78.00 ms (1)
+Apr 15 17:57:40 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:57:40 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 13.00 ms (1)
+Apr 15 17:57:40 symfony [info] {sfWebResponse} Send content (48678 o)
+Apr 15 17:58:05 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:58:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:58:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:58:05 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:58:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:58:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:58:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:58:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:58:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:58:05 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:58:05 symfony [info] {main} Set slot "title"
+Apr 15 17:58:05 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:05 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:05 symfony [info] {main} Get slot "title"
+Apr 15 17:58:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:58:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:58:05 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 17:58:05 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 17:58:05 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 50.00 ms (1)
+Apr 15 17:58:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:58:05 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 13.00 ms (1)
+Apr 15 17:58:05 symfony [info] {sfWebResponse} Send content (48679 o)
+Apr 15 17:58:08 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:58:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:58:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:58:08 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:58:08 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:58:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:58:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:58:08 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:58:08 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:58:08 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:58:08 symfony [info] {main} Set slot "title"
+Apr 15 17:58:08 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:08 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:08 symfony [info] {main} Get slot "title"
+Apr 15 17:58:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:58:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:58:08 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 17:58:08 symfony [info] {sfWebDebugLogger} Factories 44.00 ms (1)
+Apr 15 17:58:08 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 70.00 ms (1)
+Apr 15 17:58:08 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:58:08 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 12.00 ms (1)
+Apr 15 17:58:08 symfony [info] {sfWebResponse} Send content (48332 o)
+Apr 15 17:58:13 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:58:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:58:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:58:13 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:58:13 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:58:13 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:58:13 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:58:13 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:58:13 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:58:13 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:58:13 symfony [info] {main} Set slot "title"
+Apr 15 17:58:13 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:13 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:58:13 symfony [info] {main} Get slot "title"
+Apr 15 17:58:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:58:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:58:13 symfony [info] {sfWebDebugLogger} Configuration 7.00 ms (9)
+Apr 15 17:58:13 symfony [info] {sfWebDebugLogger} Factories 43.00 ms (1)
+Apr 15 17:58:13 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 51.00 ms (1)
+Apr 15 17:58:13 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:58:13 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 12.00 ms (1)
+Apr 15 17:58:13 symfony [info] {sfWebResponse} Send content (48678 o)
+Apr 15 17:59:02 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:59:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:59:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:59:02 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:59:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:59:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:59:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:59:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:59:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:59:02 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:59:02 symfony [info] {main} Set slot "title"
+Apr 15 17:59:02 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:02 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:02 symfony [info] {main} Get slot "title"
+Apr 15 17:59:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:59:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:59:02 symfony [info] {sfWebDebugLogger} Configuration 13.00 ms (9)
+Apr 15 17:59:02 symfony [info] {sfWebDebugLogger} Factories 43.00 ms (1)
+Apr 15 17:59:02 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 64.00 ms (1)
+Apr 15 17:59:02 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:59:02 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 13.00 ms (1)
+Apr 15 17:59:02 symfony [info] {sfWebResponse} Send content (48740 o)
+Apr 15 17:59:05 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:59:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:59:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:59:05 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:59:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:59:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:59:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:59:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:59:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:59:05 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:59:05 symfony [info] {main} Set slot "title"
+Apr 15 17:59:05 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:05 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:05 symfony [info] {main} Get slot "title"
+Apr 15 17:59:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:59:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:59:05 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 17:59:05 symfony [info] {sfWebDebugLogger} Factories 60.00 ms (1)
+Apr 15 17:59:05 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 86.00 ms (1)
+Apr 15 17:59:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:59:05 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 17:59:05 symfony [info] {sfWebResponse} Send content (48393 o)
+Apr 15 17:59:06 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:59:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:59:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:59:06 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:59:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:59:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:59:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:59:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:59:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:59:06 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:59:06 symfony [info] {main} Set slot "title"
+Apr 15 17:59:06 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:06 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:07 symfony [info] {main} Get slot "title"
+Apr 15 17:59:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:59:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:59:07 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 17:59:07 symfony [info] {sfWebDebugLogger} Factories 54.00 ms (1)
+Apr 15 17:59:07 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 94.01 ms (1)
+Apr 15 17:59:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:59:07 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 23.00 ms (1)
+Apr 15 17:59:07 symfony [info] {sfWebResponse} Send content (48735 o)
+Apr 15 17:59:21 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:59:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:59:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:59:21 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:59:21 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:59:21 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:59:21 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:59:21 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:59:21 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:59:21 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:59:21 symfony [info] {main} Set slot "title"
+Apr 15 17:59:21 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:21 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:21 symfony [info] {main} Get slot "title"
+Apr 15 17:59:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:59:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:59:21 symfony [info] {sfWebDebugLogger} Configuration 17.00 ms (9)
+Apr 15 17:59:21 symfony [info] {sfWebDebugLogger} Factories 79.01 ms (1)
+Apr 15 17:59:21 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 120.01 ms (1)
+Apr 15 17:59:21 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 17:59:21 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 22.00 ms (1)
+Apr 15 17:59:21 symfony [info] {sfWebResponse} Send content (48756 o)
+Apr 15 17:59:23 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 17:59:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 17:59:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 17:59:23 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 17:59:23 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 17:59:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 17:59:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 17:59:23 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 17:59:23 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 17:59:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 17:59:23 symfony [info] {main} Set slot "title"
+Apr 15 17:59:23 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 17:59:23 symfony [info] {main} Get slot "title"
+Apr 15 17:59:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 17:59:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 17:59:23 symfony [info] {sfWebDebugLogger} Configuration 17.00 ms (9)
+Apr 15 17:59:23 symfony [info] {sfWebDebugLogger} Factories 93.01 ms (1)
+Apr 15 17:59:23 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 123.01 ms (1)
+Apr 15 17:59:23 symfony [info] {sfWebDebugLogger} Database (Doctrine) 1.00 ms (5)
+Apr 15 17:59:23 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 25.00 ms (1)
+Apr 15 17:59:23 symfony [info] {sfWebResponse} Send content (48761 o)
+Apr 15 18:00:17 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:17 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:29 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:29 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:29 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:00:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id   AND e.dificultad_id   GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 18:00:29 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id   AND e.dificultad_id  ) LIMIT 30 - (%%)
+Apr 15 18:00:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:00:29 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:00:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:00:29 symfony [info] {main} Set slot "title"
+Apr 15 18:00:29 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:29 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:29 symfony [info] {main} Get slot "title"
+Apr 15 18:00:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:00:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:00:29 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:00:29 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:00:29 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 82.00 ms (1)
+Apr 15 18:00:29 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:00:29 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 18:00:29 symfony [info] {sfWebResponse} Send content (48605 o)
+Apr 15 18:00:34 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:34 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:34 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:00:34 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = 2 AND e.dificultad_id = 0 GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 18:00:34 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = 2 AND e.dificultad_id = 0) - (%%)
+Apr 15 18:00:34 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:00:34 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:00:34 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:00:34 symfony [info] {main} Set slot "title"
+Apr 15 18:00:34 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:34 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:34 symfony [info] {main} Get slot "title"
+Apr 15 18:00:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:00:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:00:34 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 18:00:34 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:00:34 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 185.01 ms (1)
+Apr 15 18:00:34 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:00:34 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 25.00 ms (1)
+Apr 15 18:00:34 symfony [info] {sfWebResponse} Send content (48276 o)
+Apr 15 18:00:38 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:38 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:00:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = 1 AND e.dificultad_id = 0 GROUP BY e.id) dctrn_count_query - (%2%)
+Apr 15 18:00:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = 1 AND e.dificultad_id = 0) - (%2%)
+Apr 15 18:00:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:00:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:00:38 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:00:38 symfony [info] {main} Set slot "title"
+Apr 15 18:00:38 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:38 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:38 symfony [info] {main} Get slot "title"
+Apr 15 18:00:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:00:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:00:38 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:00:38 symfony [info] {sfWebDebugLogger} Factories 43.00 ms (1)
+Apr 15 18:00:38 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 72.00 ms (1)
+Apr 15 18:00:38 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:00:38 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 18:00:38 symfony [info] {sfWebResponse} Send content (48281 o)
+Apr 15 18:00:43 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:43 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:00:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = 1 AND e.dificultad_id = 0 GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 18:00:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = 1 AND e.dificultad_id = 0) - (%%)
+Apr 15 18:00:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:00:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:00:43 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:00:43 symfony [info] {main} Set slot "title"
+Apr 15 18:00:43 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:43 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:43 symfony [info] {main} Get slot "title"
+Apr 15 18:00:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:00:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:00:43 symfony [info] {sfWebDebugLogger} Configuration 9.00 ms (9)
+Apr 15 18:00:43 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:00:43 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 164.01 ms (1)
+Apr 15 18:00:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:00:43 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 18.00 ms (1)
+Apr 15 18:00:43 symfony [info] {sfWebResponse} Send content (48275 o)
+Apr 15 18:00:47 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:00:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:00:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:00:47 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:00:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:00:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = 0 AND e.dificultad_id = 0 GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 18:00:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = 0 AND e.dificultad_id = 0) - (%%)
+Apr 15 18:00:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:00:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:00:47 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:00:47 symfony [info] {main} Set slot "title"
+Apr 15 18:00:47 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:47 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:00:47 symfony [info] {main} Get slot "title"
+Apr 15 18:00:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:00:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:00:47 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 18:00:47 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 18:00:47 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 124.01 ms (1)
+Apr 15 18:00:47 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:00:47 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 19.00 ms (1)
+Apr 15 18:00:47 symfony [info] {sfWebResponse} Send content (48276 o)
+Apr 15 18:01:23 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:01:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:01:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:01:23 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:01:23 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:01:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%0%, 0, 0)
+Apr 15 18:01:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) - (%0%, 0, 0)
+Apr 15 18:01:23 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:01:23 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:01:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:01:23 symfony [info] {main} Set slot "title"
+Apr 15 18:01:23 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:23 symfony [info] {main} Get slot "title"
+Apr 15 18:01:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:01:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:01:23 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 18:01:23 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:01:23 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 63.00 ms (1)
+Apr 15 18:01:23 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:01:23 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 18:01:23 symfony [info] {sfWebResponse} Send content (48301 o)
+Apr 15 18:01:32 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:01:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:01:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:01:32 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:01:32 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:01:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%Prueba%2%, 1, 1)
+Apr 15 18:01:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) - (%Prueba%2%, 1, 1)
+Apr 15 18:01:32 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:01:32 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:01:32 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:01:32 symfony [info] {main} Set slot "title"
+Apr 15 18:01:32 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:32 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:32 symfony [info] {main} Get slot "title"
+Apr 15 18:01:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:01:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:01:32 symfony [info] {sfWebDebugLogger} Configuration 9.00 ms (9)
+Apr 15 18:01:32 symfony [info] {sfWebDebugLogger} Factories 40.00 ms (1)
+Apr 15 18:01:32 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 121.01 ms (1)
+Apr 15 18:01:32 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:01:32 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 18:01:32 symfony [info] {sfWebResponse} Send content (48343 o)
+Apr 15 18:01:38 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:01:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:01:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:01:38 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:01:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:01:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%1%, 1, 1)
+Apr 15 18:01:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) LIMIT 30 - (%1%, 1, 1)
+Apr 15 18:01:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:01:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:01:38 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:01:38 symfony [info] {main} Set slot "title"
+Apr 15 18:01:38 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:38 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:01:38 symfony [info] {main} Get slot "title"
+Apr 15 18:01:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:01:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:01:38 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 18:01:38 symfony [info] {sfWebDebugLogger} Factories 47.00 ms (1)
+Apr 15 18:01:38 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 79.00 ms (1)
+Apr 15 18:01:38 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:01:38 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 18:01:38 symfony [info] {sfWebResponse} Send content (48962 o)
+Apr 15 18:03:08 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:03:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:03:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:03:08 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:03:08 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:03:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%%, , )
+Apr 15 18:03:08 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) - (%%, , )
+Apr 15 18:03:08 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:03:08 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:03:08 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:03:08 symfony [info] {main} Set slot "title"
+Apr 15 18:03:08 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:03:08 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:03:08 symfony [info] {main} Get slot "title"
+Apr 15 18:03:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:03:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:03:08 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:03:08 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 18:03:08 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 120.01 ms (1)
+Apr 15 18:03:08 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:03:08 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 17.00 ms (1)
+Apr 15 18:03:08 symfony [info] {sfWebResponse} Send content (48136 o)
+Apr 15 18:03:19 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:03:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:03:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:03:19 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:03:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:03:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%%, 1, 1)
+Apr 15 18:03:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) LIMIT 30 - (%%, 1, 1)
+Apr 15 18:03:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:03:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:03:19 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:03:19 symfony [info] {main} Set slot "title"
+Apr 15 18:03:19 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:03:19 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:03:19 symfony [info] {main} Get slot "title"
+Apr 15 18:03:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:03:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:03:19 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:03:19 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 18:03:19 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 67.00 ms (1)
+Apr 15 18:03:19 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:03:19 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 18:03:19 symfony [info] {sfWebResponse} Send content (49164 o)
+Apr 15 18:04:43 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:04:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:04:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:04:43 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:04:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:04:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%%)
+Apr 15 18:04:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%%)
+Apr 15 18:04:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:04:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:04:43 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:04:43 symfony [info] {main} Set slot "title"
+Apr 15 18:04:43 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:43 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:43 symfony [info] {main} Get slot "title"
+Apr 15 18:04:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:04:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:04:43 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 18:04:43 symfony [info] {sfWebDebugLogger} Factories 39.00 ms (1)
+Apr 15 18:04:43 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 130.01 ms (1)
+Apr 15 18:04:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:04:43 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 14.00 ms (1)
+Apr 15 18:04:44 symfony [info] {sfWebResponse} Send content (49029 o)
+Apr 15 18:04:47 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:04:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:04:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:04:47 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:04:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:04:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? GROUP BY e.id) dctrn_count_query - (%%, 1)
+Apr 15 18:04:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ?) LIMIT 30 - (%%, 1)
+Apr 15 18:04:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:04:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:04:47 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:04:47 symfony [info] {main} Set slot "title"
+Apr 15 18:04:47 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:47 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:47 symfony [info] {main} Get slot "title"
+Apr 15 18:04:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:04:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:04:47 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 18:04:47 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:04:47 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 166.01 ms (1)
+Apr 15 18:04:47 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:04:47 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 24.00 ms (1)
+Apr 15 18:04:47 symfony [info] {sfWebResponse} Send content (49480 o)
+Apr 15 18:04:51 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:04:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:04:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:04:51 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:04:51 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:04:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? GROUP BY e.id) dctrn_count_query - (%%, 2)
+Apr 15 18:04:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ?) - (%%, 2)
+Apr 15 18:04:51 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:04:51 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:04:51 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:04:51 symfony [info] {main} Set slot "title"
+Apr 15 18:04:51 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:51 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:51 symfony [info] {main} Get slot "title"
+Apr 15 18:04:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:04:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:04:51 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:04:51 symfony [info] {sfWebDebugLogger} Factories 42.00 ms (1)
+Apr 15 18:04:51 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 56.00 ms (1)
+Apr 15 18:04:51 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:04:51 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 15.00 ms (1)
+Apr 15 18:04:51 symfony [info] {sfWebResponse} Send content (48818 o)
+Apr 15 18:04:54 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:04:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:04:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:04:54 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:04:54 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:04:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? GROUP BY e.id) dctrn_count_query - (%%, 1)
+Apr 15 18:04:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ?) LIMIT 30 - (%%, 1)
+Apr 15 18:04:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:04:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:04:54 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:04:54 symfony [info] {main} Set slot "title"
+Apr 15 18:04:54 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:54 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:04:54 symfony [info] {main} Get slot "title"
+Apr 15 18:04:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:04:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:04:54 symfony [info] {sfWebDebugLogger} Configuration 11.00 ms (9)
+Apr 15 18:04:54 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 18:04:54 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 87.01 ms (1)
+Apr 15 18:04:54 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:04:54 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 16.00 ms (1)
+Apr 15 18:04:54 symfony [info] {sfWebResponse} Send content (49479 o)
+Apr 15 18:05:00 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:05:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:05:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:05:00 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:05:00 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:05:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? GROUP BY e.id) dctrn_count_query - (%prueba%)
+Apr 15 18:05:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ?) LIMIT 30 - (%prueba%)
+Apr 15 18:05:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:05:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:05:00 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:05:00 symfony [info] {main} Set slot "title"
+Apr 15 18:05:00 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:05:00 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:05:00 symfony [info] {main} Get slot "title"
+Apr 15 18:05:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:05:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:05:00 symfony [info] {sfWebDebugLogger} Configuration 10.00 ms (9)
+Apr 15 18:05:00 symfony [info] {sfWebDebugLogger} Factories 41.00 ms (1)
+Apr 15 18:05:00 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 64.00 ms (1)
+Apr 15 18:05:00 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:05:00 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 15.00 ms (1)
+Apr 15 18:05:00 symfony [info] {sfWebResponse} Send content (49392 o)
+Apr 15 18:05:03 symfony [info] {sfPatternRouting} Match route "pregunta_index" (/preguntas) for /preguntas with parameters array (  'module' => 'pregunta',  'action' => 'index',)
+Apr 15 18:05:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 18:05:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 18:05:03 symfony [info] {preguntaActions} Call "preguntaActions->executeIndex()"
+Apr 15 18:05:03 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 18:05:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT e.id FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ? GROUP BY e.id) dctrn_count_query - (%prueba%, 1, 1)
+Apr 15 18:05:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.modulo_id AS e__modulo_id, e.imagen AS e__imagen, e.dificultad_id AS e__dificultad_id, e.texto AS e__texto, e.created_at AS e__created_at, e.updated_at AS e__updated_at, e2.id AS e2__id, e2.nombre AS e2__nombre, e2.descripcion AS e2__descripcion, e2.created_at AS e2__created_at, e2.updated_at AS e2__updated_at, e3.id AS e3__id, e3.nombre AS e3__nombre, e3.valor AS e3__valor, e3.created_at AS e3__created_at, e3.updated_at AS e3__updated_at FROM ecdl_pregunta e INNER JOIN ecdl_modulo e2 ON e.modulo_id = e2.id INNER JOIN ecdl_dificultad e3 ON e.dificultad_id = e3.id WHERE (e.texto like ? AND e.modulo_id = ? AND e.dificultad_id = ?) LIMIT 30 - (%prueba%, 1, 1)
+Apr 15 18:05:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 18:05:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.valor AS e__valor, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_dificultad e - ()
+Apr 15 18:05:03 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/pregunta/templates/indexSuccess.php"
+Apr 15 18:05:03 symfony [info] {main} Set slot "title"
+Apr 15 18:05:03 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:05:03 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 18:05:03 symfony [info] {main} Get slot "title"
+Apr 15 18:05:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 18:05:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 18:05:03 symfony [info] {sfWebDebugLogger} Configuration 12.00 ms (9)
+Apr 15 18:05:03 symfony [info] {sfWebDebugLogger} Factories 43.00 ms (1)
+Apr 15 18:05:03 symfony [info] {sfWebDebugLogger} Action "pregunta/index" 74.01 ms (1)
+Apr 15 18:05:03 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (5)
+Apr 15 18:05:03 symfony [info] {sfWebDebugLogger} View "Success" for "pregunta/index" 15.00 ms (1)
+Apr 15 18:05:03 symfony [info] {sfWebResponse} Send content (49617 o)

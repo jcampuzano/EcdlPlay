@@ -16,15 +16,29 @@ class preguntaActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
+        $this->modulo = $request->getParameter('modulo');
+        $this->dificultad = $request->getParameter('dificultad');
+        $this->text = $request->getParameter('texto');
+        
         $this->pager = new sfDoctrinePager(
                         "EcdlPregunta",
                         30);
 
-        $this->pager->setQuery(EcdlPreguntaTable::getInstance()->getPreguntas());
+        //$this->pager->setQuery(EcdlPreguntaTable::getInstance()->getPreguntas());
+        $this->pager->setQuery(EcdlPreguntaTable::getInstance()->getPreguntasFiltered($this->modulo, $this->dificultad, $this->text));
+        
         $this->pager->setPage($request->getParameter('page', 1));
         $this->pager->init();
 
         $this->preguntas = $this->pager->getResults();
+        
+        $this->modulos = Doctrine_Core::getTable('EcdlModulo')
+                ->createQuery('a')
+                ->execute();
+        
+        $this->dificultades = Doctrine_Core::getTable('EcdlDificultad')
+                ->createQuery('a')
+                ->execute();
     }
 
     public function executeNew(sfWebRequest $request) {

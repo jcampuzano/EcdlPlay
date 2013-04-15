@@ -33,13 +33,32 @@ class EcdlPreguntaTable extends Doctrine_Table {
         return $q;
     }
 
-    public function getPreguntasXML($modulo_id){
+    public function getPreguntasXML($modulo_id) {
         $q = $this->createQuery()
-                ->from('EcdlPregunta p')  
+                ->from('EcdlPregunta p')
                 ->innerJoin('p.EcdlDificultad d')
                 ->where('p.modulo_id = ' . $modulo_id);
-        
+
         return $q->execute();
     }
-    
+
+    public function getPreguntasFiltered($modulo_id, $dificultad_id, $texto) {
+        $texto = '%' . str_replace(' ', '%', $texto) . '%';
+
+        $q = $this->createQuery()
+                ->from('EcdlPregunta p')
+                ->innerJoin('p.EcdlModulo m')
+                ->innerJoin('p.EcdlDificultad d')
+                ->where('p.texto like ?', $texto);
+
+        if ($modulo_id > 0) {
+            $q = $q->andWhere('p.modulo_id = ?', $modulo_id);
+        }
+        if ($dificultad_id > 0) {
+            $q = $q->andWhere('p.dificultad_id = ?', $dificultad_id);
+        }
+
+        return $q;
+    }
+
 }

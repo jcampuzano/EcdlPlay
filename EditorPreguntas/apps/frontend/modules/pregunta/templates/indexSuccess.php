@@ -2,31 +2,40 @@
 <div class="editar">
     <h2>Lista de Preguntas</h2>
 
+    <form action="<?php echo url_for('pregunta_index'); ?>" method="post">
     <div class="div-25">
         <label>Modulo:</label>
-        <select id="modulo">
-            <option>Modulo1</option>
-            <option>Modulo2</option>
-            <option>Modulo3</option>
+        <select id="modulo" name="modulo">
+            <option value='0'></option>
+            <?php foreach ($modulos as $m) : ?>
+                <option value='<?php echo $m->getId() ?>'
+                    <?php if ($modulo == $m->getId()) echo "selected='true'" ?>>
+                    <?php echo $m->getNombre() ?>
+                </option>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="div-25">
         <label>Dificultad:</label>
-        <select id="dificultad">
-            <option>Fácil</option>
-            <option>Medio</option>
-            <option>Difícil</option>
+        <select id="dificultad" name="dificultad">
+            <option value='0'></option>
+            <?php foreach ($dificultades as $d) : ?>
+                <option value='<?php echo $d->getId() ?>' 
+                    <?php if ($dificultad == $d->getId()) echo "selected='true'" ?>>
+                        <?php echo $d->getNombre() ?>
+                </option>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="div-25">
         <label>Texto:</label>
-        <input type="text" id="texto"/>
+        <input type="text" id="texto" name="texto" value="<?php echo $text ?>"/>
     </div>
 
     <div  class="div-25">
         <input type="submit" value="Buscar"/>
     </div>
-
+    </form>
 
     <table>
         <thead>
