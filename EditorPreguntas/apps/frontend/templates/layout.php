@@ -24,11 +24,7 @@
                 </div>
             </nav>
 
-            <section id="main">
-                <section id="content">
-                    <?php echo $sf_content ?>
-                </section>
-
+            <section id="main">                
                 <aside id="sidebar"><!-- sidebar -->
                     <h3>Opciones</h3>
                     <ul>
@@ -37,6 +33,12 @@
                         <li><a href="<?php echo url_for("pregunta_index") ?>">Editar Preguntas</a></li>
                         <li><a href="<?php echo url_for("xml/index") ?>">Descargar XML</a></li>
                     </ul>
+                </aside>
+                
+                <section id="content">
+                    <?php echo $sf_content ?>
+                </section>
+
             </section>
 
             <footer>

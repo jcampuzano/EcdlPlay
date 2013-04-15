@@ -160,3 +160,102 @@ Oct 30 10:23:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Fou
 Oct 30 10:23:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
 Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (5)
 Oct 30 10:23:11 symfony [info] {sfWebDebugLogger} Factories 10.22 ms (1)
+Apr 15 15:28:22 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Apr 15 15:28:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:28:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:28:22 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Apr 15 15:28:22 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/home/templates/indexSuccess.php"
+Apr 15 15:28:22 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:28:22 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:28:22 symfony [info] {main} Get slot "title"
+Apr 15 15:28:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:28:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:28:22 symfony [info] {sfWebDebugLogger} Configuration 254.01 ms (9)
+Apr 15 15:28:22 symfony [info] {sfWebDebugLogger} Factories 109.01 ms (1)
+Apr 15 15:28:22 symfony [info] {sfWebDebugLogger} Action "home/index" 0.00 ms (1)
+Apr 15 15:28:22 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 22.00 ms (1)
+Apr 15 15:28:22 symfony [info] {sfWebResponse} Send content (34771 o)
+Apr 15 15:31:23 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Apr 15 15:31:23 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:31:23 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:31:23 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Apr 15 15:31:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/home/templates/indexSuccess.php"
+Apr 15 15:31:23 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:23 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:23 symfony [info] {main} Get slot "title"
+Apr 15 15:31:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:31:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:31:23 symfony [info] {sfWebDebugLogger} Configuration 266.02 ms (9)
+Apr 15 15:31:23 symfony [info] {sfWebDebugLogger} Factories 86.00 ms (1)
+Apr 15 15:31:23 symfony [info] {sfWebDebugLogger} Action "home/index" 1.00 ms (1)
+Apr 15 15:31:23 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 28.00 ms (1)
+Apr 15 15:31:23 symfony [info] {sfWebResponse} Send content (34545 o)
+Apr 15 15:31:27 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Apr 15 15:31:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:31:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:31:28 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Apr 15 15:31:28 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/home/templates/indexSuccess.php"
+Apr 15 15:31:28 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:28 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:28 symfony [info] {main} Get slot "title"
+Apr 15 15:31:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:31:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:31:28 symfony [info] {sfWebDebugLogger} Configuration 13.00 ms (9)
+Apr 15 15:31:28 symfony [info] {sfWebDebugLogger} Factories 36.00 ms (1)
+Apr 15 15:31:28 symfony [info] {sfWebDebugLogger} Action "home/index" 0.00 ms (1)
+Apr 15 15:31:28 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 16.00 ms (1)
+Apr 15 15:31:28 symfony [info] {sfWebResponse} Send content (34820 o)
+Apr 15 15:31:30 symfony [info] {sfPatternRouting} Match route "modulo_index" (/modulos) for /modulos with parameters array (  'module' => 'modulo',  'action' => 'index',)
+Apr 15 15:31:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:31:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:31:30 symfony [info] {moduloActions} Call "moduloActions->executeIndex()"
+Apr 15 15:31:30 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 15:31:30 symfony [info] {Doctrine_Connection_Mysql} query : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e - ()
+Apr 15 15:31:30 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/modulo/templates/indexSuccess.php"
+Apr 15 15:31:30 symfony [info] {main} Set slot "title"
+Apr 15 15:31:30 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:30 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:30 symfony [info] {main} Get slot "title"
+Apr 15 15:31:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:31:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:31:30 symfony [info] {sfWebDebugLogger} Configuration 102.01 ms (10)
+Apr 15 15:31:30 symfony [info] {sfWebDebugLogger} Factories 37.00 ms (1)
+Apr 15 15:31:30 symfony [info] {sfWebDebugLogger} Action "modulo/index" 39.00 ms (1)
+Apr 15 15:31:30 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (2)
+Apr 15 15:31:30 symfony [info] {sfWebDebugLogger} View "Success" for "modulo/index" 29.00 ms (1)
+Apr 15 15:31:30 symfony [info] {sfWebResponse} Send content (39882 o)
+Apr 15 15:31:32 symfony [info] {sfPatternRouting} Match route "modulo_edit" (/modulo/:id/edit) for /modulo/1/edit with parameters array (  'module' => 'modulo',  'action' => 'edit',  'id' => '1',)
+Apr 15 15:31:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:31:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:31:32 symfony [info] {moduloActions} Call "moduloActions->executeEdit()"
+Apr 15 15:31:32 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Apr 15 15:31:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e WHERE (e.id = ?) LIMIT 1 - (1)
+Apr 15 15:31:32 symfony [info] {Doctrine_Connection_Statement} execute : SELECT e.id AS e__id, e.nombre AS e__nombre, e.descripcion AS e__descripcion, e.created_at AS e__created_at, e.updated_at AS e__updated_at FROM ecdl_modulo e WHERE (e.id = ?) - (1)
+Apr 15 15:31:32 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/modulo/templates/editSuccess.php"
+Apr 15 15:31:32 symfony [info] {main} Set slot "title"
+Apr 15 15:31:32 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:32 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:31:32 symfony [info] {main} Get slot "title"
+Apr 15 15:31:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:31:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:31:32 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (9)
+Apr 15 15:31:32 symfony [info] {sfWebDebugLogger} Factories 36.00 ms (1)
+Apr 15 15:31:32 symfony [info] {sfWebDebugLogger} Action "modulo/edit" 93.01 ms (1)
+Apr 15 15:31:32 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.00 ms (3)
+Apr 15 15:31:32 symfony [info] {sfWebDebugLogger} View "Success" for "modulo/edit" 23.00 ms (1)
+Apr 15 15:31:32 symfony [info] {sfWebResponse} Send content (42077 o)
+Apr 15 15:39:49 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'home',  'action' => 'index',)
+Apr 15 15:39:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Apr 15 15:39:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Apr 15 15:39:49 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Apr 15 15:39:49 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\modules/home/templates/indexSuccess.php"
+Apr 15 15:39:50 symfony [info] {sfPHPView} Decorate content with "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:39:50 symfony [info] {sfPHPView} Render "C:\PFC\EcdlPlay\EditorPreguntas\apps\frontend\templates/layout.php"
+Apr 15 15:39:50 symfony [info] {main} Get slot "title"
+Apr 15 15:39:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Apr 15 15:39:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} Configuration 17.00 ms (9)
+Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} Factories 251.01 ms (1)
+Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} Action "home/index" 1.00 ms (1)
+Apr 15 15:39:50 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 66.00 ms (1)
+Apr 15 15:39:50 symfony [info] {sfWebResponse} Send content (34692 o)

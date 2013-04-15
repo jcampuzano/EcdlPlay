@@ -23,32 +23,32 @@ line-height: 18px;
 /* layout */
 
 #wrapper {
-width: 940px;
-margin: 0 auto;
+/*width: 940px;*/
+margin:  0 auto;
 margin-top: 5px;
 margin-bottom: 5px;
--webkit-box-shadow: 3px 3px 7px #777;
--moz-box-shadow: 3px 3px 7px #777;
+/*-webkit-box-shadow: 3px 3px 7px #777;
+-moz-box-shadow: 3px 3px 7px #777;*/
 }
 
 nav {
-width: 940px;
+/*width: 940px;*/
 height: 50px;
-margin: 0 auto;
+margin:  0 10px 0 10px;
 background: #fff url(../images/background.png) repeat-x left bottom;
 }
 
 header {
-width: 940px;
+/*width: 940px;*/
 height: 150px;
-margin: 0 auto;
+margin: 0 10px 0 10px;
 background: #fff url(../images/background.png) repeat-x left top;
 border-radius: 40px 40px 0px 0px;
 }
 
 #main {
-width: 940px;
-margin: 0 auto;
+/*width: 940px;*/
+margin:  0 10px 0 10px;
 padding-top: 30px;
 background: #FFF;
 overflow: hidden;
@@ -56,24 +56,26 @@ overflow: hidden;
 
 #content {
 float: right;
-width: 640px;
+width: 80%;
 margin-right: 30px;
+margin-left: 30px;
 }
 
 #sidebar {
 float: left;
 padding-left: 20px;
-width: 220px;
 }
 
+
 footer {
-width: 940px;
-margin: 0 auto;
+/*width: 940px;*/
+margin:  0 10px 0 10px;
 clear: both;
 background: #fff url(../images/background.png) repeat-x left top;
 border-radius: 0 0 40px 40px;
 font-size: 90%;
 padding: 18px 0;
+position: relative;
 /*position: fixed;
 bottom: 0px;
 margin-top: 40px;*/
@@ -271,17 +273,24 @@ label {
 }
 
 select{
-    width:300px;  padding: 5px 20px 0px 20px; margin: 0 0 20px 0;     
+    width:83%;  
+    float: left;
+    margin: 0 0 20px 0;  
+    padding: 0px 0px 0px 20px; 
+/*    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;*/
+    -moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;	
 }
 
 input {
-	width: 260px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0; 	
+	margin: 0 0 20px 0; 	
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;	
 }
 
 textarea {
-	width: 260px; padding: 5px 20px 0px 20px; margin: 0 0 20px 0; 	
+	width: 80%;
+        padding: 5px 20px 0px 20px; 
+        margin: 0 0 20px 0; 	
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
 	

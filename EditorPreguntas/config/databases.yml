@@ -1,7 +1,8 @@
 all:
   doctrine:
-    class: sfDoctrineDatabase
+    class:  sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=ecdl'
+      dsn: "mysql:host=localhost;dbname=ecdl"
       username: root
       password: P4ssw0rd!
+      port: 3306
