@@ -7,6 +7,9 @@
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
+        <!--[if lt IE 9]>
+        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+        <![endif]-->
     </head> 
     <body>
         <div id="wrapper">

@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css]
 
-  javascripts:    []
+  javascripts:    [modernizr.custom.28849.js]
 
   has_layout:     true
   layout:         layout
