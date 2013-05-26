@@ -57,6 +57,8 @@ class EcdlPreguntaTable extends Doctrine_Table {
         if ($dificultad_id > 0) {
             $q = $q->andWhere('p.dificultad_id = ?', $dificultad_id);
         }
+        
+        $q = $q->orderBy('modulo_id, dificultad_id');
 
         return $q;
     }

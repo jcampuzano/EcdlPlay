@@ -17,7 +17,11 @@
 
     <?php foreach ($form['answers'] as $k => $answer): ?>
         <section>
-            <h3>Respuesta <?php echo $k; ?></h3>
+            <h3>
+                Respuesta <?php echo $k; ?>
+                <a href="<?php echo url_for('pregunta/deleteanswer?id=' . $answer['id']->getValue() ) ?>">
+                    <img src="/images/delete.png" alt="Borrar"/></a>
+            </h3>
 
             <label>Texto:</label>
             <?php echo $answer['texto']->render() ?> <?php echo $answer['texto']->renderError() ?>
@@ -26,11 +30,12 @@
 
             <label>Correcta:</label>
             <?php echo $answer['correcta']->render() ?> <?php echo $answer['correcta']->renderError() ?>
+
         </section>
     <?php endforeach; ?>
 
     <?php echo $form->renderHiddenFields(false) ?>
-    
+
     <a href="<?php echo url_for('pregunta_index') ?>">Volver</a>
 
     <input type="submit" value="Guardar" />

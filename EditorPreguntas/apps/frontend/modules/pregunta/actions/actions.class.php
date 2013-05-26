@@ -80,13 +80,21 @@ class preguntaActions extends sfActions {
         // Redirect
         $this->redirect('pregunta_index');
     }
+    
+    public function executeDeleteanswer(sfWebRequest $request){
+        $answer = Doctrine_Core::getTable('EcdlRespuesta')->find(array($request->getParameter('id')));
+        $answer->delete();
+        
+        // Redirect
+        $this->redirect('pregunta_index');
+    }
 
     protected function processForm(sfWebRequest $request, sfForm $form) {
         // Bind
         $form->bind(
                 $request->getParameter($form->getName()), $request->getFiles($form->getName())
         );
-
+        
         if ($form->isValid()) {
             if ($form->isUniqueAnswerCorrect()) {
                 $pregunta = $form->save();

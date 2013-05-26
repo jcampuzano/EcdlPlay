@@ -332,3 +332,23 @@ input[type=submit] {
 image{
     border:0px;
 }
+
+.pagination input{
+    width: auto;
+    height: auto;
+    float: none;
+    border: none;
+    /*background: none;*/
+    padding: 0 3px;
+    margin: 0 0 20px 0;
+}
+
+.pagination input[type=image]{
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+.pagination span{
+    width: auto;
+    padding: 0 3px;
+    
+}
