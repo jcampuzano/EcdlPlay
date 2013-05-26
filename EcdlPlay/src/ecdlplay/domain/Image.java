@@ -5,7 +5,7 @@
 package ecdlplay.domain;
 
 import java.io.IOException;
-import sun.misc.BASE64Decoder;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -38,11 +38,13 @@ public class Image {
     }
 
     private byte[] ConvertStringBase64ToByteArray(String imagen) {
-        try {
-            BASE64Decoder decoder = new BASE64Decoder();
-            return decoder.decodeBuffer(imagen);
-        } catch (IOException e) {
-            return null;
-        }
+//        try {
+//            BASE64Decoder decoder = new BASE64Decoder();
+//            return decoder.decodeBuffer(imagen);
+//        } catch (IOException e) {
+//            return null;
+//        }
+        return DatatypeConverter.parseBase64Binary(imagen);
+
     }
 }

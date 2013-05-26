@@ -4,7 +4,6 @@
  */
 package ecdlplay.domain;
 
-import ecdlplay.utils.Utils;
 import java.util.ArrayList;
 import java.util.Collections;
 

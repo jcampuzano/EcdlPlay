@@ -16,11 +16,10 @@ public class Utils {
     private static Random random;
 
     public static int randomInt(int max) {
-//        if (random == null) {
-//            random = new Random(System.currentTimeMillis());
-//        }
-//        return random.nextInt(max);
-        return max - 1;
+        if (random == null) {
+            random = new Random(System.currentTimeMillis());
+        }
+        return random.nextInt(max);
     }
         
 }
