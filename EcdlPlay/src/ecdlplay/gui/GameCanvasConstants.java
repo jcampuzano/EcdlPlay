@@ -41,16 +41,16 @@ public class GameCanvasConstants {
     public static final int OPTIONS_MENU_1PLAYER_X = 490;
     public static final int OPTIONS_MENU_1PLAYER_Y = 212;
     public static final int OPTIONS_MENU_2PLAYER_X = 562;
-    public static final int OPTIONS_MENU_2PLAYER_Y = 226;
+    public static final int OPTIONS_MENU_2PLAYER_Y = 212;
     public static final int OPTIONS_MENU_3PLAYER_X = 635;
     public static final int OPTIONS_MENU_3PLAYER_Y = 212;
     public static final int OPTIONS_MENU_4PLAYER_X = 707;
-    public static final int OPTIONS_MENU_4PLAYER_Y = 226;
+    public static final int OPTIONS_MENU_4PLAYER_Y = 212;
     // Game
     public static final int GAME_BUTTON_BACK_X = 850;
     public static final int GAME_BUTTON_BACK_Y = 487;
-    public static final int GAME_BUTTON_SHOW_IMAGE_X = 650;
-    public static final int GAME_BUTTON_SHOW_IMAGE_Y = 600;
+    public static final int GAME_BUTTON_SHOW_IMAGE_X = 50;
+    public static final int GAME_BUTTON_SHOW_IMAGE_Y = 10;
     // Board
     public static final int SQUARES_COORD[] = {
         //     1,        2,        3,        4,        5,        6,        7,        8,        9,       10,
@@ -92,11 +92,7 @@ public class GameCanvasConstants {
     public static final int PLAYERS_TURN_X = 670;
     public static final int PLAYERS_TURN_Y = 50;
     public static final int PLAYERS_TURN_GAP = 45;
-    // Curiosity
-    public static final int CURIOBOX_X = 167;
-    public static final int CURIOBOX_Y = 258;
-    public static final int CURIOBOX_WIDTH = 560;
-    public static final int CURIOBOX_HEIGHT = 225;
+   
     // Resources
     public static final int RES_MAIN_MENU_BACKGROUND = 0;
     public static final int RES_MAIN_MENU_BUTTONS = 1;

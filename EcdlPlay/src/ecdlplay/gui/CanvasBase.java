@@ -144,7 +144,7 @@ public abstract class CanvasBase {
             case GameEngineConstants.STATE_OPTIONS_MENU:
                 return new OptionsMenuCanvas(ge);
             default:
-                return new GGameCanvas(ge);
+                return new GameCanvas(ge);
         }
     }
     

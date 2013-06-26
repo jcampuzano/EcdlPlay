@@ -27,9 +27,9 @@ public class OptionsMenuCanvas extends CanvasBase {
     public void loadResources() {
         setBackground(ImageLoader.loadImageJAR("options_background.png"));
 
-        
+
         loadModules();
-        
+
         loadPlayers();
         loadButtons();
 
@@ -48,7 +48,7 @@ public class OptionsMenuCanvas extends CanvasBase {
     private void paintModules(Graphics g) {
         resetClip(g);
 
-        
+
         int actualY = GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_X;
 
         for (Module module : GameDataLoader.getLoader().getGameData().getModules()) {
@@ -60,9 +60,9 @@ public class OptionsMenuCanvas extends CanvasBase {
                     GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_WIDTH,
                     GameCanvasConstants.OPTIONS_MENU_MODULE_BOX_HEIGHT,
                     TFont.JUSTIFY | TFont.TOP);
-            
+
             actualY += 40;
-            
+
         }
 
     }
@@ -103,29 +103,28 @@ public class OptionsMenuCanvas extends CanvasBase {
     }
 
     private void loadModules() {
-        
+        int i, actualId,actualY;
+
         // Component Module Label
         addComponent(new Label(
                 -1,
                 GameCanvasConstants.OPTIONS_MENU_MODULE_X,
                 GameCanvasConstants.OPTIONS_MENU_MODULE_Y,
                 ImageLoader.loadImageJAR("menu_options_module.png")));
-        
-        
-        Module moduleSelected = super.gameEngine.getModule();
-        
-        int actualId = GameCanvasConstants.BUTTON_FIRST_MODULE;
-        int actualY = GameCanvasConstants.OPTIONS_MENU_MODULE_BUTTONS_Y;
 
-        for (Module module : GameDataLoader.getLoader().getGameData().getModules()) {
+        actualId = GameCanvasConstants.BUTTON_FIRST_MODULE;
+        actualY = GameCanvasConstants.OPTIONS_MENU_MODULE_BUTTONS_Y;
+
+
+        for (i = 0; i < GameDataLoader.getLoader().getGameData().getModules().size(); i++) {
             // Component Answers
             addComponent(new Checkbox(
                     actualId,
                     GameCanvasConstants.OPTIONS_MENU_MODULE_BUTTONS_X,
                     actualY,
                     ImageLoader.loadImageJAR("game_answerbox_1.png"),
-                    ImageLoader.loadImageJAR("game_answerbox_2.png")));     
-            
+                    ImageLoader.loadImageJAR("game_answerbox_2.png")));
+
             actualId++;
             actualY += 40;
         }
@@ -139,7 +138,7 @@ public class OptionsMenuCanvas extends CanvasBase {
                 GameCanvasConstants.OPTIONS_MENU_BUTTON_BACK_Y,
                 ImageLoader.loadImageJAR("menu_button_back_1.png"),
                 ImageLoader.loadImageJAR("menu_button_back_2.png")));
-        
+
         // Component Help
         addComponent(new Button(
                 GameCanvasConstants.BUTTON_HELP,
