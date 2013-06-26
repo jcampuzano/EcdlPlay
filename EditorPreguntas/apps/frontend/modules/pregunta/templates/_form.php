@@ -18,9 +18,7 @@
     <?php foreach ($form['answers'] as $k => $answer): ?>
         <section>
             <h3>
-                Respuesta <?php echo $k; ?>
-                <a href="<?php echo url_for('pregunta/deleteanswer?id=' . $answer['id']->getValue() ) ?>">
-                    <img src="/images/delete.png" alt="Borrar"/></a>
+                Respuesta <?php echo $k; ?>                
             </h3>
 
             <label>Texto:</label>
