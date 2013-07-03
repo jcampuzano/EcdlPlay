@@ -23,9 +23,17 @@ class EcdlPreguntaForm extends BaseEcdlPreguntaForm {
                     'required' => false,
                 )));
 
+        $edit_mode = !$this->isNew();
+        
+        $src = $this->getObject()->getImagen();
+        if (!isset($src))
+        {
+            $edit_mode = false;
+        }
+        
         $this->setWidget('imagen', new sfWidgetFormInputFileEditable(array(
-                    'file_src' => '/uploads/preguntas/' . $this->getObject()->imagen,
-                    'edit_mode' => !$this->isNew(),
+                    'file_src' => '/uploads/preguntas/' . $this->getObject()->getImagen(),
+                    'edit_mode' => $edit_mode, //!$this->isNew(),
                     'is_image' => true,
                     'with_delete' => true,
                     'delete_label' => 'Eliminar'
