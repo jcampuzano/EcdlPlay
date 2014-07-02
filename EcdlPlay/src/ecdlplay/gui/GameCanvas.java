@@ -115,6 +115,8 @@ public class GameCanvas extends CanvasBase{
     @Override
     public void paint(Graphics g) {
         
+        paintBlack(g);
+        
         paintGame(g);
         
         switch(this.gameEngine.getState()){
@@ -284,6 +286,10 @@ public class GameCanvas extends CanvasBase{
             win.setSize(image.getWidth(null), image.getHeight(null));
             
             win.setImage(image);            
+        }
+        else{
+            removeComponent(GameCanvasConstants.GAME_BUTTON_SHOW_IMAGE_X,
+                GameCanvasConstants.GAME_BUTTON_SHOW_IMAGE_Y);
         }
             
     }

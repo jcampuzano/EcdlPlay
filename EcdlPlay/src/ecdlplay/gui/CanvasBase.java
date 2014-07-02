@@ -69,6 +69,13 @@ public abstract class CanvasBase {
     public void addComponent(Component component) {
         components.add(component);
     }
+    
+    public void removeComponent(int x, int y) {
+        Component c = getComponent(x, y);
+        if (c != null){
+            components.remove(c);
+        }
+    }
 
     public void mousePressed(int x, int y) {
         // Release All

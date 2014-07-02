@@ -23,7 +23,7 @@ public class GameData {
     public void addModulo(Module modulo) {
         modulos.add(modulo);
     }
-    
+
     public void shuffleQuestions() {
         for (Module modulo : modulos) {
             modulo.shuffleQuestions();
@@ -50,17 +50,18 @@ public class GameData {
             }
         }
 
-        for (Question q : m.getQuestions()) {
-            if (q.getDificultad() == difficult) {
-                qs.add(q);
+        if (m != null) {
+            for (Question q : m.getQuestions()) {
+                if (q.getDificultad() == difficult) {
+                    qs.add(q);
+                }
             }
         }
-
         return qs;
+
     }
-    
-    
-    public ArrayList<Module> getModules(){
+
+    public ArrayList<Module> getModules() {
         return this.modulos;
     }
 }

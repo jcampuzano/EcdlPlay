@@ -126,6 +126,7 @@ public class GameEngine extends JPanel implements Runnable {
         questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_EASY, module));
         questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_NORMAL, module));
         questions.add(gd.getQuestions(GameEngineConstants.DIFFICULT_HARD, module));
+                
         // Calculate Questions per Square
         maxQuestionsPerSquare = Math.min(
                 questions.get(0).size() / GameEngineConstants.LIMIT_DIFFICULT, 
@@ -141,7 +142,7 @@ public class GameEngine extends JPanel implements Runnable {
             } else {
                 difficult = 2;
             }
-
+            
             // Questions for the square
             Question questionsSquare[] = new Question[maxQuestionsPerSquare];
             // Iterate
@@ -152,6 +153,8 @@ public class GameEngine extends JPanel implements Runnable {
                 Question q = questions.get(difficult).get(Utils.randomInt(size));
                 // Remove It
                 questions.get(difficult).remove(q);
+                // Shuffle Answers
+                q.shuflleAnswers();
                 // Save Question
                 questionsSquare[j] = q;
             }
@@ -214,6 +217,7 @@ public class GameEngine extends JPanel implements Runnable {
                 // Pozo
                 case 8:
                 case 27:
+                case 44:
                 case 66:
                     // Only 2 or more players
                     if (numPlayers > 1) {
