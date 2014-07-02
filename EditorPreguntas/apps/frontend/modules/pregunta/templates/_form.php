@@ -1,4 +1,5 @@
-<form action="<?php echo url_for('pregunta/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('pregunta/' . ($form->getObject()->isNew() ? 'create' : 'update') . (!$form->getObject()->isNew() ? '?id=' . $form->getObject()->getId(): '')) . ($form->getObject()->isNew() ? "?" : "&") . "urlReferred=" . urlencode($form->urlReferred) ?>" 
+      method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 
 
     <label for="<?php echo $form['modulo_id']->renderId() ?>">Modulo:</label>
@@ -34,7 +35,7 @@
 
     <?php echo $form->renderHiddenFields(false) ?>
 
-    <a href="<?php echo url_for('pregunta_index') ?>">Volver</a>
+    <a href="<?php echo $form->urlReferred ?>">Volver</a>
 
     <input type="submit" value="Guardar" />
 </form>

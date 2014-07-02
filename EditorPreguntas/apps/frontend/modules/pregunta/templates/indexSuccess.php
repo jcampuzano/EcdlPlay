@@ -1,4 +1,37 @@
 <?php slot('title', 'ECDL - Editar preguntas') ?>
+
+<script type="text/javascript">
+    var setPage = function(page){
+
+        var url = "<?php echo url_for('pregunta_index') ?>";
+        
+        var query = new Array();
+        
+        if (page) {
+            query.push("page=" + page);
+        }
+        if (document.getElementById('modulo').value){
+            query.push("modulo=" + document.getElementById('modulo').value);
+        }
+
+        if (document.getElementById('dificultad').value){
+            query.push("dificultad=" + document.getElementById('dificultad').value);
+        }
+
+        if (document.getElementById('texto').value){
+            query.push("texto=" + encodeURIComponent(document.getElementById('texto').value));
+        }
+            
+        if (query.length > 0){
+            url += '?' + query.join('&');
+        }
+
+        window.location = url;
+        
+        return false;
+    }
+</script>
+
 <div class="editar">
     <h2>Lista de Preguntas</h2>
 
@@ -33,7 +66,7 @@
         </div>
 
         <div  class="div-25">
-            <input type="submit" value="Buscar"/>
+            <input type="submit" value="Buscar" onclick="return setPage();"/>
         </div>
 
 
@@ -51,7 +84,7 @@
                 <?php foreach ($preguntas as $p) : ?>
                     <tr>
                         <td id="acciones">
-                            <a href="<?php echo url_for('pregunta_edit', $p) ?>">
+                            <a href="<?php echo url_for('pregunta_edit', $p) ?>?urlReferred=<?php echo urlencode($_SERVER[REQUEST_URI]) ?> ">
                                 <img src="/images/edit.png" alt="Editar"/></a> 
                             | 
                             <a href="<?php echo url_for('pregunta_show', $p) ?>">
@@ -68,18 +101,13 @@
 
 
         <?php if ($pager->haveToPaginate()): ?>
-        <script type="text/javascript">
-            var setPage = function(page){
-                document.getElementById('page').value = page;
-                return true;
-            }
-        </script>
+            
             <div class="pagination">
-                <input type="image" src="/images/first.png" alt="First page" title="First page"
-                       onclick="return setPage(1);"/>
+                <a href="#" onclick="setPage(1)">
+                    <img src="/images/first.png" alt="First page" title="First page" /></a>
 
-                <input type="image" src="/images/previous.png" alt="Previous page" title="Previous page" 
-                       onclick="return setPage(<?php echo $pager->getPreviousPage() ?>)"/>
+                <a href="#" onclick="setPage(<?php echo $pager->getPreviousPage() ?>)">
+                    <img src="/images/previous.png" alt="Previous page" title="Previous page" /></a>
 
 
                 <?php foreach ($pager->getLinks() as $page): ?>
@@ -88,37 +116,17 @@
                             <?php echo $page ?>
                         </span>
                     <?php else: ?>
-                        <input type="submit" value="<?php echo $page ?>" onclick="return setPage(<?php echo $page ?>);"/>
+                        <a href="#" onclick="setPage(<?php echo $page ?>)"><?php echo $page ?></a>
                     <?php endif; ?>
                 <?php endforeach; ?>
 
-                <input type="image" src="/images/next.png" alt="Next page" title="Next page" 
-                       onclick="return setPage(<?php echo $pager->getNextPage() ?>);"/>
+                <a href="#" onclick="setPage(<?php echo $pager->getNextPage() ?>)">
+                    <img src="/images/next.png" alt="Next page" title="Next page" /></a>
 
-                <input type="image" src="/images/last.png" alt="Last page" title="Last page" 
-                       onclick="return setPage(<?php echo $pager->getLastPage() ?>);"/>
-                <input type="hidden" name="page" id="page"/>
+                <a href="#" onclick="setPage(<?php echo $pager->getLastPage() ?>)">
+                    <img src="/images/last.png" alt="Last page" title="Last page" /></a>
             </div>
-        <?php endif; ?>
-        
-                <!--                
-                                <a href="<?php echo url_for('pregunta_index') ?>?page=1">
-                                    <img src="/images/first.png" alt="First page" title="First page" />
-                                </a>
-                
-                                <a href="<?php echo url_for('pregunta_index') ?>?page=<?php echo $pager->getPreviousPage() ?>">
-                                    <img src="/images/previous.png" alt="Previous page" title="Previous page" />
-                                </a>-->
-
-                                        <!--                        <a href="<?php echo url_for('pregunta_index') ?>?page=<?php echo $page ?>"><?php echo $page ?></a>-->
-
-<!--                <a href="<?php echo url_for('pregunta_index') ?>?page=<?php echo $pager->getNextPage() ?>">
-                    <img src="/images/next.png" alt="Next page" title="Next page" />
-                </a>
-
-                <a href="<?php echo url_for('pregunta_index') ?>?page=<?php echo $pager->getLastPage() ?>">
-                    <img src="/images/last.png" alt="Last page" title="Last page" />
-                </a>-->
+        <?php endif; ?>                        
     </form>
     <a href="<?php echo url_for('pregunta_new') ?>">Nueva</a>
 </div>

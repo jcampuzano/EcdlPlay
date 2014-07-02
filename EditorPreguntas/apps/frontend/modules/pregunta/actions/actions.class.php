@@ -42,6 +42,7 @@ class preguntaActions extends sfActions {
     }
 
     public function executeNew(sfWebRequest $request) {
+        $this->urlReferred = $request->getParameter('urlReferred', 'preguntas');
         $this->form = new EcdlPreguntaForm();
     }
 
@@ -56,7 +57,11 @@ class preguntaActions extends sfActions {
 
         $this->pregunta = $this->getRoute()->getObject();
 
+
+        
         $this->form = new EcdlPreguntaForm($this->pregunta);
+        $this->form->urlReferred = $request->getParameter('urlReferred','preguntas');
+
     }
 
     public function executeUpdate(sfWebRequest $request) {
@@ -80,15 +85,7 @@ class preguntaActions extends sfActions {
         // Redirect
         $this->redirect('pregunta_index');
     }
-    
-    public function executeDeleteanswer(sfWebRequest $request){
-        $answer = Doctrine_Core::getTable('EcdlRespuesta')->find(array($request->getParameter('id')));
-        $answer->delete();
-        
-        // Redirect
-        $this->redirect('pregunta_index');
-    }
-
+   
     protected function processForm(sfWebRequest $request, sfForm $form) {
         // Bind
         $form->bind(
@@ -97,10 +94,11 @@ class preguntaActions extends sfActions {
         
         if ($form->isValid()) {
             if ($form->isUniqueAnswerCorrect()) {
-                $pregunta = $form->save();
+                $form->save();
 
                 // Redirect
-                $this->redirect('pregunta_index');
+                //$this->redirect('pregunta_index');
+                $this->redirect($request->getParameter('urlReferred', 'preguntas'));
             } else {
                 // Pass Error flag
                 $this->unique_error = true;
