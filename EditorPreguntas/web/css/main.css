@@ -240,11 +240,10 @@ margin-top: -15px;
 }
 
 #footer-area {
-background: #333;
 color: #FFF;
 font-size: 90%;
-padding: 18px 0;
 overflow: hidden;
+text-align: center;
 }
 
 
@@ -267,13 +266,13 @@ span{
     
 }
 label {
-	float: left; clear: left; margin: 0 20px 0 0; width: 150px;
+	float: left; clear: left; margin: 0 20px 0 0; width: 15%;
 	text-align: right; color: #445668; 
 	text-shadow: 0px 1px 0px #f2f2f2;
 }
 
 select{
-    width:83%;  
+    width:80%;  
     float: left;
     margin: 0 0 20px 0;  
     padding: 0px 0px 0px 20px; 
@@ -287,11 +286,11 @@ input {
 	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;	
 }
 input[type=text]{
-    width: 82%;
+    width: 80%;
 }
 
 textarea {
-	width: 80%;
+	width: 75%;
         padding: 5px 20px 0px 20px; 
         margin: 0 0 20px 0; 	
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;

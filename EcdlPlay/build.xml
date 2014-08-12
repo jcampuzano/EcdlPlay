@@ -10,6 +10,7 @@
 <project name="EcdlPlay" default="default" basedir=".">
     <description>Builds, tests, and runs the project EcdlPlay.</description>
     <import file="nbproject/build-impl.xml"/>
+    <property name="launch4j.dir" location="./opt/launch4j" />
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -71,4 +72,14 @@
     nbproject/build-impl.xml file. 
 
     -->
+    
+    <target name="-post-jar">
+        <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" classpath="${launch4j.dir}/launch4j.jar
+                :${launch4j.dir}/lib/xstream.jar" />
+                <copy  todir="./dist/res">
+                    <fileset dir="./res" />
+                </copy>
+        <launch4j configFile="launch4j.xml" />
+        <delete file="./dist/EcdlPlay.jar"/>
+    </target>
 </project>

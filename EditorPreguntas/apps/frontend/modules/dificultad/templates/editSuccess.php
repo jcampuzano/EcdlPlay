@@ -10,6 +10,9 @@
         <label for="<?php echo $form['valor']->renderId() ?>">Valor:</label>
         <?php echo $form['valor']->render() ?><?php echo $form['valor']->renderError() ?>
 
+        <div style="clear: both;"></div>
+        <a href="<?php echo url_for('dificultad_index') ?>">Volver</a>
+        
         <input type="submit" value="Guardar"/>
 
         <?php echo $form['_csrf_token'] ?>

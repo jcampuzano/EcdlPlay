@@ -14,7 +14,7 @@
     <body>
         <div id="wrapper">
             <header>
-                <h1><a href="<?php echo url_for("homepage") ?>">ECDL Play</a></h1>
+                <h1><a href="<?php echo url_for("homepage") ?>">ECDL Pl@y</a></h1>
                 <h2>Editor de Preguntas</h2>
             </header>
 
@@ -45,11 +45,11 @@
             </section>
 
             <footer>
-<!--                <section id="footer-area">
-                    <aside class="footer-segment">-->
+                <section id="footer-area">
+                    <aside class="footer-segment">
                         <p>&copy; 2012</p>
-<!--                    </aside>
-                </section>-->
+                    </aside>
+                </section>
             </footer>
         </div>
     </body>

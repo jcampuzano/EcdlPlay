@@ -5,14 +5,20 @@
     <div class="editar">
         <h2>Editar módulo del ECDL</h2>
 
-        <label for="<?php echo $form['nombre']->renderId() ?>">Nombre:</label>
-        <?php echo $form['nombre']->render() ?><?php echo $form['nombre']->renderError() ?>
+        <div>
+            <label for="<?php echo $form['nombre']->renderId() ?>">Nombre:</label>
+            <?php echo $form['nombre']->render() ?><?php echo $form['nombre']->renderError() ?>
+        </div>
+        <div>
+            <label for="<?php echo $form['descripcion']->renderId() ?>">Descripción:</label>
+            <?php echo $form['descripcion']->render() ?><?php echo $form['descripcion']->renderError() ?>
+        </div>
 
-        <label for="<?php echo $form['descripcion']->renderId() ?>">Descripción:</label>
-        <?php echo $form['descripcion']->render() ?><?php echo $form['descripcion']->renderError() ?>
+        <div style="clear: both;"></div>
+        <a href="<?php echo url_for('modulo_index') ?>">Volver</a>
 
         <input type="submit" value="Guardar"/>
-        
+
         <?php echo $form['_csrf_token'] ?>
     </div>    
 </form>
