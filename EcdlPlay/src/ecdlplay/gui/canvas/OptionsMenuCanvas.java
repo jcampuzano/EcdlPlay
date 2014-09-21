@@ -2,27 +2,43 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ecdlplay.gui;
+package ecdlplay.gui.canvas;
 
 import ecdlplay.domain.GameEngine;
-import ecdlplay.domain.Module;
+import ecdlplay.domain.entities.Module;
 import ecdlplay.data.GameDataLoader;
+import ecdlplay.gui.components.Button;
+import ecdlplay.gui.components.Checkbox;
+import ecdlplay.gui.components.Label;
+import ecdlplay.gui.components.TFont;
 import ecdlplay.utils.ImageLoader;
+
 import java.awt.Font;
 import java.awt.Graphics;
 
 /**
- *
+ * Clase Canvas utilizada para pintar los componentes del menú de opciones del juego
  * @author julio
  */
 public class OptionsMenuCanvas extends CanvasBase {
 
+	/**
+	 * Fuente que se utiliará para escribir los nombres de los módulos
+	 */
     private TFont fontModule;
 
+    /**
+     * Constructor que inicializa las variables
+     * @param ge
+     */
     public OptionsMenuCanvas(GameEngine ge) {
         super(ge);
     }
 
+    /**
+     * Método sobrescrito que se encarga de cargar los recursos (imágenes y fuentes) así como
+     * crear los distintos componentes que se visualizarán en pantalla
+     */
     @Override
     public void loadResources() {
         setBackground(ImageLoader.loadImageJAR("options_background.png"));
@@ -37,6 +53,9 @@ public class OptionsMenuCanvas extends CanvasBase {
         fontModule = new TFont("futura.ttf", 18, Font.BOLD, 0xFFFFFF);
     }
 
+    /**
+     * Pinta los componentes en pantalla
+     */
     @Override
     public void paint(Graphics g) {
         paintBackground(g);
@@ -45,6 +64,10 @@ public class OptionsMenuCanvas extends CanvasBase {
         paintModules(g);
     }
 
+    /**
+     * Escribe los nombres de los módulos junto a cada uno de los checkbox
+     * @param g
+     */
     private void paintModules(Graphics g) {
         resetClip(g);
 
@@ -67,6 +90,9 @@ public class OptionsMenuCanvas extends CanvasBase {
 
     }
 
+    /**
+     * Carga los botones para seleccionar el número de jugadores de la partida
+     */
     private void loadPlayers() {
         // Component Players Label
         addComponent(new Label(
@@ -102,6 +128,9 @@ public class OptionsMenuCanvas extends CanvasBase {
                 ImageLoader.loadImageJAR("menu_options_4p_2.png")));
     }
 
+    /**
+     * Carga los checkboxes para cada uno de los módulos dados de alta.
+     */
     private void loadModules() {
         int i, actualId,actualY;
 
@@ -130,6 +159,9 @@ public class OptionsMenuCanvas extends CanvasBase {
         }
     }
 
+    /**
+     * Carga los botones de navegación
+     */
     private void loadButtons() {
         // Component Back
         addComponent(new Button(

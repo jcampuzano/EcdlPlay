@@ -5,11 +5,17 @@
 package ecdlplay.domain;
 
 import ecdlplay.data.*;
-import ecdlplay.gui.CanvasBase;
-import ecdlplay.gui.Component;
+import ecdlplay.domain.entities.Answer;
+import ecdlplay.domain.entities.Board;
+import ecdlplay.domain.entities.Module;
+import ecdlplay.domain.entities.Player;
+import ecdlplay.domain.entities.Question;
 import ecdlplay.gui.FloatImage;
-import ecdlplay.gui.GameCanvasConstants;
+import ecdlplay.gui.canvas.CanvasBase;
+import ecdlplay.gui.canvas.GameCanvasConstants;
+import ecdlplay.gui.components.Component;
 import ecdlplay.utils.Utils;
+
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Graphics;
@@ -17,45 +23,123 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 /**
+ * Clase principal de la aplicación. Se encarga de toda la lógica de la aplicación como la 
+ * máquina de estados del menú y juego, lógica del juego y comunicación con las clases 
+ * canvas para el pintado de los componentes.
  *
- * @author Morpheo
+ * @author julio
  */
 public class GameEngine extends JPanel implements Runnable {
 
-    private int state;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7671356298662065694L;
+	/**
+	 * Indica el estado actual de la máquina de estados
+	 */
+	private int state;
     // GameCanvas
+	/**
+	 * Instancia actual de la clase canvas que se utilizará para pintar la pantalla
+	 */
     private CanvasBase canvas;
     // Thread
+    /**
+	 * Instancia al objeto Thread que se encarga de repintar la pantalla cada poco tiempo.
+	 */
     private Thread thread;
+    /**
+	 * Indica si el hilo de repintado tiene que parar (running = false) o no
+	 */
     private boolean running;
     //Time
+    /**
+	 * Indica la última “posición del mundo” procesada por el hilo de repintado
+	 */
     private long lastProcessTime;
-    private long pauseTime;
+    
+    /**
+	 * Variable que se suele utilizar para marcar un tiempo en que la aplicación 
+	 * tiene que hacer algo, como por ejemplo saltar el Splash después de unos segundos.
+	 */
     private long timeFinish;
+    /**
+	 * Tiempo en el que los dados tienen que dejar de estar moviéndose
+	 */
     private long timeDices;
     // Setup
+    /**
+	 * Identificador del módulo sobre el que se realizarán las preguntas del juego. Este valor se modifica en el menú de opciones
+	 */
     private int module;
+    /**
+	 * Número de jugadores que participarán en el juego. Su valor se modifica en el menú de opciones.
+	 */
     private int numPlayers;
         
+    /**
+	 * Instancia del tablero, que se inicializa cada vez que se comienza un nuevo juego
+	 */
     private Board board;
 
     
     // Players
+    /**
+	 * Array de los jugadores jugando la partida. Se utiliza para almacenar su estado durante la partida
+	 */
     private Player players[];
+    /**
+	 * Indica el turno actual, quién es el jugador jugando en cada momento
+	 */
     private int turn;
     // Game Data
+    /**
+	 * Instancia de la clase GameData de la que se obtienen los datos de la aplicación
+	 */
     private GameData gd;
     // Game Logic
+    /**
+	 * Respuesta seleccionada por el jugador
+	 */
     private int numAnswer = -1;
+    /**
+	 * Identificador de la respuesta que ha elegido el usuario
+	 */
     private int numDice = 1;
+    /**
+	 * Valor devuelto por el dado en una tirada
+	 */
     private Point playerRoute[];
+    /**
+	 * Array de puntos de pantalla para generar la ruta que tiene que seguir la animación de avanzar casillas de un jugador
+	 */
     private int playerRouteSquares[];
-    private int posPlayerRoute, maxPlayerRoute;
-    public int playerRouteOffsetX, playerRouteOffsetY;
+    /**
+	 * Indica en qué posición de PlayerRoute estamos en cada momento
+	 */
+    private int posPlayerRoute;
+    
+    /**
+     * Indica en qué posición de PlayerRoute estamos en cada momento
+     */
+    private int maxPlayerRoute;
+    /**
+	 * Posición X del punto actual de la ruta
+	 */
+    public int playerRouteOffsetX;
+    /**
+     * Posición Y del punto actual de la ruta
+     */
+    public int playerRouteOffsetY;
 
+    /**
+     * Constructor de todo el motor del juego
+     */
     public GameEngine() {
         
         // Init Default Config
@@ -72,6 +156,11 @@ public class GameEngine extends JPanel implements Runnable {
         initialize();
     }
 
+    /**
+     * Se encarga de inicializar el motor gráfico. Inicializa el DoubleBuffer, 
+     * establece los diferentes Listeners para escuchar la interacción por parte del usuario y 
+     * crea el hilo de repintado.
+     */
     private void initialize() {
         // Create GameCanvas
         canvas = CanvasBase.getCanvas(this);
@@ -105,14 +194,25 @@ public class GameEngine extends JPanel implements Runnable {
         thread.start();
     }
 
+    /**
+     * Devuelve el turno del jugador que está jugando en un momento determinado
+     * @return
+     */
     public int getTurn() {
         return turn;
     }
 
+    /**
+     * Devuelve el estado actual de la máquina de estados
+     * @return
+     */
     public int getState() {
         return state;
     }
 
+    /**
+     * Inicializa el tablero, asignando las preguntas a cada una de las casillas
+     */
     private void prepareBoard() {
         int difficult, maxQuestionsPerSquare;
         ArrayList<ArrayList<Question>> questions;
@@ -164,6 +264,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Inicializa el array de jugadores así como el array de rutas y de casillas 
+     */
     private void preparePlayers() {
         // Create Array
         players = new Player[numPlayers];
@@ -181,7 +284,11 @@ public class GameEngine extends JPanel implements Runnable {
         playerRouteSquares = new int[80];
     }
 
-    private void movePlayerToStright(int numSquare) {
+    /**
+     * Avanza la pieza del jugador hasta la casilla indicada por el parámetro
+     * @param numSquare
+     */
+    private void movePlayerToStraight(int numSquare) {
         int x, y;
 
         // Prepare Route to move the player
@@ -202,6 +309,10 @@ public class GameEngine extends JPanel implements Runnable {
         state = GameEngineConstants.STATE_GAME_MOVING;
     }
 
+    /**
+     * Comprueba la casilla en la que ha caido el jugador actual, para comprobar si es 
+     * una casilla de frenada, de escalera, de fin o una casilla normal
+     */
     private void checkSquare() {
         int numSquare = players[turn].getNumSquare() + 1;
 
@@ -233,16 +344,16 @@ public class GameEngine extends JPanel implements Runnable {
                     break;
                 // Escalera
                 case 16:
-                    movePlayerToStright(50 - 1);
+                    movePlayerToStraight(50 - 1);
                     break;
                 case 50:
-                    movePlayerToStright(16 - 1);
+                    movePlayerToStraight(16 - 1);
                     break;
                 case 31:
-                    movePlayerToStright(61 - 1);
+                    movePlayerToStraight(61 - 1);
                     break;
                 case 61:
-                    movePlayerToStright(31 - 1);
+                    movePlayerToStraight(31 - 1);
                     break;
                 case 70:
                     gameWin();
@@ -254,6 +365,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Comprueba si la respuesta indicada por el jugador es correcta
+     */
     private void checkAnswer() {
         // Get Actual Question
         Question actual = board.getSquare(players[turn].getNumSquare()).getQuestion();
@@ -275,6 +389,9 @@ public class GameEngine extends JPanel implements Runnable {
         timeFinish = lastProcessTime + GameEngineConstants.TIME_ANSWER_RESULT;
     }
 
+    /**
+     * Cambia el turno al siguiente jugador, mostrando la pregunta y las respuestas
+     */
     private void nextTurn() {
         // Change Turn
         turn = (turn + 1) % numPlayers;
@@ -296,6 +413,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Cambia el estado indicando que un jugador ha llegado a la casilla final
+     */
     private void gameWin() {
         // Remove Components
         canvas.removeAllComponents();    
@@ -306,6 +426,9 @@ public class GameEngine extends JPanel implements Runnable {
         state = GameEngineConstants.STATE_GAME_WIN;
     }
 
+    /**
+     * Mueve la pieza del jugador a la siguiente casilla en la ruta
+     */
     private void movePlayerNextRoute() {
         int nextX, nextY;
         int numSquare;
@@ -327,6 +450,9 @@ public class GameEngine extends JPanel implements Runnable {
         posPlayerRoute++;
     }
 
+    /**
+     * Para el lanzamiento de dados y cambia al estado correspondiente 
+     */
     private void stopDices() {
         //TEST
         //if (test == 0)
@@ -350,6 +476,9 @@ public class GameEngine extends JPanel implements Runnable {
         state = GameEngineConstants.STATE_GAME_MOVING;
     }
 
+    /**
+     * Comienza la animación de lanzar dados
+     */
     private void startDices() {
         // Reset TimeDices
         timeDices = 0;
@@ -359,6 +488,10 @@ public class GameEngine extends JPanel implements Runnable {
         state = GameEngineConstants.STATE_GAME_DICES;
     }
 
+    /**
+     * Inicializa la ruta que seguirá la ficha del jugador según el número de casillas
+     * que tenga que avanzar
+     */
     private void preparePlayerRoute() {
         int numSquare;
         int x, y;
@@ -379,6 +512,11 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Cuando se contesta a la pregunta correctamente el jugador actual tirará los dados, 
+     * por el contrario si la pregunta se ha contestado incorrectamente el jugador 
+     * cambiará de turno sin avanzar casillas
+     */
     private void quitAnswerResult() {
         switch (state) {
             case GameEngineConstants.STATE_GAME_ANSWER_OK:
@@ -392,6 +530,11 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Una vez que se selecciona el Menú Start se llamará a esta función que se
+     * encarga de borrar todos los componentes actuales (botones), de cargar las preguntas, de
+     * preparar el tablero, los jugadores y, finalmente, de inicializar el juego
+     */
     private void toGame() {
         // Remove Components
         canvas.removeAllComponents();
@@ -415,6 +558,11 @@ public class GameEngine extends JPanel implements Runnable {
 
     }
 
+    /**
+     * Cuando se selecciona el menú opciones se ejecuta este método que
+     * se encarga de borrar todos los antiguos componentes del menú anterior y preparar todos
+     * los gráficos del menú de opciones.
+     */
     private void toOptionsMenu() {
         // Remove Components
         canvas.removeAllComponents();
@@ -435,6 +583,10 @@ public class GameEngine extends JPanel implements Runnable {
 
     }
 
+    /**
+     * Se encarga de mostrar el menú principal cargando todos los recursos
+     * gráficos que sean necesarios
+     */
     private void toMainMenu() {        
         
         // Remove Components
@@ -452,6 +604,9 @@ public class GameEngine extends JPanel implements Runnable {
 
     }
 
+    /**
+     * Abre el PDF asociado a la ayuda del juego
+     */
     private void openHelp() {
         try {
             // Create File
@@ -464,6 +619,10 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Actualiza los botones de las tres posibles respuestas marcando el 
+     * correspondiente elegido si procede
+     */
     private void updateAnswersButtons() {
         // Release All Buttons
         canvas.getComponent(GameCanvasConstants.BUTTON_ANSWER1).release();
@@ -476,6 +635,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Actualiza los gráficos de los botones de los jugadores
+     */
     private void updatePlayersButtons() {
         // Release All Buttons
         canvas.getComponent(GameCanvasConstants.BUTTON_1PLAYER).release();
@@ -487,6 +649,9 @@ public class GameEngine extends JPanel implements Runnable {
         canvas.getComponent(GameCanvasConstants.BUTTON_1PLAYER + numPlayers - 1).press();
     }
 
+    /**
+     * Actualiza los gráficos de los botones de los módulos
+     */
     private void updateMenuButtons() {
         
         // Release All Buttons
@@ -499,6 +664,10 @@ public class GameEngine extends JPanel implements Runnable {
         canvas.getComponent(firstButton + module - 1).press();
     }
 
+    /**
+     * Se lanza cada vez que el usuario mueve el ratón por la ventana.
+     * @param evt
+     */
     private void panelMouseMoved(MouseEvent evt) {
         // Get Component
         Component c = canvas.getComponent(evt.getX(), evt.getY());
@@ -515,10 +684,18 @@ public class GameEngine extends JPanel implements Runnable {
         setCursor(cursor);
     }
 
+    /**
+     * Se lanza cada vez que el usuario presiona un botón del ratón.
+     * @param evt
+     */
     private void panelMousePressed(MouseEvent evt) {
         canvas.mousePressed(evt.getX(), evt.getY());
     }
 
+    /**
+     * Se lanza cada vez que el usuario libera un botón del ratón.
+     * @param evt
+     */
     private void panelMouseReleased(MouseEvent evt) {
         // Mouse Released
         canvas.mouseReleased();
@@ -537,6 +714,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Cuando un jugador cae en una casilla de freno el turno pasará al siguiente jugador.
+     */
     private void processPlayerBrake() {
         if (lastProcessTime >= timeFinish) {
             // Change Turn
@@ -544,6 +724,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Se encarga del movimiento del jugador por las casillas del tablero
+     */
     private void processMovingPlayer() {
         // Reach next square?
         if (playerRouteOffsetX == 0 && playerRouteOffsetY == 0) {
@@ -566,6 +749,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Hace de temporizador para mostrar el mensaje de Respuesta Correcta/Incorrecta durante unos segundos
+     */
     private void processAnswerResult() {
         // Check timing
         if (lastProcessTime >= timeFinish) {
@@ -573,6 +759,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Se encarga del lanzamiento del los dados
+     */
     private void processDices() {
         // Restrict fps
         if (lastProcessTime >= timeDices) {
@@ -588,12 +777,19 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Hace de temporizador para mostrar el splash de bienvenida durante unos segundos.
+     */
     private void processSplash() {
         if (lastProcessTime >= timeFinish) {
             toMainMenu();
         }
     }
 
+    /**
+     * Hace de temporizador para mostrar la pantalla de información de la aplicación 
+     * durante unos segundos
+     */
     private void processPreSplash() {
         if (lastProcessTime >= timeFinish) {
             timeFinish = System.currentTimeMillis() + GameEngineConstants.TIME_SPLASH;
@@ -604,6 +800,10 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Procesa el click del ratón teniendo en cuenta en el estado en que se encuentra 
+     * la máquina de estados.
+     */
     private void processClick() {
         switch (state) {
             case GameEngineConstants.STATE_GAME_ANSWER_OK:
@@ -619,6 +819,10 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Procesa el click de ratón en algún componente gráfico de pantalla como un botón un Checkbox.
+     * @param id
+     */
     private void processComponentClick(int id) {
         switch (id) {
             case GameCanvasConstants.BUTTON_HELP:
@@ -664,6 +868,10 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Proceso principal que se encarga de llamar a los sub procesos de gestión dependiendo 
+     * del estado actual de la máquina de estados.
+     */
     private void process() {
         switch (state) {
             case GameEngineConstants.STATE_PRE_SPLASH:
@@ -689,11 +897,18 @@ public class GameEngine extends JPanel implements Runnable {
         
     }
 
+    /**
+     * Se llamada cada vez que hay que Java necesita repintar. Llama a RenderGame en el doble buffer y vuelca el buffer a pantalla.
+     */
     @Override
     public void paintComponent(Graphics g) {
         canvas.paint(g);
     }
 
+    /**
+     * duerme el hilo principal tantos milisegundos como indicados por parámetro.
+     * @param ms
+     */
     private void sleep(int ms) {
         try {
             Thread.sleep(ms);
@@ -701,6 +916,9 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Método de la interface Runnable. Es el contenido del código del hilo de repintado.
+     */
     @Override
     public void run() {
         long time;
@@ -709,7 +927,7 @@ public class GameEngine extends JPanel implements Runnable {
 
         while (running) {
             //Actual Time
-            lastProcessTime = System.currentTimeMillis() - pauseTime;
+            lastProcessTime = System.currentTimeMillis();
 
             //Process the World
             process();
@@ -717,7 +935,7 @@ public class GameEngine extends JPanel implements Runnable {
             repaint();
 
             //Sleep the world
-            time = (System.currentTimeMillis() - pauseTime);
+            time = System.currentTimeMillis();
             if ((time - lastProcessTime) < GameEngineConstants.MAX_PROCESS) { //45 ms per frame (15-20 fps)
                 sleep(GameEngineConstants.MAX_PROCESS - (int) (time - lastProcessTime));
             } else {
@@ -726,22 +944,42 @@ public class GameEngine extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Obtiene los jugadores actuales
+     * @return
+     */
     public Player[] getPlayers() {
         return players;
     }
 
+    /**
+     * Obtiene el valor devuelto por el dado
+     * @return
+     */
     public int getNumDice() {
         return numDice;
     }
 
+    /**
+     * Obtiene la pregunta de la casilla actual
+     * @return
+     */
     public Question getQuestion() {
         return board.getSquare(players[turn].getNumSquare()).getQuestion();
     }
 
+    /**
+     * Obtiene las respuestas de la pregunta de la casilla actual
+     * @return
+     */
     public ArrayList<Answer> getAnswers() {
-        return board.getSquare(players[turn].getNumSquare()).getQuestion().getRespuestas();
+        return getQuestion().getRespuestas();
     }
 
+    /**
+     * Obtiene la información del módulo sobre la que se van a hacer las preguntas
+     * @return
+     */
     public Module getModule() {
         for(Module moduleAux : GameDataLoader.getLoader().getGameData().getModules()){
             if (moduleAux.getId() == this.module){

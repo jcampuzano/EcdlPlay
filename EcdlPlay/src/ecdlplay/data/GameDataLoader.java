@@ -4,11 +4,17 @@
  */
 package ecdlplay.data;
 
-import ecdlplay.domain.*;
-import ecdlplay.gui.GameCanvasConstants;
+import ecdlplay.domain.entities.Answer;
+import ecdlplay.domain.entities.Image;
+import ecdlplay.domain.entities.Module;
+import ecdlplay.domain.entities.Question;
+import ecdlplay.gui.canvas.GameCanvasConstants;
+
 import java.io.File;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,7 +22,9 @@ import org.w3c.dom.NodeList;
 
 
 /**
- * La estructura del XML serÃ¡ la siguiente:
+ * Clase encargada de leer el fichero de datos e ir almacenando la información en memoria
+ * 
+ * La estructura del XML será la siguiente:
  * <ecdlPlay> *  
  *  <dificultades>
  *      <dificultad>
@@ -48,9 +56,19 @@ import org.w3c.dom.NodeList;
  */
 public class GameDataLoader {
 
+	/**
+	 * Instancia singleton de la clase
+	 */
     private static GameDataLoader dl = null;
+    /**
+     * Instancia de la clase GameData donde se almacenará la información
+     */
     private GameData gd;
 
+    /**
+     * Devuelve la instancia de la clase GameData. Si no está inicializada, carga los datos
+     * @return
+     */
     public GameData getGameData() {
         if (gd == null) {
             loadGameData();
@@ -58,6 +76,9 @@ public class GameDataLoader {
         return gd;
     }
     
+    /**
+     * Método que se encarga de leer el fichero XML e ir cargando la información 
+     */
     private void loadGameData() {
         // Create New Game Data
         gd = new GameData();
@@ -68,6 +89,12 @@ public class GameDataLoader {
         loadModules(gd, doc);
     }
 
+    /**
+     * Método auxiliar que sirve para obtener el valor de un nodo del fichero XML dado el elemento padre y el nombre
+     * @param sTag Nombre del nodo que estamos buscando
+     * @param eElement Nodo padre
+     * @return
+     */
     private String getTagValue(String sTag, Element eElement) {
         NodeList elementsByTagName = eElement.getElementsByTagName(sTag);
         if (elementsByTagName != null && elementsByTagName.getLength() > 0){
@@ -79,6 +106,11 @@ public class GameDataLoader {
         return "";
     }
 
+    /**
+     * Lee el fichero XML y genera una instancia de la clase Document para su lectura
+     * @param filename Ruta del fichero
+     * @return
+     */
     private Document loadXML(String filename) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -92,6 +124,10 @@ public class GameDataLoader {
         return null;
     }
 
+    /**
+     * Devuelve la instancia singleton
+     * @return
+     */
     public static GameDataLoader getLoader() {
         if (dl == null) {
             dl = new GameDataLoader();
@@ -100,6 +136,11 @@ public class GameDataLoader {
         return dl;
     }
 
+    /**
+     * Lee los nodos modulo y va añadiendolos a la instancia GameData
+     * @param gd Instancia GameData
+     * @param doc Documento XML
+     */
     private void loadModules(GameData gd, Document doc) {
         // Get Node List Questions
         NodeList nList = doc.getElementsByTagName("modulo");
@@ -127,6 +168,12 @@ public class GameDataLoader {
         }
     }
     
+    /**
+     * Lee los nodos pregunta y los va añadiendo al módulo
+     * @param gd Instancia de la clase GameData
+     * @param elem Elemento del documento XML
+     * @param m Instancia del módulo al que pertenecerá la pregunta
+     */
     private void loadQuestions(GameData gd, Element elem, Module m){
         NodeList nList = elem.getElementsByTagName("pregunta");
         
@@ -156,6 +203,12 @@ public class GameDataLoader {
         }
     }
 
+    /**
+     * Lee los nodos de tipo respuesta y los añade a la pregunta correspondiente
+     * @param gd Instancia de la clase GameData
+     * @param elem Elemento del documento XML
+     * @param q Pregunta a la que pertenecerá la respuesta
+     */
     private void loadAnswers(GameData gd, Element elem, Question q) {
         NodeList nList = elem.getElementsByTagName("respuesta");
         

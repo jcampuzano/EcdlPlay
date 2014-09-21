@@ -10,15 +10,32 @@ import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 
 /**
- *
+ * La ventana de la aplicación. Al ejecutarse en un ordenador necesitamos crear una 
+ * ventana que contendrá todo el juego, EcdlPlayWindow se encarga de crearla.
  * @author julio
  */
 public class EcdlPlayWindow extends javax.swing.JFrame {
-
-    public static final int WINDOW_WIDTH = 952;
+	
+	private static final long serialVersionUID = -8755181755584953138L;
+	
+	/**
+	 * Ancho de la ventana
+	 */
+	public static final int WINDOW_WIDTH = 952;
+	/**
+	 * Alto de la ventana
+	 */
     public static final int WINDOW_HEIGHT = 700;
+    /**
+     * Instancia singleton de EcdlPlayWindow
+     */
     private static EcdlPlayWindow instance;
 
+    /**
+     * Devuelve el singleton de EcdlPlayWindow, de esta manera nunca tendremos más 
+     * de una instancia en todo el ciclo de ejecución del programa.
+     * @return
+     */
     public static EcdlPlayWindow getInstance() {
         if (instance == null) {
             instance = new EcdlPlayWindow();
@@ -26,6 +43,11 @@ public class EcdlPlayWindow extends javax.swing.JFrame {
         return instance;
     }
 
+    /**
+     * Constructor de la clase, Inicializa el tamaño de la ventana, el icono, añade el GameEngine 
+     * como un componente más y finalmente muestra la ventana por pantalla.
+     * @throws HeadlessException
+     */
     public EcdlPlayWindow() throws HeadlessException {
 
 
@@ -46,6 +68,9 @@ public class EcdlPlayWindow extends javax.swing.JFrame {
         setVisible(true);
     }
 
+    /**
+     * Encargado de cambiar el título de la ventana
+     */
     private void initComponents() {
         instance = this;
 

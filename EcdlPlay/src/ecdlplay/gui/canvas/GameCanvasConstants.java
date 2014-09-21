@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ecdlplay.gui;
+package ecdlplay.gui.canvas;
 
 /**
- *
+ * Clase que conteine contas las constantes que se utilizan en la clase GameCanvas
  * @author julio
  */
 public class GameCanvasConstants {

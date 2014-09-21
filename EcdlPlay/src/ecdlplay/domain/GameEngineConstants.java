@@ -5,12 +5,12 @@
 package ecdlplay.domain;
 
 /**
- *
+ * Clase que contiene todas las constantes utilizadas por GameEngine
  * @author julio
  */
 public class GameEngineConstants {
-    private static final long serialVersionUID = 1217426776713013200L;
-    // Thread Gap
+
+	// Thread Gap
     public static final int MAX_PROCESS = 20;
     
     // States

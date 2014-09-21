@@ -2,15 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ecdlplay.gui;
+package ecdlplay.gui.canvas;
 
 import ecdlplay.data.Texts;
-import ecdlplay.domain.Answer;
 import ecdlplay.domain.GameEngine;
 import ecdlplay.domain.GameEngineConstants;
-import ecdlplay.domain.Player;
-import ecdlplay.domain.Question;
+import ecdlplay.domain.entities.Answer;
+import ecdlplay.domain.entities.Player;
+import ecdlplay.domain.entities.Question;
+import ecdlplay.gui.FloatImage;
+import ecdlplay.gui.components.Button;
+import ecdlplay.gui.components.Checkbox;
+import ecdlplay.gui.components.TFont;
 import ecdlplay.utils.ImageLoader;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -19,22 +24,51 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase Canvas utilizada para pintar los componentes durante la partida
  * @author julio
  */
 public class GameCanvas extends CanvasBase{
+	/**
+	 * Fuente utilizada para escribir el texto de la pregunta
+	 */
     private TFont fntQuestion;
+    /**
+     * Fuente utilizada para escribir el texto de las respuestas
+     */
     private TFont fntAnswerNormal;
+    /**
+     * Fuente utilizada para escribir el valor del dado
+     */
     private TFont fntDice;
+    /**
+     * Lista con cada una de las imágenes del dado para simular el movimiento
+     */
     private Image[] dice;
+    /**
+     * Lista de imágenes que representan las fichas de cada jugador
+     */
     private Image[] players;
+    /**
+     * Imagen que representa el brillo de la ficha del jugado que está jugando dentro del tablero
+     */
     private Image playerBright;
+    /**
+     * Imagen que representa el brillo de la ficha del jugado que está jugando en la leyenda superior
+     */
     private Image playerTurnBright;
 
+    /**
+     * Constructor que inicializa las variables
+     * @param ge
+     */
     public GameCanvas(GameEngine ge){
         super(ge);
     }
     
+    /**
+     * Método sobrescrito de la clase base que se encarga de cargar los recursos (imagenes y fuentes)
+     * que se usarán para pintar el tablero de juego
+     */
     @Override
     public void loadResources() {
         setBackground(ImageLoader.loadImageJAR("game_background.png"));
@@ -45,12 +79,18 @@ public class GameCanvas extends CanvasBase{
         loadAnswerComponents();
     }
 
+    /**
+     * Carga las fuentes a utilizar
+     */
     private void loadFonts() {
         fntQuestion = new TFont("futura.ttf", 18, Font.BOLD, 0xFFFFFF);
         fntAnswerNormal = new TFont("futura.ttf", 14, Font.PLAIN, 0xEED4F5);
         fntDice = new TFont("futura.ttf", 30, Font.BOLD, 0xFFFFFF);
     }
 
+    /**
+     * Carga las imagenes del dado
+     */
     private void loadDice() {
         dice = new Image[6];
         // Load Images
@@ -59,6 +99,9 @@ public class GameCanvas extends CanvasBase{
         }
     }
     
+    /**
+     * Carga las imagenes de las fichas de los jugadores y los brillos
+     */
     private void loadPlayers() {
         // Create Players array
         players = new Image[4];
@@ -71,6 +114,9 @@ public class GameCanvas extends CanvasBase{
         playerTurnBright = ImageLoader.loadImageJAR("game_player_turn_bright.png");
     }
     
+    /**
+     * Crea los botones de navegación
+     */
     private void loadGameButtons() {
         // Component Back
         addComponent(new Button(
@@ -90,6 +136,9 @@ public class GameCanvas extends CanvasBase{
         
     }
     
+    /**
+     * Crea cada uno de los checkbox para las posibles respuestas de la pregunta
+     */
     private void loadAnswerComponents() {
         // Component Answers
         addComponent(new Checkbox(
@@ -112,6 +161,9 @@ public class GameCanvas extends CanvasBase{
                 ImageLoader.loadImageJAR("game_answerbox_2.png")));
     }
     
+    /**
+     * Pinta el tablero de acuerdo al estado actual del juego
+     */
     @Override
     public void paint(Graphics g) {
         
@@ -144,6 +196,10 @@ public class GameCanvas extends CanvasBase{
         }
     }
     
+    /**
+     * Pinta las partes comunes del tablero
+     * @param g
+     */
     private void paintGame(Graphics g) {
         Player playersArray[] = gameEngine.getPlayers();
         paintBackground(g);
@@ -151,6 +207,10 @@ public class GameCanvas extends CanvasBase{
         paintPlayersTurn(g, playersArray.length);
     }
 
+    /**
+     * Pinta la imagen del dado que corresponde con el valor actual del mismo
+     * @param g
+     */
     private void paintDice(Graphics g) {
         
         int numDice = gameEngine.getNumDice();
@@ -170,6 +230,10 @@ public class GameCanvas extends CanvasBase{
                 TFont.BASELINE | TFont.HCENTER);
     }
 
+    /**
+     * Pinta cada una de las posibles respuestas de la pregunta actual 
+     * @param g
+     */
     private void paintAnswers(Graphics g) {
         ArrayList<Answer> anwsers = gameEngine.getAnswers();
         // Paint Checkboxes
@@ -198,6 +262,15 @@ public class GameCanvas extends CanvasBase{
                 anwsers.get(2));
     }
 
+    /**
+     * Escibe el texto de una pregunta en una posición dada
+     * @param g
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param answer
+     */
     private void paintAnswer(Graphics g, int x, int y, int width, int height, Answer answer) {
         // Remove any clip
         resetClip(g);
@@ -207,6 +280,12 @@ public class GameCanvas extends CanvasBase{
         fntAnswerNormal.drawString(g, answer.getTexto(), x, y, width, height, TFont.JUSTIFY | TFont.TOP);
     }
 
+    /**
+     * Pinta las piezas de los jugadores en la parte superior de la pantalla, marcando el jugador
+     * cuyo turno es el actual
+     * @param g
+     * @param numPlayers
+     */
     private void paintPlayersTurn(Graphics g, int numPlayers) {
         int x = GameCanvasConstants.PLAYERS_TURN_X;
         int y = GameCanvasConstants.PLAYERS_TURN_Y;
@@ -229,6 +308,11 @@ public class GameCanvas extends CanvasBase{
         }
     }
 
+    /**
+     * Pinta las piezas de los jugadores en las correspondientes casillas del tablero
+     * @param g
+     * @param players
+     */
     private void paintPlayers(Graphics g, Player players[]) {
         for (Player p : players) {
             if (p.getNumPlayer() == gameEngine.getTurn()) {
@@ -242,6 +326,13 @@ public class GameCanvas extends CanvasBase{
         paintPlayer(g, players[gameEngine.getTurn()], gameEngine.playerRouteOffsetX, gameEngine.playerRouteOffsetY);
     }
 
+    /**
+     * Pinta la ficha de un jugador en el tablero. Utilizada para refrescar el movimiento de la pieza.
+     * @param g
+     * @param player
+     * @param offsetX
+     * @param offsetY
+     */
     private void paintPlayer(Graphics g, Player player, int offsetX, int offsetY) {
         // Get Square
         int numSquare = player.getNumSquare();
@@ -267,6 +358,12 @@ public class GameCanvas extends CanvasBase{
                 null);
     }
     
+    /**
+     * Escribe el texto de la pregunta en el tablero. Además, si la pregunta tiene una 
+     * imagen asociada, incluye el botón para su visualización.
+     * @param g
+     * @param question
+     */
     private void paintQuestion(Graphics g, Question question){
         paintMessage(g, question.getTexto());
         
@@ -285,7 +382,7 @@ public class GameCanvas extends CanvasBase{
             FloatImage win = FloatImage.getInstance();
             win.setSize(image.getWidth(null), image.getHeight(null));
             
-            win.setImage(image);            
+            win.setImage(image);             
         }
         else{
             removeComponent(GameCanvasConstants.GAME_BUTTON_SHOW_IMAGE_X,
@@ -294,6 +391,11 @@ public class GameCanvas extends CanvasBase{
             
     }
     
+    /**
+     * Escribe el texto de la pregunta en pantalla
+     * @param g
+     * @param text
+     */
     private void paintMessage(Graphics g, String text){
         
         // Remove any clip

@@ -5,7 +5,7 @@
 package ecdlplay.domain;
 
 /**
- *
+ * Enumerador de los estados del juego
  * @author julio
  */
 public enum States {
